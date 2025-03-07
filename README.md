@@ -1,6 +1,8 @@
 # Zoey考试辅助计划
 <span style="color:blue">基于 FastAPI 和 React 的在线考试系统</span>
 
+<img src="Cho.JPG" width="500">
+
 ## ✨ 功能
 - ✅  题库管理（存储 JSON 格式题目）
 - ✅  随机抽题 & 记录错题本
