@@ -1,0 +1,112 @@
+[
+  {
+    "question_number": 1,
+    "question_content": "贵公司的每位员工都有一个 Google 帐户。您的运营团队需要管理 Compute Engine 上的大量实例，该团队的每个成员只需要对服务器具有管理访问权限。您的安全团队希望确保凭据的部署在运营上是高效的，并且必须能够确定谁访问了给定的实例。您应该怎么做？",
+    "options": {
+      "A": "生成新的 SSH 密钥对。将私钥提供给团队的每个成员。在每个实例的元素中配置公钥。",
+      "B": "要求团队中的每个成员生成一个新的 SSH 密钥对并向您发送他们的公钥。使用配置管理工具在每个实例上部署这些密钥。",
+      "C": "要求团队的每个成员生成新的 SSH 密钥对，并将公钥添加到他们的 Google 帐户。将 compute.osAdminLogin 角色授予此团队对应的 Google 群组。",
+      "D": "生成新的 SSH 密钥对。将私钥提供给团队的每个成员。将公钥配置为 Cloud Platform 项目中的项目范围公钥 SSH 密钥，并在每个实例上允许项目范围的公钥 SSH 密钥。"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question_number": 2,
+    "question_content": "您需要创建一个具有单个子网的自定义 VPC。子网的范围必须尽可能大。您应该使用哪个范围？",
+    "options": {
+      "A": "0.0.0.0/0",
+      "B": "10.0.0.0/8",
+      "C": "172.16.0.0/12",
+      "D": "192.168.0.0/16"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question_number": 3,
+    "question_content": "您想要选择并配置 Google Cloud Platform 上关系数据的经济高效解决方案。您正在处理一个地理位置的一小组运营数据。您需要支持时间点恢复。您应该怎么做？",
+    "options": {
+      "A": "选择 Cloud SQL (MySQL)，验证是否已选择启用二进制日志记录选项。",
+      "B": "选择 Cloud SQL (MySQL)，选择创建故障转移副本选项。",
+      "C": "选择 Cloud Spanner。使用 2 个节点设置您的实例。",
+      "D": "选择 Cloud Spanner。将您的实例设置为多区域。"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question_number": 4,
+    "question_content": "您想要使用尽可能少的步骤为在多个区域中运行的一组 Compute Engine 实例配置自动修复功能以实现网络负载平衡。如果虚拟机在 3 次尝试（每次 10 秒）后仍无响应，您需要配置新的键盘虚拟机。您应该怎么做？",
+    "options": {
+      "A": "创建一个 HTTP 负载均衡器，其后端配置引用现有实例组。将健康检查设置为健康（HTTP）。",
+      "B": "创建一个 HTTP 负载均衡器，其后端配置引用现有实例组。定义平衡模式并将其最大 RPS 设置为 10。",
+      "C": "创建托管实例组。将自动修复健康检查设置为健康（HTTP）。",
+      "D": "创建托管实例组。验证自动扩缩设置是否已开启。"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question_number": 5,
+    "question_content": "您正在使用 gcloud 的多个配置。您想使用尽可能少的步骤查看非活动配置的已配置 Kubernetes Engine 集群。您应该怎么做？",
+    "options": {
+      "A": "使用 gcloud config configuration describe查看输出。",
+      "B": "使用 gcloud config configuration activate和 gcloud config list查看输出。",
+      "C": "使用 kubectl config get-context检查输出。",
+      "D": "使用 kubectl config use-context和 kubectl config view检查输出。"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question_number": 6,
+    "question_content": "您的公司使用 Cloud Storage 存储应用程序备份文件，以用于灾难恢复。您想遵循 Google 推荐的做法。您应该使用哪种存储选项？",
+    "options": {
+      "A": "多区域存储",
+      "B": "区域存储",
+      "C": "近线存储",
+      "D": "冷链存储"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question_number": 7,
+    "question_content": "贵公司的几名员工一直在使用 Cloud Platform 创建项目，并使用个人信用卡付款，公司会报销这些费用。公司希望将所有这些项目集中在一个新的计费帐户下，您应该怎么做？",
+    "options": {
+      "A": "联系cloud-billing@google.com并提供您的银行账户详细信息，并为您的公司申请一个公司帐单帐户。",
+      "B": "向 Google 支持部门创建一张工单，然后等待他们通过电话分享您的信用卡详细信息。",
+      "C": "在 Google 平台控制台中，转到资源管理并将所有项目移动到根组织。",
+      "D": "在 Google Cloud Platform Console 中，创建一个新的结算帐户并设置付款方式。"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question_number": 8,
+    "question_content": "您有一个应用程序在 IP 10.0.3.21 上查找其许可服务器。您需要在 Compute Engine 上部署许可服务器。您不想更改应用程序的配置，并且希望应用程序能够访问许可服务器。您应该怎么做？",
+    "options": {
+      "A": "使用 gcloud 将 IP 10.0.3.21 保留为静态内部 IP 地址并将其分配给许可服务器。",
+      "B": "使用 gcloud 将 IP 10.0.3.21 保留为静态公共 IP 地址并将其分配给许可服务器。",
+      "C": "使用 IP 10.0.3.21 作为自定义临时 IP 地址并将其分配给许可服务器。",
+      "D": "使用自动临时 IP 地址启动许可服务器，然后将其提升为静态内部 IP 地址。"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question_number": 9,
+    "question_content": "您正在将应用程序部署到 App Engine。您希望实例数量根据请求率进行扩展。您需要始终至少有 3 个空闲实例。您应该使用哪种扩展类型？",
+    "options": {
+      "A": "使用 3 个实例进行手动扩展。",
+      "B": "基本缩放，将 min_instances 设置为 3。",
+      "C": "基本缩放，max_instances 设置为 3。",
+      "D": "将 min_idle_instances 设置为 3 进行自动扩展。"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question_number": 10,
+    "question_content": "您有一个开发项目，其中定义了适当的 IAM 角色。您正在创建一个生产项目，并希望使用尽可能少的步骤在新项目上拥有相同的 IAM 角色。您应该怎么做？",
+    "options": {
+      "A": "使用 gcloud iam role copy 并指定生产项目作为目标项目。",
+      "B": "使用 gcloud iam role copy 并将您的组织指定为目标组织。",
+      "C": "在 Google Cloud Platform Console 中，使用“从角色创建角色”功能。",
+      "D": "在 Google Cloud Platform Console 中，使用“创建角色”功能并选择所有适用的权限。"
+    },
+    "correct_answer": "A"
+  }
+]
