@@ -1,0 +1,3118 @@
+[
+    {
+        "题号": 1,
+        "题目内容": "贵公司的每位员工都有一个 Google 帐户。您的运营团队需要管理 Compute Engine 上的大量实例，该团队的每个成员只需要对服务器具有管理访问权限。您的安全团队希望确保凭据的部署在运营上是高效的，并且必须能够确定谁访问了给定的实例。您应该怎么做？",
+        "选项": {
+            "A": "生成新的 SSH 密钥对。将私钥提供给团队的每个成员。在每个实例的元素中配置公钥。",
+            "B": "要求团队中的每个成员生成一个新的 SSH 密钥对并向您发送他们的公钥。使用配置管理工具在每个实例上部署这些密钥。",
+            "C": "要求团队的每个成员生成新的 SSH 密钥对，并将公钥添加到他们的 Google 帐户。将 compute.osAdminLogin 角色授予此团队对应的 Google 群组。",
+            "D": "生成新的 SSH 密钥对。将私钥提供给团队的每个成员。将公钥配置为 Cloud Platform 项目中的项目范围公钥 SSH 密钥，并在每个实例上允许项目范围的公钥 SSH 密钥。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 2,
+        "题目内容": "您需要创建一个具有单个子网的自定义 VPC。子网的范围必须尽可能大。您应该使用哪个范围？",
+        "选项": {
+            "A": "0.0.0.0/0",
+            "B": "10.0.0.0/8",
+            "C": "172.16.0.0/12",
+            "D": "192.168.0.0/16"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 3,
+        "题目内容": "您想要选择并配置 Google Cloud Platform 上关系数据的经济高效解决方案。您正在处理一个地理位置的一小组运营数据。您需要支持时间点恢复。您应该怎么做？",
+        "选项": {
+            "A": "选择 Cloud SQL (MySQL)，验证是否已选择启用二进制日志记录选项。",
+            "B": "选择 Cloud SQL (MySQL)，选择创建故障转移副本选项。",
+            "C": "选择 Cloud Spanner。使用 2 个节点设置您的实例。",
+            "D": "选择 Cloud Spanner。将您的实例设置为多区域。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 4,
+        "题目内容": "您想要使用尽可能少的步骤为在多个区域中运行的一组 Compute Engine 实例配置自动修复功能以实现网络负载平衡。如果虚拟机在 3 次尝试（每次 10 秒）后仍无响应，您需要配置新的键盘虚拟机。您应该怎么做？",
+        "选项": {
+            "A": "创建一个 HTTP 负载均衡器，其后端配置引用现有实例组。将健康检查设置为健康（HTTP）。",
+            "B": "创建一个 HTTP 负载均衡器，其后端配置引用现有实例组。定义平衡模式并将其最大 RPS 设置为 10。",
+            "C": "创建托管实例组。将自动修复健康检查设置为健康（HTTP）。",
+            "D": "创建托管实例组。验证自动扩缩设置是否已开启。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 5,
+        "题目内容": "您正在使用 gcloud 的多个配置。您想使用尽可能少的步骤查看非活动配置的已配置 Kubernetes Engine 集群。您应该怎么做？",
+        "选项": {
+            "A": "使用 gcloud config configuration describe查看输出。",
+            "B": "使用 gcloud config configuration activate和 gcloud config list查看输出。",
+            "C": "使用 kubectl config get-context检查输出。",
+            "D": "使用 kubectl config use-context和 kubectl config view检查输出。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 6,
+        "题目内容": "您的公司使用 Cloud Storage 存储应用程序备份文件，以用于灾难恢复。您想遵循 Google 推荐的做法。您应该使用哪种存储选项？",
+        "选项": {
+            "A": "多区域存储",
+            "B": "区域存储",
+            "C": "近线存储",
+            "D": "冷链存储"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 7,
+        "题目内容": "贵公司的几名员工一直在使用 Cloud Platform 创建项目，并使用个人信用卡付款，公司会报销这些费用。公司希望将所有这些项目集中在一个新的计费帐户下，您应该怎么做？",
+        "选项": {
+            "A": "联系cloud-billing@google.com并提供您的银行账户详细信息，并为您的公司申请一个公司帐单帐户。",
+            "B": "向 Google 支持部门创建一张工单，然后等待他们通过电话分享您的信用卡详细信息。",
+            "C": "在 Google 平台控制台中，转到资源管理并将所有项目移动到根组织。",
+            "D": "在 Google Cloud Platform Console 中，创建一个新的结算帐户并设置付款方式。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 8,
+        "题目内容": "您有一个应用程序在 IP 10.0.3.21 上查找其许可服务器。您需要在 Compute Engine 上部署许可服务器。您不想更改应用程序的配置，并且希望应用程序能够访问许可服务器。您应该怎么做？",
+        "选项": {
+            "A": "使用 gcloud 将 IP 10.0.3.21 保留为静态内部 IP 地址并将其分配给许可服务器。",
+            "B": "使用 gcloud 将 IP 10.0.3.21 保留为静态公共 IP 地址并将其分配给许可服务器。",
+            "C": "使用 IP 10.0.3.21 作为自定义临时 IP 地址并将其分配给许可服务器。",
+            "D": "使用自动临时 IP 地址启动许可服务器，然后将其提升为静态内部 IP 地址。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 9,
+        "题目内容": "您正在将应用程序部署到 App Engine。您希望实例数量根据请求率进行扩展。您需要始终至少有 3 个空闲实例。您应该使用哪种扩展类型？",
+        "选项": {
+            "A": "使用 3 个实例进行手动扩展。",
+            "B": "基本缩放，将 min_instances 设置为 3。",
+            "C": "基本缩放，max_instances 设置为 3。",
+            "D": "将 min_idle_instances 设置为 3 进行自动扩展。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 10,
+        "题目内容": "您有一个开发项目，其中定义了适当的 IAM 角色。您正在创建一个生产项目，并希望使用尽可能少的步骤在新项目上拥有相同的 IAM 角色。您应该怎么做？",
+        "选项": {
+            "A": "使用 gcloud iam role copy 并指定生产项目作为目标项目。",
+            "B": "使用 gcloud iam role copy 并将您的组织指定为目标组织。",
+            "C": "在 Google Cloud Platform Console 中，使用“从角色创建角色”功能。",
+            "D": "在 Google Cloud Platform Console 中，使用“创建角色”功能并选择所有适用的权限。"
+        },
+        "答案": "A"
+    },
+       {
+        "题号": 11,
+        "题目内容": "您需要一种在 Compute Engine 上配置虚拟机的动态方法。确切的规范将包含在专用的配置文件中。您想遵循 Google 推荐的做法。您应该使用哪种方法？",
+        "选项": {
+            "A": "部署管理器",
+            "B": "云编写器",
+            "C": "托管实例组",
+            "D": "非托管实例组"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 12,
+        "题目内容": "您有一个需要在 Kubernetes Engine 上部署的 Dockerfile。您应该怎么做？",
+        "选项": {
+            "A": "使用 kubectl app deploy <dockerfilename>",
+            "B": "使用 gcloud app deploy <dockerfilename>",
+            "C": "从 Dockerfile 创建一个 Docker 镜像并将其上传到 Container Registry。创建一个部署 YAML 文件以指向该镜像。使用 kubectl 用该文件创建部署。",
+            "D": "从 Dockerfile 创建 Docker 映像并将其上传到 Cloud Storage。创建一个部署 YAML 文件以指向该映像。使用 kubectl 用该文件创建部署。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 13,
+        "题目内容": "您的开发团队需要为他们的项目配备一个新的 Jenkins 服务器。您需要使用尽可能少的步骤来部署服务器。您应该怎么做？",
+        "选项": {
+            "A": "下载并将 Jenkins Java WAR 部署到 App Engine Standard。",
+            "B": "创建一个新的 Compute Engine 实例并通过命令行界面安装 Jenkins。",
+            "C": "在 Compute Engine 上创建一个 Kubernetes 集群，并使用 Jenkins Docker 镜像创建部署。",
+            "D": "使用 GCP Marketplace 启动 Jenkins 解决方案。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 14,
+        "题目内容": "您需要在部署管理器中更新部署，并且部署中不能有任何资源停机。您应该使用哪个命令？",
+        "选项": {
+            "A": "gcloud deploy-manager deploys create --config <deployment.config.path>",
+            "B": "gcloud deploy-manager deploys update --config <deployment.config.path>",
+            "C": "gcloud deploy-manager resources create --config <deployment.config.path>",
+            "D": "gcloud deploy-manager resources update --config <deployment.config.path>"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 15,
+        "题目内容": "您需要在 BigQuery 中运行一个重要的查询，但预计它会返回大量记录。您想知道运行该查询需要花费多少钱。您正在使用按需定价。您应该怎么做？",
+        "选项": {
+            "A": "安排将此查询切换为固定费率定价，然后返回按需定价。",
+            "B": "使用命令行运行或运行查询以估计读取的字节数。然后使用定价计算将该字节估计值转换为美元。",
+            "C": "使用命令行运行或运行查询以估计返回的字节数。然后使用定价计算将该字节估计值转换为美元。",
+            "D": "运行 select count (*) 以了解您的查询将查看多少条记录。然后使用定价计算将该行数据转换为美元。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 16,
+        "题目内容": "您有一个要在 Google Cloud Platform 上运行的二进制应用程序。您决定根据底层基础架构 CPU 使用单自动扩展应用程序。您的组织策略要求您直接使用虚拟机。您需要确保应用程序扩展在操作上高效且尽快完成。您应该怎么做？",
+        "选项": {
+            "A": "创建一个 Google Kubernetes Engine 集群，并使用水平 pod 自动扩缩对扩展应用程序。",
+            "B": "创建一个实例模板，并在配置了自动扩缩的托管实例中使用该模板。",
+            "C": "创建一个实例模板，并在根据一天中的时间进行扩大和缩小的托管实例中使用该模板。",
+            "D": "使用一组第三方工具，基于 Stackdriver CPU 使用程序监控，构建围绕应用程序扩展和缩减的自动化。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 17,
+        "题目内容": "您正在分析来自三个独立项目的 Google Cloud Platform 服务成本。您想使用此信息，使用标准查询语法按服务类型（每日和每月）创建未来六个月的服务成本估算。您应该怎么做？",
+        "选项": {
+            "A": "将您的账单导出到 Cloud Storage 存储桶，然后导入 Cloud Bigtable 进行分析。",
+            "B": "将您的账单导出到 Cloud Storage 存储桶，然后导入 Google Sheets 进行分析。",
+            "C": "将您的交易导出到本地文件，并使用桌面工具进行分析。",
+            "D": "将您的账单导出到 BigQuery 数据库，然后编写基于时间窗口的 SQL 查询进行分析。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 18,
+        "题目内容": "您需要设置一项政策，以便存储在特定 Cloud Storage Regional 存储桶中的视频在 90 天后移至 Coldline，然后在创建一年后删除。您应该如何设置该政策？",
+        "选项": {
+            "A": "使用 Cloud Storage Object Lifecycle Management，将 Age 条件与 SetStorageClass 和 Delete 操作结合使用。将 SetStorageClass 操作设置为 90 天，将 Delete 操作设置为 275 天 (365 90°C)。",
+            "B": "使用带有 Age 条件的 Cloud Storage Object Lifecycle Management 以及 SetStorageClass 和 Delete 操作。将 SetStorageClass 操作设置为 90 天，将 Delete 操作设置为 365 天。",
+            "C": "使用 gsutil rewrite 并将删除操作设置为 275 天 (365 90°C)。",
+            "D": "使用 gsutil rewrite 并将删除操作设置为 365 天。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 19,
+        "题目内容": "您有一个必须连接到 Cloud SQL 的 Linux VM。您创建了一个具有适当访问权限的服务帐号。您想确保 VM 使用此服务帐号而不是默认的 Compute Engine 服务帐号。您应该怎么做？",
+        "选项": {
+            "A": "通过 Web 控制台创建 VM 时，在“身份和 API”访问“部分下指定服务帐户”。",
+            "B": "下载服务帐户的 JSON 私钥。在项目元数据中，将该 JSON 添加为密钥 compute-engine-service-account 的值。",
+            "C": "下载服务帐户的 JSON 私钥。在虚拟机的自定义元数据上，将该 JSON 添加为键 compute-engine-service-account 的值。",
+            "D": "下载服务帐户的 JSON 私钥。创建虚拟机后，通过 ssh 进入虚拟机并将 JSON 保存在 ~/.gcloud/compute-engine-service-account.json 下。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 20,
+        "题目内容": "您在 Compute Engine 上创建了一个 SQL Server 2017 实例来测试新版本中的功能。您想使用最少的步骤连接到此实例。您应该怎么做？",
+        "选项": {
+            "A": "在桌面上安装 RDP 客户端。验证是否存在端口 3389 的防火墙规则。",
+            "B": "在您的桌面上安装 RDP 客户端。在 GCP 控制台中设置 Windows 用户名和密码。使用凭据登录实例。",
+            "C": "在 GCP 控制台中设置 Windows 密码。验证是否存在端口 22 的防火墙规则。单击 GCP 控制台中的 RDP 按钮并提供凭据以登录。",
+            "D": "在 GCP 控制台中设置 Windows 用户名和密码。验证端口 3389 的防火墙规则是否存在。单击 GCP 控制台中的 RDP 按钮，并提供凭据以登录。"
+        },
+        "答案": "B"
+    },
+       {
+        "题号": 21,
+        "题目内容": "您有一个 GCP 帐户在默认区域和地区运行，另一个帐户在非默认区域和地区运行。您想使用命令行界面在这两个 Google Cloud Platform 帐户中启动一个新的 Compute Engine 实例。您应该怎么做？",
+        "选项": {
+            "A": "使用 gcloud config configuration create [NAME] 创建两个配置。运行 gcloud config configuration activate [NAME] 可在运行启动 Compute Engine 实例的命令时在帐户之间切换。",
+            "B": "使用 gcloud config configuration create [NAME] 创建两个配置。运行 gcloud configuration list以后动 Compute Engine 实例。",
+            "C": "使用 gcloud configuration activate [NAME] 激活两个配置。运行 gcloud config list以后动 Compute Engine 实例。",
+            "D": "使用 gcloud configuration activate [NAME] 激活两个配置。运行 gcloud configuration list以后动 Compute Engine 实例。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 22,
+        "题目内容": "您对一个复杂的部署管理器模板进行了重大更改，并将望在将其提交到项目之前确认所有已定义资源的依赖关系均已正确满足。您希望对您的更改获得最快捷的反馈。您应该怎么做？",
+        "选项": {
+            "A": "在用 Python 编写的部署管理器模板中使用细粒度的日志记录语句。",
+            "B": "在 GCP 控制台的 Stackdriver Logging 页面上监控 Deployment Manager 执行的活动。",
+            "C": "针对具有相同配置的单独项目执行部署管理器模板，并监视故障。",
+            "D": "在同一个项目中使用“preview”选项执行部署管理器模板，并观察目标依赖资源的状态。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 23,
+        "题目内容": "您正在构建一个管道来处理时间序列数据。您应该将哪些 Google Cloud Platform 服务放入框 1、2、3 和 4 中？",
+        "选项": {
+            "A": "Cloud Pub/Sub，Cloud Dataflow，Cloud Datastore，BigQuery",
+            "B": "Firebase 消息，Cloud Pub/Sub，Cloud Spanner，BigQuery",
+            "C": "Cloud Pub/Sub，云存储，BigQuery，云Bigtable",
+            "D": "Cloud Pub/Sub，Cloud Dataflow，Cloud Bigtable，BigQuery"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 24,
+        "题目内容": "您有一个用于开发环境的 App Engine 应用程序项目。所需的测试已成功完成，并且您想要创建一个新项目作为生产环境。您应该怎么做？",
+        "选项": {
+            "A": "使用 gcloud 创建新项目，然后将您的应用程序部署到新项目。",
+            "B": "使用 gcloud 创建新项目并将部署的应用程序复制到新项目。",
+            "C": "创建一个部署管理器配置文件，将当前的 App Engine 部署复制到新项目中。",
+            "D": "使用 gcloud 再次部署您的应用程序，并使用新项目名称指定项目参数以创建新项目。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 25,
+        "题目内容": "您是GCP项目的项目所有者，并希望将控制权委托给同事来管理Cloud Storage中的存储桶和文件。您想遵循Google推荐的做法，您应该授予同事哪些IAM角色？",
+        "选项": {
+            "A": "项目编辑器",
+            "B": "存储管理",
+            "C": "存储对象管理",
+            "D": "存储对象创建者"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 26,
+        "题目内容": "您在Cloud Storage存储桶中有一个对象，想要与外部公司共享。该对象包含敏感数据。您希望在四小时后删除对该内容的访问权限。外部公司没有Google帐户，您可以向其授予特定的基于用户的访问权限。您想使用最安全且步骤最少的方法。您应该怎么做？",
+        "选项": {
+            "A": "创建一个有效期为四小时的签名URL，并与公司共享该URL。",
+            "B": "将对象访问权限设置为“公共”，并使用对象生命周期管理在四小时后删除该对象。",
+            "C": "将存储桶配置为静态网站，并将对象的URL提供给公司。四小时后从存储桶中删除该对象。",
+            "D": "专门为外部公司访问创建一个新的Cloud Storage存储桶。将对象复制到该存储桶。四小时后删除该存储桶。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 27,
+        "题目内容": "您正在创建一个启用了集群自动扩箱功能的Google Kubernetes Engine (GKE)集群。您需要确保集群的每个节点都将运行一个监控pod，该pod将容器指标发送到第三方监控解决方案。您应该怎么做？",
+        "选项": {
+            "A": "在StatefulSet对象中部署监控单元。",
+            "B": "在DaemonSet对象中部署监控单元。",
+            "C": "在Deployment对象中引用监控单元。",
+            "D": "在GKE集群创建时，在集群初始化程序中引用监控pod。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 28,
+        "题目内容": "您想从 App Engine 应用程序发送和使用 Cloud Pub/Sub 消息。Cloud Pub/Sub API 当前已禁用。您将使用服务帐户向 API 验证您的应用程序。您想确保您的应用程序可以使用 Cloud Pub/Sub。您应该怎么做？",
+        "选项": {
+            "A": "在 GCP 控制台上的 API 库中启用 Cloud Pub/Sub API。",
+            "B": "依靠服务帐户访问时自动启用 Cloud Pub/Sub API。",
+            "C": "使用部署管理器的应用程序。依赖正在部署的应用程序使用的所有 API 的自动启用。",
+            "D": "授予 App Engine 默认服务帐号 Cloud Pub/Sub 管理员角色。让您的应用程序在第一次连接到 Cloud Pub/Sub 时启用 API。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 29,
+        "题目内容": "您需要监控分布在 Google Cloud Platform 中不同项目中的资源。您希望将报告合并到同一个 Stackdriver 监控仪表板下。您应该怎么做？",
+        "选项": {
+            "A": "使用共享 VPC 连接所有项目，并将 Stackdriver 链接到其中一个项目。",
+            "B": "为每个项目创建一个 Stackdriver 帐户。在每个项目中，为该项目创建一个服务帐户，并授予其在所有其他项目中的 Stackdriver 帐户编辑器角色。",
+            "C": "配置单个 Stackdriver 帐户，并将所有项目链接到同一个帐户。",
+            "D": "为其中一个项目配置一个 Stackdriver 帐户。在 Stackdriver 中，创建一个组，并将其此项目名称添加为该组的条件。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 30,
+        "题目内容": "您正在将应用程序部署到托管实例组中的 Compute Engine VM。该应用程序必须始终运行，但每个 GCP 项目只能运行一个 VM 实例。您应该如何配置实例组？",
+        "选项": {
+            "A": "将自动缩放设置为开启，将最小实例数设置为 1，然后将最大实例数设置为 1。",
+            "B": "将自动缩放设置为关闭，将最小实例数设置为 1，然后将最大实例数设置为 1。",
+            "C": "将自动缩放设置为开启，将最小实例数设置为 1，然后将最大实例数设置为 2。",
+            "D": "将自动缩放设置为关闭，将最小实例数设置为 1，然后将最大实例数设置为 2。"
+        },
+        "答案": "A"
+    },
+       {
+        "题号": 31,
+        "题目内容": "您想要验证在名为 my-project 的 GCP 项目中分配的 IAM 用户和角色。您应该怎么做？",
+        "选项": {
+            "A": "运行 gcloud iam role list。查看输出部分。",
+            "B": "运行 gcloud iam service-accounts list。查看输出部分。",
+            "C": "导航到项目，然后导航到 GCP Console 中的 IAM 部分。查看成员和角色。",
+            "D": "导航到项目，然后导航到 GCP Console 中的角色部分。查看角色和状态。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 32,
+        "题目内容": "您需要创建一个新的结算帐户，然后将其与现有的 Google Cloud Platform 项目关联。您应该怎么做？",
+        "选项": {
+            "A": "确认您是 GCP 项目的项目结算经理。更新现有项目以将其链接到现有结算帐户。",
+            "B": "确认您是 GCP 项目的项目结算经理。创建一个新的结算帐户，并将新的结算帐户链接到现有项目。",
+            "C": "确认您是计费帐户的计费管理员。创建一个新项目并将新项目链接到现有计费帐户。",
+            "D": "确认您是计费帐户的计费管理员。更新现有项目以将其链接到现有计费帐户。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 33,
+        "题目内容": "您有一个名为 proj-sa 的项目，您在其中管理所有服务帐户。您希望能够使用此项目的服务帐户对另一个名为 proj-vm 的项目中运行的虚拟机进行快照。您应该怎么做？",
+        "选项": {
+            "A": "从服务帐户下载私钥，并将其添加到每个虚拟机的自定义元数据中。",
+            "B": "从服务帐户下载私钥，并将私钥添加到每个虚拟机的 SSH 密钥中。",
+            "C": "授予服务帐户在名为 proj-vm 的项目中计算存储管理员的 IAM 角色。",
+            "D": "创建虚拟机时，将 Compute Engine 的服务帐户 API 范围设置为读/写。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 34,
+        "题目内容": "您创建了一个 Google Cloud Platform 项目，项目内有一个 App Engine 应用程序。您最初将该应用程序配置为从 us-central 区域提供服务。现在您希望从 asia-northeast1 区域提供服务。您应该怎么做？",
+        "选项": {
+            "A": "将现有 GCP 项目中的默认区域属性设置改为 asia-northeast1。",
+            "B": "将现有 App Engine 应用程序中的区域属性设置成 us-central 或改为 asia-northeast1。",
+            "C": "在现有的 GCP 项目中创建第二个 App Engine 应用程序，并指定 asia-northeast1 作为您的应用程序提供服务的区域。",
+            "D": "创建一个新的 GCP 项目，并在这个新项目内创建一个 App Engine 应用程序。指定 asia-northeast1 作为您的应用程序提供服务的区域。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 35,
+        "题目内容": "您需要向三个用户授予访问权限，以便他们可以查看和编辑 Cloud Spanner 实例上的表数据。您应该怎么做？",
+        "选项": {
+            "A": "运行 gcloud iam role describe role/spanner.databasesUser。将用户添加到角色。",
+            "B": "运行 gcloud iam role describe role/spanner.databasesUser。将用户添加到新组。将组添加到角色。",
+            "C": "运行 gcloud iam role describe role/spanner.viewer --project my-project。将用户添加到角色。",
+            "D": "运行 gcloud iam role describe role/spanner.viewer --project my-project。将用户添加到新组。将组添加到角色。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 36,
+        "题目内容": "您创建了一个新的 Google Kubernetes Engine (GKE) 集群，并将望确保它始终运行受支持且稳定的 Kubernetes 版本。您应该怎么做？",
+        "选项": {
+            "A": "为您的 GKE 集群启用节点自动修复功能。",
+            "B": "为您的 GKE 集群启用节点自动升级功能。",
+            "C": "为您的 GKE 集群选择最新可用的集群版本。",
+            "D": "选择 \"Container-Optimized OS (cos)\" 作为 GKE 集群的节点映像。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 37,
+        "题目内容": "您已使用下面指定的 YAML 文件将名为 myapp1 的微服务部署到 Google Kubernetes Engine 集群：\n\napiversion: apps/v1\nkind: Deployment\nmetadata:\n    name: myapp1-deployment\nspec:\n    selector:\n    matchLabels:\n    app: myapp1\nreplicas: 2\ntemplate:\n    metadata:\n    labels:\n    app: myapp1\nspec:\n    containers:\n    - name: main-container\n    image: gcr.io/my-company-repo/myapp1:1.4\n    env:\n    - name: DB_PASSWORD\n    value: \"t0ugh2guess!\"\n    ports:\n    - containerPort: 8080\n\n您需要重构此配置，以便数据库密码不以纯文本形式存储。您想遵循 Google 推荐的做法。您应该怎么做？",
+        "选项": {
+            "A": "将数据库密码存储在容器的 Docker 镜像中，而不是 YAML 文件中。",
+            "B": "将数据库密码存储在 Secret 对象中。修改 YAML 文件以从 Secret 中填充 DB_PASSWORD 环境变量。",
+            "C": "将数据库密码存储在 ConfigMap 对象中。修改 YAML 文件以从 ConfigMap 填充 DB_PASSWORD 环境变量。",
+            "D": "将数据库密码存储在 Kubernetes 持久卷内的文件中，并使用持久卷声明将该卷挂载到容器。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 38,
+        "题目内容": "您正在托管实例组内的多个虚拟机上运行应用程序，并启用了自动扩展。自动扩展策略配置为，如果实例的 CPU 利用率超过 80%，则将其使实例添加到组。虚拟机会一直添加，直到实例组达到最大限制 5 个虚拟机，或直到实例的 CPU 利用率降至 80%。针对实例的 HTTP 运行状况检查的初始延迟设置为 30 秒。\n虚拟机实例大约需要三分钟才能使用户使用。您观察到，当实例组自动扩展时，它会添加比支持最终用户流量水平所需的更多实例。您希望在自动扩展时正确维护实例组大小。您应该怎么做？",
+        "选项": {
+            "A": "将最大实例数设置为 1。",
+            "B": "将最大实例数减少到 3。",
+            "C": "使用 TCP 健康检查而不是 HTTP 健康检查。",
+            "D": "将 HTTP 健康检查的初始延迟增加到 200 秒。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 39,
+        "题目内容": "您需要为一组批处理作业选择和配置计算资源。这些作业大约需要2小时才能完成，并且每晚运行。您想最大限度地降低服务成本。您应该怎么做？",
+        "选项": {
+            "A": "选择 Google Kubernetes Engine。使用具有小型实例类型的单节点集群。",
+            "B": "选择 Google Kubernetes Engine。使用具有微实例类型的三节点集群。",
+            "C": "选择 Compute Engine。使用适当标准机器类型的可抢占 VM 实例。",
+            "D": "选择 Compute Engine。使用支持微爆发的 VM 实例类型。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 40,
+        "题目内容": "您最近将应用程序的新版本部署到 App Engine，然后发现发布中存在错误。您需要立即恢复到应用程序的先前版本。您应该怎么做？",
+        "选项": {
+            "A": "运行 gcloud app restore。",
+            "B": "在 GCP Console 的 App Engine 页面上，选择需要恢复的应用程序，然后点击 Revert。",
+            "C": "在 GCP Console 的 App Engine 版本页面上，将 100% 的流量路由到以前的版本。",
+            "D": "将原始版本部署为单独的应用程序。然后转到 App Engine 设置并在应用程序之间分配流量，以便原始版本能够满足 100% 的请求。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 41,
+        "题目内容": "您使用 gcloud app deploy 部署了一个 App Engine 应用程序，但它没有部署到预期的项目。您想找出发生这种情况的原因以及应用程序部署的位置。您应该怎么做？",
+        "选项": {
+            "A": "检查您的应用程序的 app.yaml 文件并检查项目设置。",
+            "B": "检查您的应用程序的 web-application.xml 文件并检查项目设置。",
+            "C": "转到部署管理器并检查应用程序部署的位置。",
+            "D": "转到 Cloud Shell 并运行 gcloud config list以查看用于部署的 Google Cloud 配置。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 42,
+        "题目内容": "您想要配置 10 个 Compute Engine 实例，以便在维护时保持可用性。您的要求是，这些实例在崩溃时应尝试自动重启。此外，这些实例具有高可用性，包括在系统维护期间，您应该怎么做？",
+        "选项": {
+            "A": "为实例创建实例模板。将“自动重启”设置为开启。将“主机维护”设置为迁移 VM 实例。将实例模板添加到实例组。",
+            "B": "为实例创建实例模板。将“自动重启”设置为关闭。将“主机维护”设置为终止 VM 实例。将实例模板添加到实例组。",
+            "C": "为实例创建实例组。将“自动修复”健康检查设置为健康（HTTP）。",
+            "D": "为实例创建实例组。验证“高级创建选项”中“不重试机器创建”的设置是否已关闭。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 43,
+        "题目内容": "您在云存储上托管了一个静态网站。最近，您开始在此网站上包含指向 PDF 文件的链接。目前，当用户单击这些 PDF 文件的链接时，他们的浏览器会提示他们将文件保存到本地系统上。相反，您希望单击的 PDF 文件直接显示在浏览器窗口中，而不提示用户将文件保存在本地。您应该怎么做？",
+        "选项": {
+            "A": "在网站前端启用云 CDN。",
+            "B": "在 PDF 文件对象上启用“公开共享”。",
+            "C": "在 PDF 文件对象上将 Content-Type 元素数据设置为 application/pdf。",
+            "D": "向存储桶中添加一个标签，其键为 Content-Type，值为 application/pdf。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 44,
+        "题目内容": "您有一个虚拟机，当前配置了 2 个 vCPU 和 4 GB 内存。它内存不足。您想将虚拟机升级为 8 GB 内存。您应该怎么做？",
+        "选项": {
+            "A": "依靠实时迁移将工作负载转移到具有更多内存的机器上。",
+            "B": "使用 gcloud 将元素数据添加到虚拟机。将键设置为 required-memory-size，将值设置为 8 GB。",
+            "C": "停止虚拟机，将机器类型改为 n1-standard-8，然后启动虚拟机。",
+            "D": "停止虚拟机，将内存增加到 8 GB，然后启动虚拟机。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 45,
+        "题目内容": "您需要在 Compute Engine 上部署的生产和测试工作负载。生产虚拟机需要与测试虚拟机位于不同的子网中。所有虚拟机必须能够通过内部 IP 相互访问，而无需创建其他路由。您需要设置 VPC 和 2 个子网。哪种配置符合这些要求？",
+        "选项": {
+            "A": "创建一个具有 2 个子网的自定义 VPC。在不同的区域中创建每个子网，并使用不同的 CIDR 范围。",
+            "B": "创建一个具有 2 个子网的单个自定义 VPC。在同一区域内相同的 CIDR 范围内创建每个子网。",
+            "C": "创建一个自定义 VPC，每个 VPC 都有一个子网。将每个子网创建在不同的区域和不同的 CIDR 范围中。",
+            "D": "创建一个自定义 VPC，每个 VPC 都有一个子网。将每个子网创建在同一区域并具有相同的 CIDR 范围。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 46,
+        "题目内容": "您需要为 HTTPS Web 应用程序创建自动扩展托管实例组。您想确保重新创建运行状况不佳的虚拟机。您应该怎么做？",
+        "选项": {
+            "A": "在端口 443 上创建健康检查，并在创建托管实例组时使用它。",
+            "B": "创建托管实例组时选择多区域而不是单区域。",
+            "C": "在实例模板中，添加标签 \"health-check\"。",
+            "D": "在实例模板中，添加向元数据服务器发送心跳的启动脚本。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 47,
+        "题目内容": "贵公司有一个 Google Cloud Platform 项目，该项目使用 BigQuery 进行数据仓储。您的数据科学团队经常变动，成员很少。您需要允许该团队的成员执行查询。您想遵循 Google 推荐的做法。您应该怎么做？",
+        "选项": {
+            "A": "1. 为每个数据科学家的用户帐户创建一个 IAM 条目。2. 将 BigQuery jobUser 角色分配给该组。",
+            "B": "1. 为每个数据科学家的用户帐户创建一个 IAM 条目。2. 将 BigQuery dataViewer 用户角色分配给该组。",
+            "C": "1. 在 Cloud Identity 中创建专用的 Google 群组。2. 将每个数据科学家的用户帐户添加到该群组。3. 将 BigQuery jobUser 角色分配给该群组。",
+            "D": "1. 在 Cloud Identity 中创建专用的 Google 群组。2. 将每个数据科学家的用户帐户添加到该群组。3. 将 BigQuery dataViewer 用户角色分配给该群组。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 48,
+        "题目内容": "您有一个开发项目，其中定义了适当的 IAM 角色。您正在创建一个生产项目，并希望使用尽可能少的步骤在新项目上拥有相同的 IAM 角色。您应该怎么做？",
+        "选项": {
+            "A": "使用 gcloud iam role copy 并指定生产项目作为目标项目。",
+            "B": "使用 gcloud iam role copy 并将您的组织指定为目标组织。",
+            "C": "在 Google Cloud Platform Console 中，使用“从角色创建角色”功能。",
+            "D": "在 Google Cloud Platform Console 中，使用“创建角色”功能并选择所有适用的权限。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 49,
+        "题目内容": "您需要一种在 Compute Engine 上配置虚拟机的动态方法。确切的规范将包含在专用的配置文件中。您想遵循 Google 推荐的做法。您应该使用哪种方法？",
+        "选项": {
+            "A": "部署管理器",
+            "B": "云编写器",
+            "C": "托管实例组",
+            "D": "非托管实例组"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 50,
+        "题目内容": "您有一个需要在 Kubernetes Engine 上部署的 Dockerfile。您应该怎么做？",
+        "选项": {
+            "A": "使用 kubectl app deploy <dockerfilename>",
+            "B": "使用 gcloud app deploy <dockerfilename>",
+            "C": "从 Dockerfile 创建一个 Docker 镜像并将其上传到 Container Registry。创建一个部署 YAML 文件以指向该镜像。使用 kubectl 用该文件创建部署。",
+            "D": "从 Dockerfile 创建 Docker 映像并将其上传到 Cloud Storage。创建一个部署 YAML 文件以指向该映像。使用 kubectl 用该文件创建部署。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 51,
+        "题目内容": "您需要为 HTTPS Web 应用程序创建自动扩展托管实例组。您想确保重新创建运行状况不佳的虚拟机。您应该怎么做？",
+        "选项": {
+            "A": "在端口 443 上创建健康检查，并在创建托管实例组时使用它。",
+            "B": "创建托管实例组时选择多区域而不是单区域。",
+            "C": "在实例模板中，添加标签 'health-check'。",
+            "D": "在实例模板中，添加向元数据服务器发送心跳的启动脚本。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 52,
+        "题目内容": "贵公司有一个 Google Cloud Platform 项目，该项目使用 BigQuery 进行数据仓储。您的数据科学团队经常变动，成员很少。您需要允许该团队的成员执行查询。您想遵循 Google 推荐的做法。您应该怎么做？",
+        "选项": {
+            "A": "为每个数据科学家的用户帐户创建一个 IAM 条目。将 BigQuery jobUser 角色分配给该组。",
+            "B": "为每个数据科学家的用户帐户创建一个 IAM 条目。将 BigQuery dataViewer 用户角色分配给该组。",
+            "C": "在 Cloud Identity 中创建专用的 Google 群组。将每个数据科学家的用户帐户添加到该群组。将 BigQuery jobUser 角色分配给该群组。",
+            "D": "在 Cloud Identity 中创建专用的 Google 群组。将每个数据科学家的用户帐户添加到该群组。将 BigQuery dataViewer 用户角色分配给该群组。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 53,
+        "题目内容": "您需要为存储在 Cloud Storage 中的文件配置最佳数据存储，以降低成本。这些文件用于持续使用的关键任务分析管道。用户位于与所连接的嵌入式（美国）。您应该怎么做？",
+        "选项": {
+            "A": "为距离用户最近的区域配置区域存储。配置近线存储类。",
+            "B": "为距离用户最近的区域配置区域存储。配置标准存储类。",
+            "C": "为最靠近用户的双区域配置双区域存储。配置近线存储类。",
+            "D": "为最靠近用户的双区域配置双区域存储。配置标准存储类。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 54,
+        "题目内容": "您获得了一个项目，该项目在 us-central 区域具有单个虚拟私有云 (VPC) 和单个子网。此子网中有一个 Compute Engine 实例托管应用程序。您需要在 europe-west1 区域的同一项目中部署一个新实例。这个新实例需要访问该应用程序。您想遵循 Google 推荐的做法。您应该怎么做？",
+        "选项": {
+            "A": "在同一个 VPC 中创建子网，位于 europe-west1。在新子网中创建新实例，并使用第一个实例的私有地址作为端点。",
+            "B": "在 europe-west1 中创建 VPC 和子网。使用内部负载均衡器公开应用程序。在新子网中创建新实例并使用负载均衡器的地址作为端点。",
+            "C": "在同一个 VPC 中创建子网，即 europe-west1。使用 Cloud VPN 连接两个子网。在新子网中创建新实例，并使用第一个实例的私有地址作为端点。",
+            "D": "在 europe-west1 中创建一个 VPC 和一个子网。将 2 个 VPC 对等连接。在新子网中创建新实例，并使用第一个实例的私有地址作为端点。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 55,
+        "题目内容": "上个月，您的项目产生的费用超出了您的预期。您的研究表明，开发 GKE 容器发出了大量日志，导致成本增加。您想使用最少的步骤快速禁用日志。您应该怎么做？",
+        "选项": {
+            "A": "转到 Stackdriver Logging 中的日志提取窗口，并禁用 GKE 容器资源的日志源。",
+            "B": "转到 Stackdriver Logging 中的日志提取窗口，并禁用 GKE Cluster Operations 资源的日志源。",
+            "C": "转到 GKE 控制台，删除现有集群。重新创建新集群。清除选项以启用旧版 Stackdriver Logging。",
+            "D": "转到 GKE 控制台，删除现有集群。重新创建新集群。清除选项以启用旧版 Stackdriver 监控。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 56,
+        "题目内容": "您有一个在 App Engine 标准环境中托管的网站。您希望 1% 的用户看到该网站的新测试版本。您希望尽量减少复杂性。您应该怎么做？",
+        "选项": {
+            "A": "在同一个应用程序中部署新版本并使用 -migrate 选项。",
+            "B": "在同一个应用程序中部署新版本，并使用 -splits 选项为当前版本赋予权重 99，为新版本赋予权重 1。",
+            "C": "在同一个项目中创建一个新的 App Engine 应用程序。在该应用程序中部署新版本。使用 App Engine 库将 1% 的请求代理到新版本。",
+            "D": "在同一项目中创建一个新的 App Engine 应用程序。在该应用程序中部署新版本。配置网络负载平衡器以将 1% 的流量发送到该新应用程序。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 57,
+        "题目内容": "您有一个作为托管实例组部署的 Web 应用程序。您有一个新版本的应用程序需要逐步部署。您的 Web 应用程序目前正在接收实时 Web 流量。您想确保在部署期间可用容量不会减少，您应该怎么做？",
+        "选项": {
+            "A": "执行滚动操作启动更新，将 maxSurge 设置为 0，将 maxUnavailable 设置为 1。",
+            "B": "执行滚动操作启动更新，将 maxSurge 设置为 1，将 maxUnavailable 设置为 0。",
+            "C": "使用新的实例模板创建新的托管实例组。将该组添加到负载均衡器的后端服务。当新托管实例组中的所有实例均运行正常时，删除旧托管实例组。",
+            "D": "使用新应用程序版本创建新的实例模板。使用新实例模板更新现有托管实例组。删除托管实例组中的实例，以允许托管实例组使用新实例模板重新创建实例。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 58,
+        "题目内容": "您正在构建一个存储用户关系数据的应用程序。全球用户都将使用此应用程序。您的 CTO 担心扩展要求，因为用户群的规模未知。您需要实施一个数据库解决方案，该解决方案可以随着用户增长而扩展，并且配置更改最少。您应该使用哪种存储解决方案？",
+        "选项": {
+            "A": "Cloud SQL",
+            "B": "Cloud Spanner",
+            "C": "Cloud Firestore",
+            "D": "云数据存储"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 59,
+        "题目内容": "您是公司的组织和结算管理员。工程团队在组织中拥有项目创建者角色。您不希望工程团队能够将项目链接到结算账户。只有财务团队才能将项目链接到结算账户，但他们不能对项目进行任何其他更改。您应该怎么做？",
+        "选项": {
+            "A": "仅为财务团队分配帐单帐户上的帐单帐户用户角色。",
+            "B": "仅为工程团队分配计费帐户上的计费帐户用户角色。",
+            "C": "为财务团队分配结算账户上的结算账户用户角色以及组织上的项目结算经理角色。",
+            "D": "为工程团队分配计费帐户上的计费帐户用户角色以及组织上的项目计费经理角色。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 60,
+        "题目内容": "您有一个在 Google Kubernetes Engine (GKE) 中运行的应用程序，并且启用了集群自动扩缩功能。该应用程序公开一个 TCP 端点。此应用程序有多个副本。您在同一区域有一个 Compute Engine 实例，但位于另一个名为 gce-network 的虚拟私有云 (VPC) 中，该 VPC 与第一个 VPC 没有重叠的 IP 范围。此实例需要连接到 GKE 上的应用程序。您想尽量减少工作量。您应该怎么做？",
+        "选项": {
+            "A": "在 GKE 中，创建一个 LoadBalancer 类型的服务，使用应用程序的 Pod 作为后端。将服务的 ExternalTrafficPolicy 设置为 Cluster。配置 Compute Engine 实例以使用已创建的负载均衡器的地址。",
+            "B": "在 GKE 中，创建一个 NodePort 类型的服务，使用应用程序的 Pod 作为后端。创建一个名为 proxy 的 Compute Engine 实例，该实例具有 2 个网络接口，每个 VPC 中一个。在此实例上使用此 iptables 特征值从 gce-network 转发到 GKE 节点。配置 Compute Engine 实例以使用 gce-network 中代理的地址作为端点。",
+            "C": "在 GKE 中，创建一个 LoadBalancer 类型的服务，使用应用程序的 Pod 作为后端。向此服务添加注释：cloud.google.com/load-balancer-type: Internal。将两个 VPC 对等连接在一起。配置 Compute Engine 实例以使用已创建的负载均衡器的地址。",
+            "D": "在 GKE 中，创建一个使用应用程序的 Pod 作为后端的 LoadBalancer 类型的服务。向负载均衡器添加 Cloud Armor 安全策略，将 MIG 实例的内部 IP 列入白名单。配置 Compute Engine 实例以使用已创建的负载均衡器的地址。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 61,
+        "题目内容": "您的组织是一家金融公司，需要存储审计日志文件 3 年。您的组织有数百个 Google Cloud 项目。您需要实施一种经济高效的日志文件保留方法。您应该怎么做？",
+        "选项": {
+            "A": "创建一个导出到接收器，将日志从 Cloud Audit 保存到 BigQuery。",
+            "B": "创建一个导出到接收器，将 Cloud Audit 中的日志保存到 Coldline Storage 存储桶。",
+            "C": "编写一个自定义脚本，使用日志记录 API 将日志从 Stackdriver 日志复制到 BigQuery。",
+            "D": "将这些日志导出到 Cloud Pub/Sub 并编写 Cloud Dataflow 管道将日志存储到 Cloud SQL。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 62,
+        "题目内容": "您想在 GCP 上为延迟敏感的网站运行单个缓存 HTTP 反向代理。此特定反向代理几乎不消耗 CPU。您希望拥有 30 GB 的内存缓存，并且需要额外的 2 GB 内存用于其余进程。您希望最大限度地降低成本。您应该如何运行此反向代理？",
+        "选项": {
+            "A": "创建一个容量为 32 GB 的 Cloud Memorystore for Redis 实例。",
+            "B": "在 Compute Engine 上运行它，并选择具有 6 个 vCPU 和 32 GB 内存的自定义实例类型。",
+            "C": "将其打包成容器镜像，并在 Kubernetes Engine 上运行，使用 n1-standard-32 实例作为节点。",
+            "D": "在 Compute Engine 上运行它，选择实例类型 n1-standard-1，并添加 32 GB 的 SSD 持久磁盘。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 63,
+        "题目内容": "您在自己的数据中心的模拟服务器上托管应用程序。该应用程序需要访问云存储。但是，安全策略阻止托管应用程序的服务器拥有公共 IP 地址或访问互联网。您想遵循 Google 推荐的做法，为应用程序提供对云存储的访问权限。您应该怎么做？",
+        "选项": {
+            "A": "使用 nslookup 获取 storage.googleapis.com 的 IP 地址。与安全团队协商，以便为服务器提供公共 IP 地址。仅允许从这些服务器到 storage.googleapis.com 的 IP 地址的出站流量。",
+            "B": "使用 Cloud VPN，创建通向 Google Cloud 中的虚拟私有云 (VPC) 的 VPN 隧道。在此 VPC 中，创建一个 Compute Engine 实例并在该实例上安装 Squid 代理服务器。配置您的服务器以使用该实例作为代理来访问 Cloud Storage。",
+            "C": "使用 Migrate for Compute Engine（以前称为 Velostrata）将这些服务器迁移到 Compute Engine。创建使用 storage.googleapis.com 作为后端的内部负载均衡器 (ILB)。配置新实例以使用此 ILB 作为代理。",
+            "D": "使用 Cloud VPN 或 Interconnect 创建到 Google Cloud 中 VPC 的隧道。使用 Cloud Router 为 199.36.153.4/30 创建自定义路由通信。通过 VPN 隧道将该网络通信到您的本地网络。在您的本地网络中，配置您的 DNS 服务器以将 *.googleapis.com 作为 CNAME 解析为 restricted.googleapis.com。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 64,
+        "题目内容": "您想要在 Cloud Run 上部署一个应用程序来处理来自 Cloud Pub/Sub 主题的消息。您想要遵循 Google 推荐的做法。您应该怎么做？",
+        "选项": {
+            "A": "创建一个使用该主题的 Cloud Pub/Sub 触发器的 Cloud Function。针对搜索消息从 Cloud Function 调用 Cloud Run 上的应用程序。",
+            "B": "将 Pub/Sub 订阅者角色授予 Cloud Run 使用的服务帐号。为该主题创建 Cloud Pub/Sub 订阅。让您的应用程序从该订阅中提取消息。",
+            "C": "创建服务帐号。为您的 Cloud Run 应用向该服务帐号授予 Cloud Run Invoker 角色。创建使用该服务帐号的 Cloud Pub/Sub 订阅，并使用您的 Cloud Run 应用作为推送端点。",
+            "D": "在 Cloud Run on GKE 上部署您的应用程序，并将连接性设置为内部。为该主题创建 Cloud Pub/Sub 订阅。在与您的应用程序相同的 Google Kubernetes Engine 集群中，部署一个容器，该容器接收消息并将其发送到您的应用程序。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 65,
+        "题目内容": "您需要在新项目中部署一个打包在容器镜像中的应用程序。该应用程序公开一个 HTTP 端点，并且每天接收的请求很少。您想尽量减少成本。您应该怎么做？",
+        "选项": {
+            "A": "在 Cloud Run 上部署容器。",
+            "B": "在 GKE 上的 Cloud Run 上部署容器。",
+            "C": "在 App Engine Flexible 上部署容器。",
+            "D": "在 GKE 上部署容器，并用集群自动扩缩和水平 pod 自动扩缩。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 66,
+        "题目内容": "贵公司现有一个 GCP 组织，该组织拥有数百个项目和一个结算账户。贵公司最近收购了另一家公司，该公司也拥有数百个项目和自己的结算账户。您希望将两个 GCP 组织的所有 GCP 费用合并到一张发票上。您希望从明天起合并所有费用。您应该怎么做？",
+        "选项": {
+            "A": "将收购公司的项目与您公司的结算账户关联起来。",
+            "B": "配置被收购公司的结算账户和您公司的结算账户，将结算数据导出到同一个 BigQuery 数据库中。",
+            "C": "将收购公司的项目迁移到贵公司的 GCP 组织中。将迁移的项目链接到贵公司的结算账户。",
+            "D": "创建新的 GCP 组织和新的结算账户。将收购公司的项目和贵公司的项目迁移到新的 GCP 组织，并将项目链接到新的结算账户。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 67,
+        "题目内容": "您在 Google Cloud 上构建了一个使用 Cloud Spanner 的应用程序。您的支持团队需要监控环境，但不应有权访问表数据。您需要一个精简的解决方案来向您的支持团队授予正确的权限，并且您希望遵循 Google 推荐的做法。您应该怎么做？",
+        "选项": {
+            "A": "将支持团队组添加到 roles/monitoring.viewer 角色。",
+            "B": "将支持团队组添加到 roles/spanner.databaseUser 角色。",
+            "C": "将支持团队组添加到 roles/spanner.databaseReader 角色。",
+            "D": "将支持团队组添加到 roles/stackdriver.accounts.viewer 角色。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 68,
+        "题目内容": "为了进行分析，您需要将所有 Compute Engine 实例的所有日志发送到名为 platform-logs 的 BigQuery 数据库。您已在所有实例上安装了 Cloud Logging 代理。您想尽量降低成本。您应该怎么做？",
+        "选项": {
+            "A": "将平台日志数据集上的 BigQuery 数据编辑者角色授予您的实例使用的服务帐号。更新实例的元数据以添加以下值：logs-destination: bg:/platform-logs。",
+            "B": "在 Cloud Logging 中，创建一个日志导出，并使用名为日志的 Cloud Pub/Sub 主题作为接收器。创建一个由日志主题中的消息触发的 Cloud Function。配置该 Cloud Function 以删除不是来自 Compute Engine 的日志，并将 Compute Engine 日志插入到平台日志数据库中。",
+            "C": "在 Cloud Logging 中，创建一个过滤器以仅查看 Compute Engine 日志。单击创建导出。选择 BigQuery 作为接收器服务，并选择平台日志数据库作为接收器目标。",
+            "D": "在 platform-logs 数据库上创建一个具有 BigQuery 用户角色的 Cloud Function。配置此 Cloud Function 以创建执行此查询的 BigQuery 作业：INSERT INTO dataset.platform-logs (timestamp, log) SELECT timestamp, log FROM compute.logs WHERE timestamp > DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY)。使用 Cloud Scheduler 每天触发一次此 Cloud Function。"
+        },
+        "答案": "C"
+    },
+       {
+        "题号": 69,
+        "题目内容": "您正在使用 Deployment Manager 创建 Google Kubernetes Engine 集群。使用相同的 Deployment Manager 部署，您还想在集群的 kube-system 命名空间中创建一个 DaemonSet。您想要一个使用尽可能少的服务的解决方案。您应该怎么做？",
+        "选项": {
+            "A": "在 Deployment Manager 中将集群的 API 添加为新的类型提供程序，并使用新类型创建 DaemonSet。",
+            "B": "使用部署管理器运行时配置器的创建包含 DaemonSet 定义的新配置资源。",
+            "C": "使用 Deployment Manager，创建一个 Compute Engine 实例，并使用启动脚本使用 kubectl 创建 DaemonSet。",
+            "D": "在部署管理器中的集群定义中，添加一个以 kube-system 为键、以 DaemonSet 清单为值的元素数据。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 70,
+        "题目内容": "您正在构建一个将在您的数据中心运行的应用程序。该应用程序将使用 Google Cloud Platform (GCP) 服务，例如 AutoML。您创建了一个对 AutoML 具有适当访问权限的服务帐户。您需要从您的本地环境启用对 API 的身份验证。您应该怎么做？",
+        "选项": {
+            "A": "在您的本地应用程序中使用服务帐户凭据。",
+            "B": "使用 gcloud 为具有适当权限的服务帐号创建密钥文件。",
+            "C": "在您的数据中心和 Google Cloud Platform 之间建立直接互连，以便为您本地应用程序启用身份验证。",
+            "D": "转到 IAM 和管理控制台，授予与服务帐户权限类似的用户帐户权限，并使用此用户帐户从您的数据中心进行身份验证。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 71,
+        "题目内容": "您正在使用 Container Registry 将公司的容器镜像集中存储在一个单独的项目中。在另一个项目中，您想要创建一个 Google Kubernetes Engine (GKE) 集群。您想要确保 Kubernetes 可以从 Container Registry 下载镜像。您应该怎么做？",
+        "选项": {
+            "A": "在存储镜像的项目中，将存储对象查看器 IAM 角色授予 Kubernetes 节点使用的服务帐户。",
+            "B": "创建 GKE 集群时，选择“访问范围”下的允许完全访问所有云 API 选项。",
+            "C": "创建一个服务帐户，并授予其访问 Cloud Storage 的权限。为此服务帐户创建一个 P12 密钥，并将其用作 Kubernetes 中的 imagePullSecrets。",
+            "D": "配置 Cloud Storage 中每个图像的 ACL，以授予默认 Compute Engine 服务帐号只读访问权限。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 72,
+        "题目内容": "您使用下面指定的 YAML 文件在 Google Kubernetes Engine 集群内部置了一个新应用程序。您检查已部署 Pod 的状态，并注意到其中一个 Pod 仍处于 PENDING 状态。您想找出 Pod 卡在待处理状态的原因。您应该怎么做？",
+        "选项": {
+            "A": "查看 myapp-service 服务对象的详细信息并检查错误消息。",
+            "B": "查看 myapp-deployment 部署对象的详细信息并检查错误消息。",
+            "C": "查看 myapp-deployment-58ddbbb995-lg86m Pod 的详细信息并检查警告消息。",
+            "D": "查看 myapp-deployment-58ddbbb995-lg86m pod 中容器的日志并检查警告消息。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 73,
+        "题目内容": "您正在 Compute Engine 上设置 Windows VM，并将登录保可以通过 RDP 登录 VM。您应该怎么做？",
+        "选项": {
+            "A": "创建虚拟机后，使用您的 Google 帐户凭据登录虚拟机。",
+            "B": "创建虚拟机后，使用 gcloud compute reset-windows-password 检索虚拟机的登录凭据。",
+            "C": "创建虚拟机时，使用 'windows password' 作为键并使用密码作为值向实例添加元数据。",
+            "D": "创建虚拟机后，下载默认 Compute Engine 服务帐户的 JSON 私钥。使用 JSON 文件的凭据登录虚拟机。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 74,
+        "题目内容": "您想要为 dev1 组中的用户配置到单个 Compute Engine 实例的 SSH 连接。此实例是比特定 Google Cloud Platform 项目中 dev1 用户应该能够连接的唯一资源。您应该怎么做？",
+        "选项": {
+            "A": "将实例的元数据设置为 enable-oslogin=true，授予 dev1 组 compute.osLogin 角色。指示他们使用 Cloud Shell 通过 ssh 连接到该实例。",
+            "B": "将实例的元数据设置为 enable-oslogin=true，将服务帐户设置为该实例的元服务帐户。指示他们使用 Cloud Shell 通过 ssh 连接到该实例。",
+            "C": "为实例启用阻止项目范围的密钥。为 dev1 组中的每个用户生成一个 SSH 密钥。将密钥分发给 dev1 用户并指导他们使用第三方工具进行连接。",
+            "D": "为实例启用阻止项目范围的密钥。生成 SSH 密钥并将该密钥与该实例关联。将密钥分发给 dev1 用户并指导他们使用第三方工具进行连接。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 75,
+        "题目内容": "您需要使用 Cloud Shell 中的 gcloud 命令行为 GCP 项目生成已启用的 Google Cloud Platform API 列表。项目名称为 my-project。您应该怎么做？",
+        "选项": {
+            "A": "运行 gcloud projects list 获取项目 ID，然后运行 gcloud services list--project -project IDs",
+            "B": "运行 gcloud init 将当前项目设置为 my-project，然后运行 gcloud services list --available",
+            "C": "运行 gcloud info 查看账户值，然后运行 gcloud services list --account <Accounts",
+            "D": "运行 gcloud projects describe -project ID> 来验证项目值，然后运行 gcloud services list --available"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 76,
+        "题目内容": "您正在构建托管在 App Engine 环境中的应用程序的新版本。在将应用程序完全切换到新版本之前，您想用 1% 的用户测试新版本。您应该怎么做？",
+        "选项": {
+            "A": "在 Google Kubernetes Engine 而不是 App Engine 中部署应用程序的新版本，然后使用 GCP Console 分割流量。",
+            "B": "在 Compute Engine 实例而不是 App Engine 中部署应用程序的新版本，然后使用 GCP Console 拆分流量。",
+            "C": "在 App Engine 中将新版本部署为单独的应用。然后使用 GCP Console 配置 App Engine 以在两个应用之间分配流量，以便原始版本能够满足 100% 的请求。",
+            "D": "在 App Engine 中部署应用程序的新版本。然后转到 GCP Console 中的 App Engine 设置，并相应地在当前版本和新部署的版本之间分配流量。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 77,
+        "题目内容": "您需要使用 Kubernetes 的 GCP 定价计算器为 Kubernetes 集群提供成本估算。您的工作负载需要高 IOP，并且您还将使用磁盘快照。您首先输入节点数、平均小时数和平均天数。您接下来应该做什么？",
+        "选项": {
+            "A": "填写本地 SSD。填写持久磁盘存储和快照存储。",
+            "B": "填写本地 SSD。添加集群管理的预计成本。",
+            "C": "选择添加 GPU。填写持久磁盘存储和快照存储。",
+            "D": "选择添加 GPU。添加集群管理的预计成本。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 78,
+        "题目内容": "您正在使用启用了自动扩缩功能的 Google Kubernetes Engine 来托管新应用程序。您想使用公共 IP 地址上的 HTTPS 向公众公开此新应用程序。您应该怎么做？",
+        "选项": {
+            "A": "为您的应用程序创建类型为 NodePort 的 Kubernetes 服务，并创建 Kubernetes Ingress 以通过云负载均衡器公开此服务。",
+            "B": "为您的应用程序创建一个 ClusterIP 类型的 Kubernetes 服务。使用此服务的 IP 配置您的应用程序的公共 DNS 名称。",
+            "C": "创建 NodePort 类型的 Kubernetes 服务，将应用程序暴露在 Kubernetes 集群每个节点的 443 端口上。使用集群每个节点的 IP 配置应用程序的公共 DNS 名称，以实现负载平衡。",
+            "D": "在集群中创建一个 HAProxy pod，以将流量负载平衡到应用程序的所有 pod。使用 iptable 规则将公共流量转发到 HAProxy 使用 HAProxy 正在运行的节点的公共 IP 配置应用程序的 DNS 名称。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 79,
+        "题目内容": "您需要在当前运行两个不同 GCP 项目的多组 Compute Engine 实例之间启用流量。每组 Compute Engine 实例都在其自己的 VPC 中运行。您应该怎么做？",
+        "选项": {
+            "A": "验证两个项目是否都在 GCP 组织中。创建一个新的 VPC 并添加所有实例。",
+            "B": "验证两个项目是否都在 GCP 组织中。共享一个项目的 VPC，并请求另一个项目中的 Compute Engine 实例使用此共享 VPC。",
+            "C": "确认您是两个项目的项目管理员。创建两个新的 VPC 并添加所有实例。",
+            "D": "确认您是两个项目的项目管理员。创建一个新的 VPC 并添加所有实例。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 80,
+        "题目内容": "您想向 Google Cloud Platform 项目添加新的审核员。审核员应该允许读取但不能修改所有项目项。您应该如何配置审核员的权限？",
+        "选项": {
+            "A": "创建具有只读项目权限的自定义角色，将用户的帐户添加到自定义角色。",
+            "B": "创建具有只读服务权限的自定义角色，将用户的帐户添加到自定义角色。",
+            "C": "选择内置 IAM 项目的 Viewer 角色，将用户的账号添加到该角色中。",
+            "D": "选择内置 IAM 服务 Viewer 角色，将用户的账号添加到该角色中。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 81,
+        "题目内容": "您正在为公司运营 Google Kubernetes Engine (GKE) 集群，不同的团队可以在其中运行非生产工作负载。您的机器学习 (ML) 团队需要使用 Nvidia Tesla P100 GPU 来训练他们的模型。您想要最大限度地减少工作量和成本。您应该怎么做？",
+        "选项": {
+            "A": "让您的 ML 团队将 'accelerator: gpu' 注释添加到他们的 pod 规范中。",
+            "B": "重新创建 GKE 集群的所有节点，以在所有节点上启用 GPU。",
+            "C": "在 Compute Engine 上创建自己的 Kubernetes 集群，其中的节点均具有 GPU。将此集群用于您的 ML 团队。",
+            "D": "向 GKE 集群添加一个新的、支持 CPU 的节点池。要求您的 ML 团队将 cloud.google.com/gke-accelerator: nvidia-tesla-p100 nodeSelector 添加到他们的 pod 规范中。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 82,
+        "题目内容": "您的虚拟机在子网掩码为 255.255.255.240 的子网中运行。当前子网没有更多可用 IP 地址，您需要为新虚拟机提供额外的 10 个 IP 地址。现有虚拟机和新虚拟机都应该能够相互访问，而无需额外的路由。您应该怎么做？",
+        "选项": {
+            "A": "使用 gcloud 扩展当前子网的 IP 范围。",
+            "B": "删除子网，然后使用更大范围的 IP 地址重新创建它。",
+            "C": "创建一个新项目。使用共享 VPC 将当前网络共享给新项目。",
+            "D": "创建一个起始 IP 相同但范围更广的新子网来覆盖当前子网。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 83,
+        "题目内容": "您的组织使用 G Suite 进行通信和协作。您组织中的所有用户都有一个 G Suite 帐户。您想授予某些 G Suite 用户访问您的 Cloud Platform 项目的权限。您应该怎么做？",
+        "选项": {
+            "A": "在 GCP 控制台中为您的域启用 Cloud Identity。",
+            "B": "使用他们的 G Suite 电子邮件地址授予他们所需的 IAM 角色。",
+            "C": "创建一个包含所有用户电子邮件地址的 CSV 表。使用 gcloud 命令行工具将它们转换为 Google Cloud Platform 帐户。",
+            "D": "在 G Suite 控制台中，将用户添加到名为 cloudconsole-users@yourdomain.com 的特殊组。如果用户是该组的成员，则依靠 Cloud Platform 的默认行为授予用户访问权限。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 84,
+        "题目内容": "您有一个 Google Cloud Platform 帐户，可以访问生产项目和开发项目。您需要创建一个自动化流程，每天列出开发和生产项目中的所有计算实例。您应该怎么做？",
+        "选项": {
+            "A": "使用 gcloud config 创建两个配置。编写一个脚本，分别将配置设置为活动状态。对于每个配置，使用 gcloud compute instance list 获取计算资源列表。",
+            "B": "使用 gsutil config 创建两个配置。编写一个脚本，分别将配置设置为活动状态。对于每个配置，使用 gsutil compute instance list 获取计算资源列表。",
+            "C": "每天前往 Cloud Shell 并将其信息导出到 Cloud Storage。",
+            "D": "转到 GCP Console 并每天将此信息导出到 Cloud SQL。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 85,
+        "题目内容": "您在 Cloud Storage 存储桶中存储了一个 5TB 的大型 AVRO 文件。您的分析师只精通 SQL，需要访问存储在此文件中的数据。您想找到一种经济高效的方式来尽快完成他们的请求。您应该怎么做？",
+        "选项": {
+            "A": "在 Cloud Datastore 中加载数据并对其运行 SQL 查询。",
+            "B": "创建 BigQuery 表并在 BigQuery 中加载数据。在此表上运行 SQL 查询，并在完成请求后删除此表。",
+            "C": "在 BigQuery 中创建指向 Cloud Storage 存储桶的外部表，并在这些外部表上运行 SQL 查询以完成您的请求。",
+            "D": "创建 Hadoop 集群并通过压缩将 AVRO 文件复制到 HDFS。将文件加载到配置单元表中并提供访问权限给分析师，以便他们可以运行 SQL 查询。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 86,
+        "题目内容": "您需要验证 Google Cloud Platform 服务帐户是否在特定时间创建。您应该怎么做？",
+        "选项": {
+            "A": "过滤活动日志以查看配置类别。将资源类型过滤为服务帐户。",
+            "B": "过滤活动日志以查看配置类别。将资源类型过滤为 Google Project。",
+            "C": "过滤活动日志以查看数据访问类别。将资源类型过滤为服务帐户。",
+            "D": "过滤活动日志以查看数据访问类别。将资源类型过滤为 Google Project。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 87,
+        "题目内容": "您在 Compute Engine 上部署了一个 LDAP 服务器，可以使用 UDP 通过端口 636 通过 TLS 访问该服务器。您想确保客户端可以通过该端口访问该服务器。您应该怎么做？",
+        "选项": {
+            "A": "将网络标签 allow-udp-636 添加到运行 LDAP 服务器的 VM 实例。",
+            "B": "创建一个名为 allow-udp-636 的路由，并将下一跳设置为运行 LDAP 服务器的 VM 实例。",
+            "C": "为实现添加选择的网络标签。创建防火墙规则以允许该网络标签在 UDP 端口 636 上进入。",
+            "D": "将您选择的网络标签添加到运行 LDAP 服务器的实例。创建防火墙规则以允许该网络标签在 UDP 端口 636 上出站。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 88,
+        "题目内容": "您需要在您管理的三个 Google Cloud Platform 项目之一上设置使用 Compute Engineer 服务的预算警报。所有三个项目都链接到一个结算帐户。您应该怎么做？",
+        "选项": {
+            "A": "确认您是项目结算管理员。选择关联的结算帐户并为相应的项目创建预算和警报。",
+            "B": "确认您是项目结算管理员。选择关联的结算帐户并创建预算和自定义警报。",
+            "C": "确认您是项目管理员。选择关联的计费帐户并为相应的项目创建预算。",
+            "D": "确认您是项目管理员。选择关联的计费帐户并创建预算和自定义警报。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 89,
+        "题目内容": "您正在迁移一个生产关键型本地应用程序，该应用程序需要 96 个 vCPU 来执行其任务。您想确保该应用程序在 GCP 上的类似环境中运行。您应该怎么做？",
+        "选项": {
+            "A": "创建虚拟机时，使用机器类型 n1-standard-96。",
+            "B": "创建 VM 时，使用 Intel Skylake 作为 CPU 平台。",
+            "C": "使用 Compute Engine 默认设置创建虚拟机。使用 gcloud 将正在运行的实例修改为具有 96 个 vCPU。",
+            "D": "使用 Compute Engine 默认设置启动虚拟机，并根据 Rightsizing 建议随时进行调整。"
+        },
+        "答案": "A"
+    },
+       {
+        "题号": 90,
+        "题目内容": "您想要配置一个解决方案来将数据归档到 Cloud Storage 存储桶中。该解决方案必须具有成本效益。具有多个版本的数据应在30天后归档。每月访问一次以前的版本以进行报告。此归档数据也会在月底偶尔更新。您应该怎么做？",
+        "选项": {
+            "A": "添加一个存储桶生命周期规则，将30天后按新版本的数据存档到 Coldline Storage。",
+            "B": "添加一个存储桶生命周期规则，将30天后按新版本的数据存档到近线存储。",
+            "C": "添加一个存储桶生命周期规则，将30天后的区域存储中的数据存档到 Coldline Storage。",
+            "D": "添加一个存储桶生命周期规则，将30天后的区域存储中的数据归档到近线存储。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 91,
+        "题目内容": "贵公司的基础设施位于本地，但所有机器都以最大容量运行。您想将工作负载转移到 Google Cloud。Google Cloud 上的工作负载必须能够使用私有 IP 范围直接与本地工作负载通信。您应该怎么做？",
+        "选项": {
+            "A": "在 Google Cloud 中，将 VPC 配置为共享 VPC 的主机。",
+            "B": "在 Google Cloud 中，为 VPC 网络对等互连配置 VPC。",
+            "C": "在您的本地环境和 Google Cloud 上创建堡垒主机。使用其公共 IP 地址将两者配置为代理服务器。",
+            "D": "在本地基础设施和 Google Cloud 之间设置 Cloud VPN。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 92,
+        "题目内容": "您正在分析来自三个独立项目的 Google Cloud Platform 服务成本。您想使用此信息，使用标准查询语法按服务类型（每日和每月）创建未来六个月的服务成本估算。您应该怎么做？",
+        "选项": {
+            "A": "将您的账单导出到 Cloud Storage 存储桶，然后导入 Cloud Bigtable 进行分析。",
+            "B": "将您的账单导出到 Cloud Storage 存储桶，然后导入 Google Sheets 进行分析。",
+            "C": "将您的交易导出到本地文件，并使用桌面工具进行分析。",
+            "D": "将您的账单导出到 BigQuery 数据库，然后编写基于时间窗口的 SQL 查询进行分析。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 93,
+        "题目内容": "您需要设置一项政策，以便存储在特定 Cloud Storage Regional 存储桶中的视频在 90 天后移至 Coldline，然后在创建一年后删除。您应该如何设置该政策？",
+        "选项": {
+            "A": "使用 Cloud Storage Object Lifecycle Management，将 Age 条件与 SetStorageClass 和 Delete 操作结合使用。将 SetStorageClass 操作设置为 90 天，将 Delete 操作设置为 275 天 (365 90°C)。",
+            "B": "使用带有 Age 条件的 Cloud Storage Object Lifecycle Management 以及 SetStorageClass 和 Delete 操作。将 SetStorageClass 操作设置为 90 天，将 Delete 操作设置为 365 天。",
+            "C": "使用 gsutil rewrite 并将删除操作设置为 275 天 (365 90°C)。",
+            "D": "使用 gsutil rewrite 并将删除操作设置为 365 天。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 94,
+        "题目内容": "您有一个必须连接到 Cloud SQL 的 Linux VM。您创建了一个具有适当访问权限的服务帐号。您想确保 VM 使用此服务帐号而不是默认的 Compute Engine 服务帐号。您应该怎么做？",
+        "选项": {
+            "A": "通过 Web 控制台创建 VM 时，在“身份和 API”访问“部分下指定服务帐户。",
+            "B": "下载服务帐户的 JSON 私钥。在项目元数据中，将该 JSON 添加为密钥 compute-engine-service-account 的值。",
+            "C": "下载服务帐户的 JSON 私钥。在虚拟机的自定义元数据上，将该 JSON 添加为键 compute-engine-service-account 的值。",
+            "D": "下载服务帐户的 JSON 私钥。创建虚拟机后，通过 ssh 进入虚拟机并将 JSON 保存在 ~/.gcloud/compute-engine-service-account.json 下。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 95,
+        "题目内容": "您想了解用户何时被添加到 Google Cloud Platform (GCP) 项目中的 Cloud Spanner Identity Access Management (IAM) 角色。您应该在 GCP Console 中做什么？",
+        "选项": {
+            "A": "打开 Cloud Spanner 控制台检查配置。",
+            "B": "打开 IAM 和管理控制台来查看 Cloud Spanner 角色的 IAM 策略。",
+            "C": "转到 Stackdriver Monitoring 控制台并查看 Cloud Spanner 的信息。",
+            "D": "转到 Stackdriver Logging 控制台，查看管理员活动日志，并针对 Cloud Spanner IAM 角色进行过滤。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 96,
+        "题目内容": "贵公司实施 BigQuery 作为企业数据仓库。来自多个业务部门的用户在此数据仓库上运行查询。但是，您注意到 BigQuery 的查询成本非常高，您需要控制成本。您应该使用哪两种方法？（选择两个。）",
+        "选项": {
+            "A": "将用户从业务部门拆分到多个项目。",
+            "B": "为 BigQuery 数据仓库应用用户或项目级自定义查询配额。",
+            "C": "为每个业务部门的建 BigQuery 数据仓库的单独副本。",
+            "D": "将您的 BigQuery 数据仓库拆分为每个业务部门的多个数据仓库。",
+            "E": "将您的 BigQuery 查询模型从按需更改为固定费率。为每个项目应用适当数量的插槽。"
+        },
+        "答案": "BE"
+    },
+    {
+        "题号": 97,
+        "题目内容": "您正在 Google Kubernetes Engine (GKE) 上构建产品。您有一个 GKE 集群。对于您的每个客户，该集群中都有一个 Pod 正在运行，并且您的客户可以在他们的 Pod 内运行任意代码。您想要大限度地提高客户 Pod 之间的隔离。您应该怎么做？",
+        "选项": {
+            "A": "使用二进制授权权将客户 Pod 使用的容器映像列入白名单。",
+            "B": "使用容器分析 API 检测客户 Pod 使用的容器中的漏洞。",
+            "C": "创建一个 GKE 节点池，沙盒类型配置为 gvisor。在客户 Pod 的规范中添加参数 RuntimeClassName: gvisor。",
+            "D": "将 cos_containerd 映像用于您的 GKE 节点。将值为 cloud.google.com/gke-os-distribution: cos_containerd 的 nodeSelector 添加到客户 Pod 的规范中。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 98,
+        "题目内容": "您的客户实施了一个使用 Cloud Spanner 的解决方案，并注意到一个表上存在一些与读取延迟相关的性能问题。该表仅由其用户使用主键访问。表架构如下所示。您想要解决该问题。您应该怎么做？",
+        "选项": {
+            "A": "从表中删除 profile_picture 字段。",
+            "B": "在 person_id 列上添加二级索引。",
+            "C": "将主键更改为不具有单调递增的值。",
+            "D": "使用以下数据定义语言 (DDL) 创建二级索引：CREATE INDEX person_id_ix ON Persons (person_id, firstname, lastname) STORING (profile_picture)。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 99,
+        "题目内容": "您的财务团队想要查看项目的账单报告。您想确保财务团队不会获得该项目的额外权限。您应该怎么做？",
+        "选项": {
+            "A": "将财务团队的组添加到角色/计费用户角色。",
+            "B": "将财务团队的组添加到角色/计费管理员角色。",
+            "C": "将财务团队的组添加到角色/账单查看器角色。",
+            "D": "将财务团队的组添加到角色/计费项目/经理角色。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 100,
+        "题目内容": "您的组织对 Google Cloud 项目的访问控制有严格的要求。当站点可靠性工程师 (SRE) 开立支持案例时，您需要允许 SRE 批准来自 Google Cloud 支持团队的请求。您想遵循 Google 推荐的做法。您应该怎么做？",
+        "选项": {
+            "A": "将您的 SRE 添加到 role/iam.roleAdmin 角色。",
+            "B": "将您的 SRE 添加到 role/accessapproval.approver 角色。",
+            "C": "将您的 SRE 添加到一个组，然后将该组添加到 role/iam.roleAdmin.role。",
+            "D": "将您的 SRE 添加到一个组，然后将该组添加到 role/accessapproval.approver 角色。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 101,
+        "题目内容": "您需要在与其他团队共享的项目中的 Compute Engine 实例上托管应用程序。您想防止其他团队意外导致该应用程序停机。您应该使用哪个功能？",
+        "选项": {
+            "A": "使用 Shielded VM。",
+            "B": "使用可抢占虚拟机。",
+            "C": "使用单用户节点。",
+            "D": "在实例上启用删除保护。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 102,
+        "题目内容": "您的组织需要授予用户访问 BigQuery 中查询数据集的权限，但要防止他们意外删除数据集。您需要一个遵循 Google 推荐做法的解决方案。您应该怎么做？",
+        "选项": {
+            "A": "仅将用户添加到 role/bigquery 用户角色，而不是 role/bigquery dataOwner。",
+            "B": "仅将用户添加到 role/bigquery dataEditor 角色，而不是 role/bigquery dataOwner。",
+            "C": "通过删除删除权限创建自定义角色，并仅向该角色添加用户。",
+            "D": "通过删除删除权限创建自定义角色。将用户添加到组，然后将组添加到自定义角色。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 103,
+        "题目内容": "您有一台安装了 Ubuntu 上的 Cloud SDK 的开发人员笔记本电脑。Cloud SDK 是从 Google Cloud Ubuntu 软件包存储库安装的。您想使用 Cloud Datastore 在笔记本电脑上本地测试您的应用程序。您应该怎么做？",
+        "选项": {
+            "A": "使用 gcloud datastore export 导出 Cloud Datastore 数据。",
+            "B": "使用 gcloud datastore indexes create 创建 Cloud Datastore 索引。",
+            "C": "使用 apt get install 命令安装 google-cloud-sdk-datastore-emulator 组件。",
+            "D": "使用 gcloud components install 命令安装 cloud-datastore-emulator 组件。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 104,
+        "题目内容": "您的公司在 Google Cloud 上建立了一个复杂的组织结构，该结构包括数百个文件夹和项目。只有少数团队成员应该能够查看层次结构。您需要为这些团队成员分配最低权限，并且您希望遵循 Google 推荐的做法。您应该怎么做？",
+        "选项": {
+            "A": "将用户添加到角色/浏览器角色。",
+            "B": "将用户添加到 roles/iam.roleViewer 角色。",
+            "C": "将用户添加到一个组，并将该组添加到角色/浏览器。",
+            "D": "将用户添加到一个组，并将该组添加到 roles/iam.roleViewer 角色。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 105,
+        "题目内容": "贵公司拥有一个单点登录 (SSO) 身份提供商，支持与服务提供商集成安全断言标记语言 (SAML)。贵公司在 Cloud Identity 中有用户。您希望用户使用贵公司的 SSO 提供商进行身份验证。您应该怎么做？",
+        "选项": {
+            "A": "在 Cloud Identity 中，设置 SSO 并使用 Google 作为身份提供商来访问自定义 SAML 应用。",
+            "B": "在 Cloud Identity 中，使用第三方身份提供商设置 SSO，以 Google 作为服务提供商。",
+            "C": "获取 OAuth 2.0 凭证，配置用户同意屏幕，并为移动和桌面应用程序设置 OAuth 2.0。",
+            "D": "获取 OAuth 2.0 凭证，配置用户同意屏幕，并为 Web 服务器应用程序设置 OAuth 2.0。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 106,
+        "题目内容": "您的组织有专人负责创建和管理 Google Cloud 项目的所有服务帐号。您需要为该人员分配项目的最低角色。您应该怎么做？",
+        "选项": {
+            "A": "将用户添加到toles/iam.roleAdmin角色。",
+            "B": "将用户添加到toles/iam.securityAdmin角色。",
+            "C": "将用户添加到toles/iam.serviceAccountUser角色。",
+            "D": "将用户添加到toles/iam.serviceAccountAdmin角色。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 107,
+        "题目内容": "您正在为数据仓库构建归档解决方案，并选择了云存储来归档数据。出于某些监管要求，您的用户需要每季度访问一次此归档数据。您想选择一种经济高效的选项。您应该使用哪种存储选项？",
+        "选项": {
+            "A": "冷藏",
+            "B": "近线存储",
+            "C": "区域存储",
+            "D": "多区域存储"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 108,
+        "题目内容": "一组数据科学家偶尔需要使用您管理的 Google Kubernetes Engine (GKE) 集群。他们需要 GPU 来执行一些长时间运行、不可重启的作业。您想要尽量降低成本。您应该怎么做？",
+        "选项": {
+            "A": "在 GKE 集群上启用节点自动配置。",
+            "B": "为这些工作负载创建一个 VerticalPodAutoscaler。",
+            "C": "创建一个节点池，其中有可抢占的虚拟机以及连接到这些虚拟机的 GPU。",
+            "D": "创建一个具有 GPU 的实例节点池，并在该节点池上启用自动缩放功能，最小大小为 1。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 109,
+        "题目内容": "您的组织在 Active Directory 中拥有用户身份。您的组织希望使用 Active Directory 作为身份真实来源。您的组织希望完全控制员工用于所有 Google 服务的 Google 帐号，包括您的 Google Cloud Platform (GCP) 组织。您应该怎么做？",
+        "选项": {
+            "A": "使用 Google Cloud Directory Sync (GCDS) 将用户同步到 Cloud Identity。",
+            "B": "使用云身份 API 并编写脚本将用户同步到云身份。",
+            "C": "将 Active Directory 中的用户导出为 CSV，并通过管理控制台将其导入 Cloud Identity。",
+            "D": "要求每位员工通过自助注册方式创建一个 Google 帐户。要求每位员工使用公司电子邮件地址和密码。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 110,
+        "题目内容": "您已在项目中为应用程序成功创建开发环境。此应用程序使用 Compute Engine 和 Cloud SQL。现在您需要为该应用程序创建生产环境。安全团队已禁止这两个环境之间存在网络路由，并要求您遵循 Google 推荐的做法。您应该怎么做？",
+        "选项": {
+            "A": "创建一个新项目，在该项目中启用 Compute Engine 和 Cloud SQL API，并复制您在开发环境中创建的设置。",
+            "B": "在现有 VPC 中创建一个新的生产子网，在现有项目中创建一个新的生产 Cloud SQL 实例，并使用这些资源部署您的应用程序。",
+            "C": "创建一个新项目，将现有的 VPC 修改为其 IPC，与新项目共享该 VPC，并在共享 VPC 中的新项目中复制开发环境中的设置。",
+            "D": "要求安全团队授予您公司其他部门使用的现有生产项目中的项目编辑者角色。一旦他们授予您该角色，请在该项目中复制您在开发环境中的设置。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 111,
+        "题目内容": "您的管理层已要求外部审计员审查特定项目中的所有资源。安全团队已在组织节点上启用了名为“域限制共享”的组织策略，仅指定您的 Cloud Identity 域。您希望审计员只能查看但不能修改该项目的资源。您应该怎么做？",
+        "选项": {
+            "A": "向审核员索要他们的 Google 帐户，并授予他们该项目的查看者角色。",
+            "B": "向审核员索要他们的 Google 帐户，并授予他们该项目的安全审核员角色。",
+            "C": "在 Cloud Identity 中为审核员创建一个临时帐户，并授予该帐户对项目的查看者角色。",
+            "D": "在 Cloud Identity 中为审核员创建一个临时帐户，并赋予该帐户项目的安全审核员角色。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 112,
+        "题目内容": "您在 Compute Engine 上运行的工作负载对您的业务至关重要。您希望确保定期备份此工作负载的启动磁盘上的数据。您需要能够在发生灾难时尽快恢复备份。您还希望自动清理旧备份以节省成本。您想遵循 Google 推荐的做法。您应该怎么做？",
+        "选项": {
+            "A": "创建一个 Cloud Function 来创建实例模板。",
+            "B": "使用所需间隔为磁盘创建快照计划。",
+            "C": "创建一个 cron 作业，使用 gcloud 从磁盘创建一个新磁盘。",
+            "D": "创建一个云任务来创建图像并将其导出到云存储。"
+        },
+        "答案": "B"
+    },
+        {
+        "题号": 113,
+        "题目内容": "您需要将云身份和访问管理 (Cloud IAM) 角色分配给外部审计员。审计员需要有权限查看您的 Google Cloud Platform (GCP) 审计日志以及查看您的数据访问日志。您应该怎么做？",
+        "选项": {
+            "A": "为审核员分配 IAM 角色 role/logging, privateLogViewer。将日志导出到 Cloud Storage。",
+            "B": "为审计员分配 IAM 角色 role/logging, privateLogViewer。指示审计员还查看日志以了解 Cloud IAM 政策的变更。",
+            "C": "将审核员的 IAM 用户分配给具有logging, privateLogEntries.list权限的自定义角色。将日志导出到 Cloud Storage。",
+            "D": "将审核员的 IAM 用户分配给具有logging, privateLogEntries.list 权限的自定义角色。指示审核员还查看日志以了解 Cloud IAM 政策的变更。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 114,
+        "题目内容": "您正在管理多个 Google Cloud Platform (GCP) 项目，需要访问过去 60 天的所有日志。您希望能够探索并快速分析日志内容。您希望遵循 Google 推荐的做法来获取所有项目的合并日志。您应该怎么做？",
+        "选项": {
+            "A": "导航到 Stackdriver Logging 并选择 resource.labels.project_id=\"*\"",
+            "B": "创建 Stackdriver Logging Export，将 Sink 目标设置为 BigQuery 数据集。将表的有效期配置为 60 天。",
+            "C": "创建 Stackdriver Logging Export，将 Sink 目标设置为 Cloud Storage。创建生命周期规则，在 60 天后删除对象。",
+            "D": "配置 Cloud Scheduler 作业以从 Stackdriver 读取并将日志存储在 BigQuery 中。将表过期时间配置为 60 天。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 115,
+        "题目内容": "您需要使用尽可能少的步骤降低公司某个部门的 GCP 服务成本。您需要关闭现有 GCP 项目中的所有已配置服务。您应该怎么做？",
+        "选项": {
+            "A": "1. 确认您已为该项目分配了项目所有者 IAM 角色。2. 在 GCP 控制台中找到该项目，单击关闭，然后输入项目 ID。",
+            "B": "1. 验证您是否被分配了该项目的项目所有者 IAM 角色。2. 在 GCP 控制台中切换到该项目，找到资源并将其删除。",
+            "C": "1. 确认您已分配该项目的组织管理员 IAM 角色。2. 在 GCP 控制台中找到该项目，输入项目 ID，然后单击关闭。",
+            "D": "1. 验证您是否被分配了该项目的组织管理员 IAM 角色。2. 在 GCP 控制台中切换到该项目，找到资源并将其删除。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 116,
+        "题目内容": "您正在为跨多个项目的应用程序配置服务帐户。在 web-applications 项目中运行的虚拟机 (VM) 需要访问 crm-databases-proj 中的 BigQuery 数据集。您想遵循 Google 推荐的做法，授予 web-applications 项目中服务帐户的访问权限。您应该怎么做？",
+        "选项": {
+            "A": "为 crm-databases-proj 赋予 web 应用程序“项目所有者”适当的角色。",
+            "B": "赋予 crm-databases-proj 和 web-applications 项目“项目所有者”角色。",
+            "C": "将“项目所有者”角色授予 crm-databases-proj，并将 bigquery.dataViewer 角色授予 web-applications。",
+            "D": "将 bigquery.dataViewer 角色赋予 crm-databases-proj，并将适当的角色赋予 web-applications。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 117,
+        "题目内容": "一名员工被解雇，但直到两周后才取消了他们对 Google Cloud 的访问权限。您需要明确这名员工在被解雇后是否访问了任何敏感的客户信息。您应该怎么做？",
+        "选项": {
+            "A": "在 Cloud Logging 中查看系统事件日志。搜索用户的电子邮件作为主体。",
+            "B": "在 Cloud Logging 中查看系统事件日志。搜索用户关联的服务帐户。",
+            "C": "在 Cloud Logging 中查看数据访问审核日志。以主体身份搜索用户的电子邮件。",
+            "D": "查看 Cloud Logging 中的管理员活动日志。搜索与用户关联的服务帐户。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 118,
+        "题目内容": "您需要创建一个自定义 IAM 角色以用于 GCP 服务。角色中的所有权限都必须适合生产使用。您还想与您的组织清楚地分享自定义角色的状态。这将是自定义角色的第一个版本。您应该怎么做？",
+        "选项": {
+            "A": "在您的角色中使用对角色权限使用“支持”支持级别的权限。在测试角色权限时将角色阶段设置为 ALPHA。",
+            "B": "在您的角色中使用对角色权限使用“支持”支持级别的权限。在测试角色权限时将角色阶段设置为 BETA。",
+            "C": "在您的角色中使用对角色权限使用“测试”支持级别的权限。在测试角色权限时将角色阶段设置为 ALPHA。",
+            "D": "在您的角色中使用对角色权限使用“测试”支持级别的权限。在测试角色权限时将角色阶段设置为 BETA。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 119,
+        "题目内容": "您的公司拥有大量不同文件格式的非结构化数据。您想要对数据执行 ETL 转换。您需要使数据在 Google Cloud 上可访问，以便可以通过 Dataflow 作业进行处理。您应该怎么做？",
+        "选项": {
+            "A": "使用 bq 命令行工具将数据上传到 BigQuery。",
+            "B": "使用 gsutil 命令行工具将数据上传到云存储。",
+            "C": "在 Google Cloud 控制台中的导入功能将数据上传到 Cloud SQL。",
+            "D": "在 Google Cloud 控制台中的导入功能将数据上传到 Cloud Spanner。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 120,
+        "题目内容": "您需要以尽可能少的步骤管理多个 Google Cloud 项目。您想要配置 Google Cloud SDK 命令行界面 (CLI)，以便轻松管理多个项目。您应该怎么做？",
+        "选项": {
+            "A": "1. 为您需要管理的每个项目创建一个配置。2. 在处理每个分配的 Google Cloud 项目时激活相应的配置。",
+            "B": "1. 为您需要管理的每个项目创建一个配置。2. 当您需要使用非默认项目时，使用 gcloud init 更新配置值。",
+            "C": "1. 对您需要管理的一个项目使用默认配置。2. 在处理每个分配的 Google Cloud 项目时激活当前配置。",
+            "D": "1. 对您需要管理的一个项目使用默认配置。2. 当您需要使用非默认项目时，使用 gcloud init 更新配置值。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 121,
+        "题目内容": "您的托管实例组发出警报，指出新实例创建失败。您需要维持模板指定的正在运行的实例数量，以便能够处理预期的应用程序流量。您应该怎么做？",
+        "选项": {
+            "A": "创建包含有效语法的实例模板，供实例使用。删除与实例名称同名的所有持久磁盘。",
+            "B": "创建包含实例组件使用的有效语法的实例模板。验证模板中的实例名称和持久磁盘名称是否不同。",
+            "C": "验证实例组使用的实例模板是否包含有效语法。删除任何与实例名称同名的持久磁盘。在实例模板中将 disks autoDelete 属性设置为 true。",
+            "D": "删除当前实例模板并将其替换为新实例模板。验证模板中的实例名称和持久磁盘名称是否不同。在实例模板中将 disks autoDelete 属性设置为 true。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 122,
+        "题目内容": "您的公司正在从本地环境迁移到 Google Cloud。您有多个开发团队使用 Cassandra 环境作为后端数据库。他们都需要一个与其他 Cassandra 实例隔离的开发环境。您希望快速迁移到 Google Cloud，并且尽量减少支持工作量。您应该怎么做？",
+        "选项": {
+            "A": "1. 构建在 Google Cloud 上安装 Cassandra 的说明指南。2. 让开发人员可以访问该说明指南。",
+            "B": "1. 建议您的开发人员访问云市场。2. 要求开发人员为他们的开发工作启动 Cassandra 映像。",
+            "C": "1. 构建 Cassandra Compute Engine 实例并拍摄其快照。2. 使用快照为您的开发人员创建实例。",
+            "D": "1. 构建 Cassandra Compute Engine 实例并拍摄快照。2. 将快照上传到 Cloud Storage 并让开发人员可以访问。3. 构建说明以从快照创建 Compute Engine 实例，以便开发人员可以自行完成。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 123,
+        "题目内容": "您有一个托管生产应用程序的 Compute Engine 实例。如果该实例消耗的 CPU 资源超过 90% 且持续时间超过 15 分钟，您希望收到一封电子邮件。您想使用 Google 服务。您应该怎么做？",
+        "选项": {
+            "A": "1. 创建消费者 Gmail 帐户。2. 编写一个监控 CPU 使用率的脚本。3. 当 CPU 使用率超过阈值时，让该脚本使用 Gmail 帐户和端口 25 上的 smtp.gmail.com 作为 SMTP 服务器发送电子邮件。",
+            "B": "1. 创建云监控工作区并将您的 Google Cloud Platform (GCP) 项目与其关联。2. 创建使用阈值作为触发条件的云监控报警策略。3. 在通知过程中配置您的电子邮件地址。",
+            "C": "1. 创建 Cloud Monitoring 工作区并将您的 GCP 项目与其关联。2. 编写一个脚本来监控 CPU 使用率并将其作为自定义指标发送到 Cloud Monitoring。3. 在 Cloud Monitoring 中为实例创建正常运行时间检查。",
+            "D": "1. 在 Cloud Logging 中，创建一个基于日志的指标，使用以下正则表达式提取 CPU 使用率：CPU 使用率：(0.9)(1.3)% 2. 在 Cloud Monitoring 中，根据此指标创建警报策略。3. 在通知过程中配置您的电子邮件地址。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 124,
+        "题目内容": "您有一个使用 Cloud Spanner 作为后端数据库的应用程序。该应用程序的流量模式非常可预测。您想根据流量自动增加或减少 Spanner 节点的数量。您应该怎么做？",
+        "选项": {
+            "A": "创建一个按计划运行的 cron 作业来检查云监控指标，然后相应地调整 Spanner 实例的大小。",
+            "B": "创建 Cloud Monitoring 警报策略，当 Cloud Spanner CPU 超过阈值时向值班 SRE 电子邮件发送警报。SRE 会相应地增加或减少资源。",
+            "C": "创建 Cloud Monitoring 警报策略，当 Cloud Spanner CPU 超出阈值时向 Google Cloud Support 电子邮件发送警报。Google 支持会相应地增加或减少资源。",
+            "D": "创建 Cloud Monitoring 警报策略，当 Cloud Spanner CPU 超过或低于阈值时向 webhook 发送警报。创建一个 Cloud Function，用于监听 HTTP 并相应地调整 Spanner 资源的大小。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 125,
+        "题目内容": "您的公司在 Compute Engine 实例上运行的 Apache Web 服务器上发布大型文件。Apache Web 服务器不是项目中运行的唯一应用程序。当服务器的出站网络费用超过 Google Cloud 测量的当月 100 美元时，您希望收到一封电子邮件。您应该怎么做？",
+        "选项": {
+            "A": "设置项目预算预警，金额为 100 美元，阈值为 100%，通知类型为“电子邮件”。",
+            "B": "在账单账户上设置预算警报，金额为 100 美元，阈值为 100%，通知类型为“电子邮件”。",
+            "C": "将账单数据导出到 BigQuery。创建一个 Cloud Function，使用 BigQuery 汇总当月 Apache Web 服务器导出账单数据的出口网络成本，如果超过 100 美元则发送电子邮件。使用 Cloud Scheduler 安排 Cloud Function 每小时运行一次。",
+            "D": "使用 Cloud Logging Agent 将 Apache Web 服务器日志导出到 Cloud Logging。创建一个 Cloud Function，使用 BigQuery 解析 Cloud Logging 中当前月份的 HTTP 响应日志数据，如果所有 HTTP 响应的大小乘以当前 Google Cloud 出口价格总计超过 100 美元，则发送电子邮件。使用 Cloud Scheduler 安排 Cloud Function 每小时运行一次。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 126,
+        "题目内容": "您在 Google Cloud 上设计了一个使用多种 Google Cloud 产品的解决方案。您的公司要求您估算该解决方案的成本，您需要提供每月成本的估算。您应该怎么做？",
+        "选项": {
+            "A": "对于解决方案中的每个 Google Cloud 产品，请查看产品定价页面上的定价详情。使用定价计算器计算每个 Google Cloud 产品的每月费用总额。",
+            "B": "对于解决方案中的每个 Google Cloud 产品，查看产品定价页面上的定价详情。创建一个 Google Sheet，汇总每个产品的预期每月费用。",
+            "C": "在 Google Cloud 上配置解决方案。让解决方案保持 1 周的配置状态。导航到 Cloud Console 中的结算报告页面。将 1 周费用乘以确定每月费用。",
+            "D": "在 Google Cloud 上配置解决方案。让解决方案保持 1 周的配置状态。使用 Cloud Monitoring 确定已配置和已使用的资源量。乘以 1 周费用可确定每月费用。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 127,
+        "题目内容": "您有一个在端口 443 上接收 SSL 加密 TCP 流量的应用程序。此应用程序的客户端遍布世界各地。您希望最大限度地减少客户端的延迟。您应该使用哪种负载平衡选项？",
+        "选项": {
+            "A": "HTTPS 负载均衡器",
+            "B": "网络负载均衡器",
+            "C": "SSL 代理负载均衡器",
+            "D": "内部 TCP/UDP 负载均衡器。在目标实例上添加允许来自 0.0.0.0/0 的入口流量的防火墙规则。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 128,
+        "题目内容": "您在通用 Compute Engine 实例上有一个应用程序，该应用程序在其区域 SSD 持久磁盘上遇到了过多的磁盘读取限制。该应用程序主要从磁盘读取大文件。磁盘大小当前为 350 GB。您想在最小化成本的同时提供最大的吞吐量。您应该怎么做？",
+        "选项": {
+            "A": "将磁盘大小增加到 1 TB。",
+            "B": "增加分配给实例的 CPU。",
+            "C": "迁移至实例上使用本地 SSD。",
+            "D": "迁移至实例上使用区域 SSD。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 129,
+        "题目内容": "您的 Dataproc 集群在单个虚拟私有云 (VPC) 网络中的单个子网中运行，范围为 172.16.20.128/25。VPC 网络中没有可用的私有 IP 地址。您想使用最少的步骤添加新虚拟机以与您的集群进行通信。您应该怎么做？",
+        "选项": {
+            "A": "将现有的子网范围修改为 172.16.20.0/24。",
+            "B": "在 VPC 中创建新的辅助 IP 范围并配置虚拟机以使用该范围。",
+            "C": "为虚拟机创建新的 VPC 网络。在虚拟机的 VPC 网络和 Dataproc 集群 VPC 网络之间启用 VPC 对等互连。",
+            "D": "为虚拟机创建一个新的 VPC 网络，子网为 172.32.0.0/16。在 Dataproc VPC 网络和虚拟机 VPC 网络之间启用 VPC 网络对等互连。配置自定义路由交换。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 130,
+        "题目内容": "您有一个在 App Engine 标准环境中托管的网站。您希望 1% 的用户看到该网站的新测试版本。您希望尽量减少复杂性。您应该怎么做？",
+        "选项": {
+            "A": "在同一个应用程序中部署新版本并使用-migrate选项。",
+            "B": "在同一个应用程序中部署新版本，并使用-splits选项为当前版本赋予权重99，为新版本赋予权重1。",
+            "C": "在同一个项目中创建一个新的 App Engine 应用程序。在该应用程序中部署新版本。使用 App Engine 库将 1% 的请求代理到新版本。",
+            "D": "在同一项目中创建一个新的 App Engine 应用程序。在该应用程序中部署新版本。配置网络负载平衡器以将 1% 的流量发送到该新应用程序。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 131,
+        "题目内容": "您有一个虚拟机，当前配置了 2 个 vCPU 和 4 GB 内存。它内存不足。您想将虚拟机升级为 8 GB 内存。您应该怎么做？",
+        "选项": {
+            "A": "依靠实时迁移将工作负载转移到具有更多内存的机器上。",
+            "B": "使用 gcloud 将元素数据添加到虚拟机。将键设置为 required-memory-size，将值设置为 8 GB。",
+            "C": "停止虚拟机，将机器类型改为 n1-standard-8，然后启动虚拟机。",
+            "D": "停止虚拟机，将内存增加到 8 GB，然后启动虚拟机。"
+        },
+        "答案": "D"
+       },
+       {
+        "题号": 132,
+        "题目内容": "您在单个 Compute Engine 实例上部署了一个应用程序。该应用程序将日志写入磁盘。用户开始报告该应用程序的错误。您想诊断问题。您应该怎么做？",
+        "选项": {
+            "A": "导航到 Cloud Logging 并查看应用程序日志。",
+            "B": "连接到实例的串行控制台并读取应用程序日志。",
+            "C": "在实例上配置健康检查并设置低健康阈值。",
+            "D": "安装并配置云日志代理并查看来自云日志的日志。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 133,
+        "题目内容": "应用程序在 Compute Engine 虚拟机 (VM) 中生成每日报告。VM 位于项目 corp-iot-insights 中。您的团队仅在项目 corp-aggregate-reports 中操作，并且需要存储桶 corp-aggregate-reports-storage 中的每日导出副本。您想要配置访问权限，以便 VM 的每日报告可在存储桶 corp-aggregate-reports-storage 中使用，并遵循 Google 推荐的做法，尽可能少地使用步骤。您应该怎么做？",
+        "选项": {
+            "A": "将两个项目移至同一文件夹下。",
+            "B": "授予 VM 服务帐户在 corp-aggregate-reports-storage 上的存储对象创建者角色。",
+            "C": "在两个项目之间创建共享 VPC 网络。授予 VM 服务帐户 corp-iot-insights 上的存储对象创建者角色。",
+            "D": "将 corp-aggregate-reports-storage 公开，并创建一个带有伪随机后缀名的文件夹。与 IoT 团队共享该文件夹。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 134,
+        "题目内容": "您在使用 Google Cloud 服务的开发笔记本电脑上构建了一个应用程序。您的应用程序使用应用程序默认凭据进行身份验证，并且在开发笔记本电脑上运行良好。您想要将此应用程序迁移到 Compute Engine 虚拟机 (VM)，并使用 Google 推荐的做法和最少的更改设置身份验证。您应该怎么做？",
+        "选项": {
+            "A": "为 Compute Engine VM 使用的服务帐户分配对 Google 服务的适当访问权限。",
+            "B": "创建一个具有适当的 Google 服务访问权限的服务帐户，并配置应用程序以使用该帐户。",
+            "C": "将具有适当的 Google 服务访问权限的服务帐户的凭据存储在配置文件中，并将此配置文件部署到您的应用程序中。",
+            "D": "将具有适当的 Google 服务访问权限的用户帐户凭据存储在配置文件中，并将此配置文件部署到您的应用程序中。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 135,
+        "题目内容": "您需要在一个尚不存在的新项目中创建一个 Compute Engine 实例。您应该怎么做？",
+        "选项": {
+            "A": "使用 Cloud SDK 创建一个新项目，在该项目中启用 Compute Engine API，然后创建指定新项目的实例。",
+            "B": "在 Cloud Console 中启用 Compute Engine API，使用 Cloud SDK 创建实例，然后使用 -project 标志指定新项目。",
+            "C": "使用 Cloud SDK 创建新实例，并使用 -project 标志指定新项目。当 Cloud SDK 提示启用 Compute Engine API 时，回答是。",
+            "D": "在 Cloud Console 中启用 Compute Engine API。转到控制台的 Compute Engine 部分以创建新实例，并在创建表中查找在新项目中创建选项。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 136,
+        "题目内容": "您的公司在本地服务器中运行一个批处理过程，大约需要 30 小时才能完成。该任务每月运行一次，可以离线执行，如果中断则必须重新启动。您想将此工作负载迁移到云中，同时尽量降低成本。您应该怎么做？",
+        "选项": {
+            "A": "将工作负载迁移到 Compute Engine 可抢占虚拟机。",
+            "B": "将工作负载迁移到具有可抢占节点的 Google Kubernetes Engine 集群。",
+            "C": "将工作负载迁移到 Compute Engine VM。根据需要启动和停止实例。",
+            "D": "创建启用了可抢占虚拟机的实例模板。从模板创建托管实例组件调整目标 CPU 利用率。迁移工作负载。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 137,
+        "题目内容": "您正在开发一个新应用程序，并正在寻找 Jenkins 安装来构建和部署您的源代码。您希望尽可能快速轻松地自动完成安装。您应该怎么做？",
+        "选项": {
+            "A": "通过 Google Cloud Marketplace 部署 Jenkins。",
+            "B": "创建一个新的 Compute Engine 实例。运行 Jenkins 可执行文件。",
+            "C": "创建一个新的 Kubernetes 集群。为 Jenkins Docker 镜像创建部署。",
+            "D": "使用 Jenkins 可执行文件创建实例模板。使用此模板创建托管实例组。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 138,
+        "题目内容": "您已下载并安装了 gcloud 命令行界面 (CLI)，并已通过您的 Google 帐户进行身份验证。您项目中的大多数 Compute Engine 实例都在 europe-west1-d 区域中运行。您希望避免在管理这些实例时必须使用每个 CLI 命令指定此区域。您应该怎么做？",
+        "选项": {
+            "A": "使用 gcloud config 子命令将 europe-west1-d 区域设置为默认区域。",
+            "B": "在 Compute Engine 的“设置”页面的“默认位置”下，将区域设置为 europeaC west1-d。",
+            "C": "在 CLI 安装目录中，创建一个名为 default.conf 的文件，其中包含 zone-europeaC west1aC'd。",
+            "D": "在 Compute Engine 页面上创建一个元数据条目，其键为 compute/zone，值为 europeaC west1aC'd。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 139,
+        "题目内容": "贵公司的核心业务是大规模出租建筑设备。所有出租的设备都配备了多个传感器，每隔几秒钟发送一次事件信息。这些信号可能因发动机状态、行驶距离、燃油水平等而异。客户根据这些传感器监测的消耗量付费。您期望高吞吐量“每台设备每小时最多数千个事件”，并且需要根据事件时间检索一致的数据。存储和检索单个信号应该是原子的。你应该怎么做？",
+        "选项": {
+            "A": "在云存储中为每个设备创建一个文件，并将新数据附加到该文件。",
+            "B": "在 Cloud Filescore 中为每个设备创建一个文件，并将新数据附加到该文件。",
+            "C": "将数据导入数据存储区。根据设备将数据存储在实体组中。",
+            "D": "将数据导入 Cloud Bigtable。根据事件时间戳创建行健。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 140,
+        "题目内容": "您需要在 Google Cloud 项目 A、B 和 C 上设置应用程序性能监控，作为单一管理平台。您想要监控 CPU、内存和磁盘。您应该怎么做？",
+        "选项": {
+            "A": "启用 API，然后共享项目 A、B 和 C 的图表。",
+            "B": "启用 API，然后赋予项目 A、B 和 C metrics.reader 角色。",
+            "C": "启用 API，然后使用默认仪表板按顺序查看所有项目。",
+            "D": "启用 API，在项目 A 下创建工作区，然后添加项目 B和 C。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 141,
+        "题目内容": "您在多个 Google Cloud 项目中创建了多项资源。所有项目都链接到不同的结算帐号。为了更好地估算未来费用，您希望以单一的直观方式呈现所有产生的费用。您希望尽快包含新的费用数据。您应该怎么做？",
+        "选项": {
+            "A": "配置计费数据导出到 BigQuery 并在 Data Studio 中可视化数据。",
+            "B": "访问成本表页面以获取 CSV 导出并使用 Data Studio 对其进行可视化。",
+            "C": "在定价计算器中填写所有资源，以获得每月费用的估算。",
+            "D": "使用 Cloud Billing Console 中的报告视图查看所需的费用信息。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 142,
+        "题目内容": "您的公司在 Compute Engine 和本地运行工作负载。Google Cloud 虚拟私有云 (VPC) 通过虚拟专用网络 (VPN) 连接到您的 WAN。您需要部署一个新的 Compute Engine 实例并确保没有公共互联网流量可以路由到它。您应该怎么做？",
+        "选项": {
+            "A": "创建没有公网IP地址的实例。",
+            "B": "创建启用了私有 Google Access 的实例。",
+            "C": "在 VPC 网络上创建拒绝所有出站防火墙规则。",
+            "D": "在 VPC 上创建一条路由，以通过 VPN 隧道将所有流量路由到实例。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 143,
+        "题目内容": "您的团队负责维护组织的基础架构。当前的基础架构需要更改。您需要与团队的其他成员分享您提议的更改。您想遵循 Google 推荐的最佳做法。您应该怎么做？",
+        "选项": {
+            "A": "使用部署管理模块描述建议的更改并将其存储在云存储槽中。",
+            "B": "使用部署管理模块描述建议的更改并将其存储在云存储槽中。",
+            "C": "在开发环境中应用更改，运行 global compute instance list，然后将输出保存在共享存储槽中。",
+            "D": "在开发环境中应用更改，运行 global compute instance list，然后将输出保存在 Cloud Source Repositories 中。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 144,
+        "题目内容": "您有一个 Compute Engine 实例，用于托管工作日上午 9 点到下午 6 点使用的应用程序。您希望每天备份此实例以用于灾难恢复。您希望将备份保留 30 天。您希望采用 Google 推荐的解决方案，其管理开销最少，服务数量最少。您应该怎么做？",
+        "选项": {
+            "A": "1. 更新实例的元数据以添加以下值：snapshot:schedule:0 1 * **2. 更新实例的元数据以添加以下值：snapshot:retention:30",
+            "B": "1. 在 Cloud Console 中，转到 Compute Engine 磁盘页面并选择您的实例的磁盘。2. 在快照计划部分中，选择创建计划并配置以下参数：- 计划频率：每日 - 开始时间：凌晨 1:00 到凌晨 2:00 - 自动删除快照时间：30 天",
+            "C": "1. 创建一个 Cloud Function，用于创建实例磁盘的快照。2. 创建一个 Cloud Function，用于删除超过 30 天的快照。3. 使用 Cloud Scheduler 每天凌晨 1:00 触发两个 Cloud Function。",
+            "D": "1. 在实例中创建一个 bash 脚本，将磁盘内容复制到 Cloud Storage。2. 在实例中创建一个 bash 脚本，删除备份 Cloud Storage 存储桶中超过 30 天的数据。3. 配置实例的 crontab 以每天凌晨 1:00 执行这些脚本。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 145,
+        "题目内容": "您在 Google Kubernetes Engine (GKE) 中运行的现有应用程序由在四个 GKE n1 \"standard\" 2 节点上运行的多个 pod 组成。您需要在不停机的情况下部署需要 n2 \"highmem\"16 节点的其他 pod。您应该怎么做？",
+        "选项": {
+            "A": "使用 gcloud container clusters upgrade，部署新服务。",
+            "B": "创建一个新的节点地址并指定机器类型 n2a \"highmem16\" 6a. 部署新的 pod。",
+            "C": "创建一个具有 n2a \"highmem16\" 6a 个节点的新集群。重新部署 pod 并删除旧集群。",
+            "D": "创建一个包含 n1 (standard) 2 和 n2 (highmem) 16 节点的新集群。重新部署 pod 并删除旧集群。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 146,
+        "题目内容": "您有一个使用 Cloud Spanner 作为数据库后端来保存有关用户的当前状态信息的应用程序。Cloud Bigtable 记录用户触发的所有事件。您在每日备份期间将 Cloud Spanner 数据导出到 Cloud Storage。您的一位分析师要求您将 Cloud Spanner 和 Cloud Bigtable 中的特定用户数据合并。您希望尽可能高效地完成此临时请求。您应该怎么做？",
+        "选项": {
+            "A": "创建一个数据流作业，为特定用户从 Cloud Bigtable 和 Cloud Storage 复制数据。",
+            "B": "创建一个数据流作业，为特定用户从 Cloud Bigtable 和 Cloud Spanner 复制数据。",
+            "C": "创建一个 Cloud Dataproc 集群，运行 Spark 作业，从 Cloud Bigtable 和 Cloud Storage 中为特定用户提取数据。",
+            "D": "在 Cloud Storage 和 Cloud Bigtable 上创建两个单独的 BigQuery 外部表。使用 BigQuery 控制台通过用户字段连接这些表，并应用适当的过滤器。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 147,
+        "题目内容": "您正在美国“central” “a”中托管 Compute Engine 虚拟机 (VM) 的应用程序。您想要调整设计以支持单个 Compute Engine 区域发生故障，消除停机时间并最大限度地降低成本。您应该怎么做？",
+        "选项": {
+            "A": "在美国 central b 中创建 Compute Engine 资源。在美国 central a 和美国 central b 之间平衡负载。",
+            "B": "创建一个托管实例并指定我们 central a 作为区域。使用较短的健康间隔配置健康检查。",
+            "C": "创建 HTTP(S) 负载均衡器。创建一个或多个全局转发规则以将流量引导至您的虚拟机。",
+            "D": "定期备份您的应用程序。创建这些监控报警，并在应用程序不可用时收到通知。收到通知后从备份中恢复。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 148,
+        "题目内容": "一位同事将一个 Google Cloud Platform 项目交给您维护。作为安全检查的一部分，您想要查看谁被授予了项目所有者角色。您应该怎么做？",
+        "选项": {
+            "A": "在控制台中，验证哪些 SSH 密钥已存储为项目范围的密钥。",
+            "B": "导航到 Identity-Aware Proxy 并检查这些资源的权限。",
+            "C": "在所有资源的 IAM 和管理页面上启用审计日志，并验证结果。",
+            "D": "使用命令 gcloud projects getaf\"iamaf\"policy 查看当前角色分配。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 149,
+        "题目内容": "您正在同一子网中运行多个 VPC 原生 Google Kubernetes Engine 集群。节点可用的 IP 已用尽，并且您想确保集群可以在需要时增加节点。您应该怎么做？",
+        "选项": {
+            "A": "在与正在使用的子网相同的区域创建一个新的子网。",
+            "B": "为 GKE 集群使用的子网添加别名 IP 范围。",
+            "C": "创建一个新的 VPC，并与现有 VPC 建立 VPC 对等连接。",
+            "D": "扩展集群相关子网的CID范围。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 150,
+        "题目内容": "您有一个批处理工作负载，每晚运行并使用大量虚拟机 (VM)。它具有容错能力，可以容忍部分虚拟机被终止。当前虚拟机的成本太高。您应该怎么做？",
+        "选项": {
+            "A": "使用模拟维护事件运行测试。如果测试成功，则在运行未来作业时使用可抢占的 N1 标准虚拟机。",
+            "B": "使用模拟维护事件运行测试。如果测试成功，则在运行未来作业时使用 N1 标准虚拟机。",
+            "C": "使用托管实例组运行测试。如果测试成功，则在运行未来作业时使用托管实例组中的 N1 标准虚拟机。",
+            "D": "使用 N1 标准虚拟机（而不是 N2）运行测试。如果测试成功，则在运行未来的作业时使用 N1 标准虚拟机。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 151,
+        "题目内容": "您正在与用户合作在防火墙后面的新 VPC 中设置应用程序。用户担心数据流出。您希望配置最少的开放流出口。您应该怎么做？",
+        "选项": {
+            "A": "设置一个阻止所有出口的低优先级（65534）规则和一个仅允许适当端口的高优先级规则（1000）。",
+            "B": "设置一个将入驻和出站端口配对的高优先级（1000）规则。",
+            "C": "设置一个阻止所有出口的高优先级（1000）规则和一个仅允许适当端口的低优先级（65534）规则。",
+            "D": "设置高优先级（1000）规则以允许适当的端口。"
+        },
+        "答案": "A"
+    },
+       {
+        "题号": 152,
+        "题目内容": "贵公司在 Compute Engine 实例上运行 Linux 工作负载。贵公司将与不使用 Google 帐号的新运营合作伙伴合作。您需要向运营合作伙伴授予实例访问权限，以便他们维护已安装的工具。您应该怎么做？",
+        "选项": {
+            "A": "为 Compute Engine 实例启用 Cloud IAP，并将运营合作伙伴添加为 Cloud IAP Tunnel User。",
+            "B": "为所有实例添加相同的网络标签。在 VPC 中创建防火墙规则，以允许运营合作伙伴向具有网络标签的实例发送流量，从而允许其在端口 22 上进行 TCP 访问。",
+            "C": "在您的 Google Cloud VPC 和运营合作伙伴的内部网络之间设置 Cloud VPN。",
+            "D": "要求运营合作伙伴生成 SSH 密钥，并将公钥添加到 VM 实例。"
+        },
+        "答案": "A"
+    },
+       {
+        "题号": 153,
+        "题目内容": "您创建了一个代码片段，该代码片段应在新文件上传到 Cloud Storage 存储桶时触发。您想要部署此代码片段。您应该怎么做？",
+        "选项": {
+            "A": "使用 App Engine 并配置 Cloud Scheduler 以使用 Pub/Sub 触发应用程序。",
+            "B": "使用 Cloud Functions 并将存储桶配置为触发资源。",
+            "C": "使用 Google Kubernetes Engine 并配置 CronJob 以使用 Pub/Sub 触发应用程序。",
+            "D": "使用 Dataflow 作为批处理作业，并将存储桶配置为数据源。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 154,
+        "题目内容": "您想要配置一个解决方案来将数据归档到 Cloud Storage 存储桶中。该解决方案必须具有成本效益。具有多个版本的数据应在30天后归档。每月访问一次以前的版本以进行报告。此归档数据也会在月底偶尔更新。您应该怎么做？",
+        "选项": {
+            "A": "添加一个存储桶生命周期规则，将30天后按新版本的数据存档到 Coldline Storage。",
+            "B": "添加一个存储桶生命周期规则，将30天后按新版本的数据存档到近线存储。",
+            "C": "添加一个存储桶生命周期规则，将30天后的区域存储中的数据存档到 Coldline Storage。",
+            "D": "添加一个存储桶生命周期规则，将30天后的区域存储中的数据归档到近线存储。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 155,
+        "题目内容": "您正在 Cloud Storage 存储桶中存储敏感信息。出于法律原因，您需要能够记录读取任何存储数据的所有请求。您想确保遵守这些要求。您应该怎么做？",
+        "选项": {
+            "A": "在项目上启用 Identity Aware Proxy API。",
+            "B": "使用数据丢失预防 API 扫描存储桶。",
+            "C": "只允许单个服务帐户访问读取数据。",
+            "D": "为云存储 API 启用数据访问审核日志。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 156,
+        "题目内容": "您是 10 名开发人员组成的团队负责人。您为每位开发人员提供了一个单独的 Google Cloud 项目，他们可以将其用作个人沙盒来试验不同的 Google Cloud 解决方案。您希望在开发人员每月在沙盒环境中花费超过 500 美元时收到通知。您应该怎么做？",
+        "选项": {
+            "A": "为所有项目创建单一预算并针对该预算配置预算警报。",
+            "B": "为每个沙盒项目的唯一一个单独的结算帐户开启用 BigQuery 结算导出。创建 Data Studio 仪表板以绘制每个结算帐户的支出情况。",
+            "C": "为每个项目创建预算，并为所有这些预算配置预算警报。",
+            "D": "为所有沙盒项目的唯一一个结算帐户开启用 BigQuery 结算导出。创建 Data Studio 信息中心来绘制每个项目的支出情况。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 157,
+        "题目内容": "您正在 Compute Engine 上部署生产应用程序。您想防止任何人通过点击错误的按钮意外破坏实例。您应该怎么做？",
+        "选项": {
+            "A": "禁用标志“删除实例时删除启动磁盘”。",
+            "B": "在实例上启用删除保护。",
+            "C": "禁用实例上的自动重启。",
+            "D": "在实例上启用抢占功能。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 158,
+        "题目内容": "您的公司将大量 Google Cloud 服务集中在一个项目中。所有团队都有特定的测试和开发项目。DevOps 团队需要访问所有生产服务才能完成他们的工作。您希望防止 Google Cloud 产品更改在未来扩大他们的权限。您希望遵循 Google 推荐的做法。您应该怎么做？",
+        "选项": {
+            "A": "授予 DevOps 团队所有成员组织级别的项目编辑者角色。",
+            "B": "授予 DevOps 团队所有成员生产项目的项目编辑者角色。",
+            "C": "创建一个结合所需权限的自定义角色。授予 DevOps 团队在生产项目上的自定义角色。",
+            "D": "创建一个结合所需权限的自定义角色。在组织级别授予 DevOps 团队自定义角色。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 159,
+        "题目内容": "您正在构建一个应用程序来处理从数千家供应商上传的数据文件。您对该应用程序的主要目标是数据安全和过期数据过期。您需要设计应用程序来：* 限制访问，以便供应商能够访问自己的数据。* 仅授予供应商30分钟的数据写入权限。* 删除超过45天的数据。您的开发周期非常短，您需要确保该应用程序需要的维护最少。您应该使用哪两种策略？（选择两个。）",
+        "选项": {
+            "A": "建立一个生命周期策略，在45天后删除云存储对象。",
+            "B": "使用签名的URL允许供应商在有限的时间内访问存储他们的对象。",
+            "C": "为您的应用程序设置一个SFTP服务器，并为每个供应商创建一个单独的用户。",
+            "D": "构建一个云函数，触发45天时计时器来删除已过期的对象。",
+            "E": "开发一个脚本，循环遍历所有云存储存储并删除任何超过45天的存储桶。"
+        },
+        "答案": "AB"
+    },
+    {
+        "题号": 160,
+        "题目内容": "您的公司希望使用基础设施即代码来标准化多个Google Cloud资源的创建和管理。您希望尽量减少管理环境所需的重要代码量。您应该怎么做？",
+        "选项": {
+            "A": "使用云部署管理器为环境开发模板。",
+            "B": "在终端中使用curl向每个单独资源的相关Google API发送REST请求。",
+            "C": "使用云控制台界面配置和管理所有相关资源。",
+            "D": "创建一个bash脚本，其中包含所有要求步骤作为gcloud命令。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 161,
+        "题目内容": "您正在对Google Cloud环境进行每月安全检查，并想知道谁有权查看存储在您的Google Cloud项目中的数据。您应该怎么做？",
+        "选项": {
+            "A": "为所有与数据存储相关的API启用审计日志。",
+            "B": "审查允许数据访问的任何角色的IAM权限。",
+            "C": "检查每个资源的身份感知代理设置。",
+            "D": "创建数据丢失预防作业。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 162,
+        "题目内容": "您的公司已采用混合云策略，其中一些应用程序部署在 Google Cloud 上。虚拟专用网络 (VPN) 隧道将 Google Cloud 中的虚拟专用云 (VPC) 与您公司的本地网络连接起来。Google Cloud 中的多个应用程序需要连接到本地数据库服务器，并且您希望避免在数据库 IP 更改时更改所有应用程序中的 IP 配置。您应该怎么做？",
+        "选项": {
+            "A": "为 VPC 的所有子网配置 Cloud NAT，以便在从 VM 实例传出时使用。",
+            "B": "在 Cloud DNS 上创建一个私有区域，并使用 DNS 名称配置应用程序。",
+            "C": "将数据库的 IP 配置为每个实例的自定义元数据，并查询元数据服务器。",
+            "D": "从应用程序查询 Compute Engine 内部 DNS 以检索数据库的 IP。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 163,
+        "题目内容": "您开发了一个容器化的 Web 应用程序，该应用程序将在工作时间为内部同事提供服务。您想确保在使用该应用程序的时间之外不会产生任何费用。您刚刚创建了一个新的 Google Cloud 项目并想要部署该应用程序。您应该怎么做？",
+        "选项": {
+            "A": "在 Cloud Run for Anthos 上部署容器，并将最小实例数设置为零。",
+            "B": "在 Cloud Run（完全托管）上部署容器，并将最小实例数设置为零。",
+            "C": "在具有自动扩缩功能的 App Engine 灵活环境上部署容器，并在 app.yaml 中将 min_instances 值设置为零。",
+            "D": "在 App Engine 灵活环境上使用手动扩展部署容器，并在 app.yaml 中将值实例设置为零。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 164,
+        "题目内容": "您已使用自己的信用卡试用 Google Cloud，并将费用计入公司费用。贵公司希望简化结算流程，并将项目费用计入每月发票。您应该怎么做？",
+        "选项": {
+            "A": "授予财务团队在与您的信用卡关联的账单账户上的“账单账户用户” IAM 角色。",
+            "B": "设置 BigQuery 账单号并授予财务部门 IAM 访问权限以查询数据。",
+            "C": "向 Google 结算支持部门创建一张票据，要求他们将发票发送给您的公司。",
+            "D": "将您项目的结算账户更改为您公司的结算账户。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 165,
+        "题目内容": "您正在 BigQuery 上运行数据仓库。合作伙伴公司正在根据您数据仓库中的数据提供推荐引擎。合作伙伴公司也在 Google Cloud 上运行他们的应用程序。他们在自己的项目中管理资源，但他们需要访问您项目中的 BigQuery 数据集。您想让合作伙伴公司访问该数据集。您应该怎么做？",
+        "选项": {
+            "A": "在您自己的项目中创建一个服务帐号，并授予此服务帐号对您项目中的 BigQuery 的访问权限。",
+            "B": "在您自己的项目中创建一个服务帐号，并要求合作伙伴授予该服务帐号访问其项目中的 BigQuery 的权限。",
+            "C": "要求合作伙伴在他们的项目中创建一个服务帐号，并让他们授予该服务帐号在其项目中访问 BigQuery 的权限。",
+            "D": "要求合作伙伴在他们的项目中创建一个服务帐号，并授予他们的服务帐号访问您项目中的 BigQuery 数据集的权限。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 166,
+        "题目内容": "您的 Web 应用程序已在 Cloud Run for Anthos 上成功运行。您想要使用特定百分比的生产用户（金丝雀部署）评估应用程序的更新版本。您应该怎么做？",
+        "选项": {
+            "A": "使用新版本的应用程序创建新服务。在此版本和当前正在运行的版本之间拆分流量。",
+            "B": "使用新版本的应用程序创建新的修订版。在此版本和当前正在运行的版本之间分配流量。",
+            "C": "使用新版本的应用程序创建一个新服务。在两个服务前面添加一个 HTTP 负载均衡器。",
+            "D": "使用新版本的应用程序创建一个新的修订版本。在两个修订版本前面添加一个 HTTP 负载均衡器。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 167,
+        "题目内容": "您的公司开发了一款部署在 Google Cloud 上的移动游戏。玩家通过互联网使用个人手机连接到游戏。游戏发送 UDP 数据包，向服务器更新玩家在多人模式下玩游戏的操作。您的游戏后端可以扩展到多个虚拟机 (VM)，并且您希望通过单个 IP 地址公开虚拟机。您应该怎么做？",
+        "选项": {
+            "A": "在应用程序服务器前面配置 SSL 代理负载均衡器。",
+            "B": "在应用程序服务器前面配置内部 UDP 负载平衡器。",
+            "C": "在应用程序服务器前面配置一个外部 HTTP(s) 负载均衡器。",
+            "D": "在应用程序服务器前面配置外部网络负载平衡器。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 168,
+        "题目内容": "您在一家医院工作，该医院将医疗图像存储在本地数据室中。医院希望使用 Cloud Storage 来存档这些图像。医院希望有一个自动化流程将所有新的医疗图像上传到 Cloud Storage。您需要设计和实施解决方案。您应该怎么做？",
+        "选项": {
+            "A": "创建一个 Pub/Sub 主题，并为该 Pub/Sub 主题启用 Cloud Storage 触发器。创建一个将所有医学图像发送到 Pub/Sub 主题的应用。",
+            "B": "创建一个使用 gsutil 命令行界面将本地存储与 Cloud Storage 同步的脚本。将该脚本安排为 cron 作业。",
+            "C": "创建一个 Pub/Sub 主题，并创建一个连接到该主题的 Cloud Function，用于将数据写入 Cloud Storage。创建一个将所有医学图像发送到 Pub/Sub 主题的应用程序。",
+            "D": "在 Google Cloud 控制台中，转到 Cloud Storage。将相关图片上传到相应的存储桶。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 169,
+        "题目内容": "您的审计员想要查看组织在 Google Cloud 中对数据的使用情况。审计员最感兴趣的是审计谁访问了 Cloud Storage 存储桶中的数据。您需要帮助审计员访问他们需要的数据。您应该怎么做？",
+        "选项": {
+            "A": "打开他们想要审核的存储桶的数据访问日志，然后在日志查看器中构建一个根据云存储进行过滤的查询。",
+            "B": "分配适当的权限，然后创建关于管理活动审计日志的数据工作室报告。",
+            "C": "分配适当的权限，然后使用云监控查看指标。",
+            "D": "使用导出日志 API 以他们想要的格式提供管理员活动审计日志。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 170,
+        "题目内容": "您收到一个 JSON 文件，其中包含服务帐户的私钥，以便访问 Google Cloud 项目中的多个资源。您下载并安装了 Cloud SDK，并希望在执行 global 命令时使用此私钥进行身份验证和授权。您应该怎么做？",
+        "选项": {
+            "A": "使用命令 global auth login 并将其指向私钥。",
+            "B": "使用命令 global auth activate-service-account 并将其指向私钥。",
+            "C": "将私钥文件放在 Cloud SDK 的安装目录中，并将其重命名为 “credentials.json”。",
+            "D": "将私钥文件放在您的主目录中，并将其重命名为 “GOOGLE_APPLICATION_CREDENTIALS”。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 171,
+        "题目内容": "您在公司使用 Cloud SQL MySQL 数据库。您需要保留数据库的月末副本三年以供审计。您应该怎么做？",
+        "选项": {
+            "A": "设置每月第一天的导出作业，将导出文件写入存档类 Cloud Storage 存储桶。",
+            "B": "将每月第一天的自动备份保存三年。将备份文件存储在存档类 Cloud Storage 存储桶中。",
+            "C": "设置每月第一天的按需备份。将备份写入存档类 Cloud Storage 存储桶。",
+            "D": "将每月第一天的自动备份转换为导出文件。将导出文件写入 Coldline 类 Cloud Storage 存储桶。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 172,
+        "题目内容": "您正在监控一个应用程序，并收到用户反馈，称某个特定错误正在激增。您注意到该错误是由服务帐户权限不足引起的。您能够解决问题，但希望在问题再次发生时收到通知。您应该怎么做？",
+        "选项": {
+            "A": "在日志查看器中，根据严重性“错误”和服务帐户的名称过滤日志。",
+            "B": "创建一个 BigQuery 接收器以导出所有日志。在导出的日志上创建 Data Studio 仪表板。",
+            "C": "为常规策略中使用的特定错误创建自定义的基于日志的指标。",
+            "D": "授予项目所有者访问服务帐户的权限。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 173,
+        "题目内容": "您正在开发一款将在全球范围内使用的金融交易应用程序。数据使用关系结构进行存储和查询，来自世界各地的客户端或获得完全相同的数据状态。该应用程序将部署在多个区域，以向最终用户提供最低的延迟。您需要为应用程序数据选择一个存储选项，同时将延迟降至最低。您应该怎么做？",
+        "选项": {
+            "A": "使用 Cloud Bigtable 进行数据存储。",
+            "B": "使用 Cloud SQL 进行数据存储。",
+            "C": "使用 Cloud Spanner 进行数据存储。",
+            "D": "使用 Firestore 进行数据存储。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 174,
+        "题目内容": "您即将在 Google Cloud 上部署新的企业资源规划 (ERP) 系统。该应用程序将完整的数据库保存在内存中以实现快速数据访问，并且您需要在 Google Cloud 上为该应用程序配置最合适的资源。您应该怎么做？",
+        "选项": {
+            "A": "提供可抢占的 Compute Engine 实例。",
+            "B": "配置带有 GPU 的 Compute Engine 实例。",
+            "C": "配置带有本地 SSD 的 Compute Engine 实例。",
+            "D": "使用 M1 机器类型配置 Compute Engine 实例。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 175,
+        "题目内容": "您开发了一个由多个微服务组成的应用程序，每个微服务都打包在自己的 Docker 容器映像中。您想将整个应用程序部署在 Google Kubernetes Engine 上，以便每个微服务都可以单独扩展。您应该怎么做？",
+        "选项": {
+            "A": "为每个微服务创建并部署自定义资源定义。",
+            "B": "创建并部署 Docker Compose 文件。",
+            "C": "为每个微服务创建并部署一个作业。",
+            "D": "为每个微服务创建并部署一个部署。"
+        },
+        "答案": "D"
+    },
+       {
+        "题号": 176,
+        "题目内容": "您将在同一项目中的不同 Compute Engine 实例上运行多个应用程序。您想要在更详细的级别指定每个实例调用 Google Cloud API 时使用的服务帐号。您应该怎么做？",
+        "选项": {
+            "A": "创建实例时，为每个实例指定一个服务帐户。",
+            "B": "创建实例时，将每个服务帐户的名称指定为实例元数据。",
+            "C": "启动实例后，使用 global compute instance update 为每个实例指定一个服务帐号。",
+            "D": "启动实例后，使用 global compute instance update 将相关服务帐户的名称分配为实例元数据。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 177,
+        "题目内容": "您正在创建一个将在 Google Kubernetes Engine 上运行的应用程序。您已确定 MongoDB 是最适合您应用程序的数据库系统，并且想要部署提供支持 SLA 的托管 MongoDB 环境。您应该怎么做？",
+        "选项": {
+            "A": "创建一个 Cloud Bigtable 集群，并使用 HBase API。",
+            "B": "从 Google Cloud Marketplace 部署 MongoDB Atlas。",
+            "C": "下载 MongoDB 安装包，并在 Compute Engine 实例上运行它。",
+            "D": "下载 MongoDB 安装包，并在托管实例上运行它。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 178,
+        "题目内容": "您正在管理公司商业智能 (BI) 部门的一个项目。数据管道通过流式传输将数据导入 BigQuery。您希望 BI 部门的用户能够针对 BigQuery 中的最新数据运行自定义 SQL 查询。您应该怎么做？",
+        "选项": {
+            "A": "创建一个使用相关 BigQuery 表作为源的 Data Studio 仪表板，并授予 BI 团队查看 Data Studio 仪表板的权限。",
+            "B": "为 BI 团队创建一个服务账户，并向 BI 团队的每个成员分发一个新的私钥。",
+            "C": "使用 Cloud Scheduler 安排批量 Dataflow 作业将数据从 BigQuery 复制到 BI 团队的内部数据仓库。",
+            "D": "将 BigQuery 用户的 IAM 角色分配给包含 BI 团队成员的 Google 群组。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 179,
+        "题目内容": "您的公司在将其整个工作负载转移到 Compute Engine。一些服务器应该可以通过互联网访问，而其他服务器只能通过内部网络访问。所有服务器都需要能够通过特定端口和协议相互通信。当前的本地网络依赖于公共服务器的非军事区 (DMZ) 和私有服务器的局域网 (LAN)。您需要在 Google Cloud 上设计网络基础架构以满足这些要求。您应该怎么做？",
+        "选项": {
+            "A": "创建一个 VPC，其中包含一个 DMZ 子网和一个 LAN 子网。设置防火墙规则以打开 DMZ 和 LAN 子网之间的相关流量，并设置另一个防火墙规则以允许 DMZ 的公共入口流量。",
+            "B": "创建一个 VPC，其中包含一个 DMZ 子网和一个 LAN 子网。设置防火墙规则以打开 DMZ 和 LAN 子网之间的相关流量，并设置另一个防火墙规则以允许 DMZ 的公共出口流量。",
+            "C": "创建一个 VPC，其中一个子网用于 DMZ，另一个 VPC，其中一个子网用于 LAN。设置防火墙规则以打开 DMZ 和 LAN 子网之间的相关流量，并设置另一个防火墙规则以允许 DMZ 的公共入口流量。",
+            "D": "创建一个 VPC，其中一个子网用于 DMZ，另一个 VPC，其中一个子网用于 LAN。设置防火墙规则以打开 DMZ 和 LAN 子网之间的相关流量，并设置另一个防火墙规则以允许 DMZ 的公共出口流量。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 180,
+        "题目内容": "您刚刚创建了一个新项目，该项目将用于部署全球分布式应用程序。您将使用 Cloud Spanner 进行数据存储。您想要创建一个 Cloud Spanner 实例。您想要执行创建实例的准备工作的第一步。您应该怎么做？",
+        "选项": {
+            "A": "启用 Cloud Spanner API。",
+            "B": "将您的 Cloud Spanner 实例配置为多区域。",
+            "C": "在所有所需区域中创建一个带有子网的新 VPC 网络。",
+            "D": "授予自己 Cloud Spanner Admin 的 IAM 角色。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 181,
+        "题目内容": "您已通过 gcloud 命令行界面 (CLI) 在 Google Cloud 中创建了一个新项目并关联了一个结算帐户。您需要使用 CLI 创建一个新的 Compute Engine 实例。您需要执行先决条件步骤。您应该怎么做？",
+        "选项": {
+            "A": "创建云监控工作区。",
+            "B": "在项目中创建 VPC 网络。",
+            "C": "启用计算 googleapis.com API。",
+            "D": "授予自己计算机管理员的 IAM 角色。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 182,
+        "题目内容": "您的公司开发了一个由多个微服务组成的新应用程序。您希望将该应用程序部署到 Google Kubernetes Engine (GKE)，并且希望确保集群能够随着将来部署更多应用程序而扩展。您希望避免在部署每个新应用程序时进行手动干预。您应该怎么做？",
+        "选项": {
+            "A": "在 GKE 上部署应用程序，并向部署添加 HorizontalPodAutoscaler。",
+            "B": "在 GKE 上部署应用程序，并向部署添加 VerticalPodAutoscaler。",
+            "C": "创建一个在节点池上启用自动扩能功能的 GKE 集群。设置节点池大小的最小值和最大值。",
+            "D": "为每个应用程序创建单独的节点池，并将每个应用程序部署到其专用的节点池中。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 183,
+        "题目内容": "您需要管理将在 Compute Engine 实例上运行的第三方应用。其他 Compute Engine 实例已使用默认配置运行。应用安装文件托管在 Cloud Storage 上。您需要从新实例访问这些文件，但不允许其他虚拟机 (VM) 访问这些文件。您应该怎么做？",
+        "选项": {
+            "A": "使用默认 Compute Engine 服务帐号创建实例。授予服务帐号对 Cloud Storage 的权限。",
+            "B": "使用默认 Compute Engine 服务帐户创建实例。向 Cloud Storage 上的对象添加与新实例上的元数据匹配的元数据。",
+            "C": "创建新的服务帐号，并将此服务帐号分配给新实例。授予服务帐号对云存储的权限。",
+            "D": "创建新的服务帐户并将此服务帐户分配给新实例。向 Cloud Storage 上的对象添加与新实例上的元数据匹配的元数据。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 184,
+        "题目内容": "您需要为存储在 Cloud Storage 中的文件配置最佳数据存储，以降低成本。这些文件用于持续使用的关键任务分析管道。用户位于与所连接的嵌入式（美国）。您应该怎么做？",
+        "选项": {
+            "A": "为距离用户最近的区域配置区域存储。配置近线存储类。",
+            "B": "为距离用户最近的区域配置区域存储。配置标准存储类。",
+            "C": "为最靠近用户的双区域配置双区域存储。配置近线存储类。",
+            "D": "为最靠近用户的双区域配置双区域存储。配置标准存储类。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 185,
+        "题目内容": "您正在开发一款新的 Web 应用程序，该应用程序将部署在 Google Cloud Platform 上。作为发布周期的一部分，您希望在一小部分真实用户流量上测试应用程序的更新。大多数用户仍应使用应用程序的稳定版本。您应该怎么做？",
+        "选项": {
+            "A": "在 App Engine 上部署应用程序。每次更新时，创建同一服务的新版本。配置流量拆分以将一小部分流量发送到新版本。",
+            "B": "在 App Engine 上部署应用程序。每次更新时，创建一个新服务。配置流量分割以将一小部分流量发送到新服务。",
+            "C": "在 Kubernetes Engine 上部署应用程序。对于新版本，请更新部署以使用新版本。",
+            "D": "在 Kubernetes Engine 上部署应用程序。对于新版本，为新版本创建新部署。更新服务以使用新部署。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 186,
+        "题目内容": "您需要向 Cloud Identity 添加一组新用户。部分用户已经拥有 Google 帐户。您想遵循 Google 推荐的做法之一并避免帐户冲突。您应该怎么做？",
+        "选项": {
+            "A": "邀请用户转移其现有帐户。",
+            "B": "邀请用户使用电子邮件到名录解决冲突。",
+            "C": "告诉用户他们必须删除现有帐户。",
+            "D": "告诉用户从现有帐户中删除所有个人电子邮件。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 187,
+        "题目内容": "您需要管理 Cloud Spanner 实例以获得最佳查询性能。您的生产实例在单个 Google Cloud 区域中运行。您需要在最短的时间内提高性能。您想遵循 Google 服务配置最佳实践。您应该怎么做？",
+        "选项": {
+            "A": "在 Cloud Monitoring 中创建警报，当高优先级 CPU 利用率百分比达到 45% 时发出警报。如果超过此阈值，请向实例添加节点。",
+            "B": "在 Cloud Monitoring 中创建警报，当高优先级 CPU 使用率百分比达到 45% 时发出警报。使用数据库查询统计信息来识别导致高 CPU 使用率的查询，然后重写这些查询优化其资源使用率。",
+            "C": "在 Cloud Monitoring 中创建警报，当高优先级 CPU 利用率百分比达到 65% 时发出警报。如果超过此阈值，请将节点添加到您的实例。",
+            "D": "在 Cloud Monitoring 中创建警报，当高优先级 CPU 使用率百分比达到 65% 时发出警报。使用数据库查询统计信息来识别导致高 CPU 使用率的查询，然后重写这些查询优化其资源使用率。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 188,
+        "题目内容": "您的公司有一个用于管理交易订单的内部应用程序。该应用程序仅由单个物理位置的员工使用。该应用程序需要强一致性、快速查询和多表事务更新的 ACID 保证。该应用程序的第一个版本是在 PostgreSQL 中实现的，您希望以最少的代码更改将其部署到云中。哪个数据库适合此应用程序？",
+        "选项": {
+            "A": "BigQuery",
+            "B": "云SQL",
+            "C": "Cloud Spanner",
+            "D": "云数据存储"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 189,
+        "题目内容": "您被分配维护一个部署在 Google Cloud 上的名为“dev”的 Google Kubernetes Engine (GKE) 集群。您想使用命令行界面 (CLI) 管理 GKE 配置。您刚刚下载并安装了 Cloud SDK。您想确保将来的 CLI 命令默认处理这个特定的集群你应该怎么做？",
+        "选项": {
+            "A": "使用命令 gcloud config set container/cluster dev",
+            "B": "使用命令 gcloud container clusters update dev。",
+            "C": "在包含集群名称的 ~/gcloud 文件夹中创建一个名为 glee default 的文件。",
+            "D": "在包含集群名称的 ~/gcloud 文件夹中创建一个名为 defaults.json 的文件。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 190,
+        "题目内容": "销售团队有一个名为 Sales Data Digest 的项目，其 ID 为 acme-data-digest。您需要为营销团队设置类似的 Google Cloud 资源，但他们的资源必须独立于销售团队进行组织。您应该怎么做？",
+        "选项": {
+            "A": "将项目编辑者角色授予 acme-data-digest 的营销团队。",
+            "B": "在 acme-data-digest 上创建项目留置权，然后将项目编辑者角色授予营销团队。",
+            "C": "为营销团队创建另一个 ID 为 acme-marketing-data-digest 的项目，并在其中部署资源。",
+            "D": "创建一个名为 Marketing Data Digest 的新项目，并使用 ID acme-data-digest。将项目编辑者角色授予营销团队。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 191,
+        "题目内容": "您已在 Compute Engine 上部署了多个 Linux 实例。您计划在未来几周内添加更多实例。您希望能够通过互联网上的 SSH 客户端访问所有这些实例，而无需在现有实例和新实例上配置特定访问权限。您不希望 Compute Engine 实例拥有公共 IP。您应该怎么做？",
+        "选项": {
+            "A": "为 HTTPS 资源配置 Cloud Identity-Aware Proxy。",
+            "B": "为 SSH 和 TCP 资源配置 Cloud Identity-Aware Proxy",
+            "C": "创建一个 SSH 密钥对，并将公钥存储为项目范围的 SSH 密钥。",
+            "D": "创建 SSH 密钥对并将私钥存储为项目范围的 SSH 密钥。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 192,
+        "题目内容": "您已创建应用程序并将其打包到 Docker 镜像中。您想要将 Docker 镜像作为工作负载部署到 Google Kubernetes Engine 上。您应该怎么做？",
+        "选项": {
+            "A": "将镜像上传到云存储并创建引用该镜像的 Kubernetes 服务。",
+            "B": "将图像上传到云存储并创建引用该图像的 Kubernetes 部署。",
+            "C": "将镜像上传到 Container Registry 并创建引用该镜像的 Kubernetes 服务。",
+            "D": "将镜像上传到 Container Registry 并创建引用该镜像的 Kubernetes Deployment。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 193,
+        "题目内容": "您正在使用 Data Studio 可视化基于 BigQuery 构建的数据仓库中的表。白天将数据附加到数据仓库。晚上，通过覆盖表重新计算每日摘要。您刚刚注意到 Data Studio 中的图表已损坏，并且想要分析问题。您应该怎么做？",
+        "选项": {
+            "A": "查看云控制台中的错误报告页面以查找任何错误。",
+            "B": "使用 BigQuery 界面检查如何作业并查找任何错误。",
+            "C": "使用 Cloud Debugger 找出数据未正确删除的原因。",
+            "D": "在 Cloud Logging 中，为您的 Data Studio 报告创建一个过滤器。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 194,
+        "题目内容": "您被要求为新的 Google Cloud 客户设置结算配置。您的客户希望对其享通用 IAM 策略的资源进行分组。您应该怎么做？",
+        "选项": {
+            "A": "使用标签对共享通用 IAM 策略的资源进行分组。",
+            "B": "使用文件夹对共享通用 IAM 策略的资源进行分组。",
+            "C": "设置适当的账单账户结构来分组 IAM 策略。",
+            "D": "设置适当的项目命名结构来分组 IAM 策略。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 195,
+        "题目内容": "您被要求在新的虚拟私有云 (VPC) 和远程站点之间创建强大的虚拟专用网络 (VPN) 连接。关键要求包括动态路由、共享地址空间 10.19.0.1/22，以及在故障转移事件期间不过度配置隧道。您想遵循 Google 推荐的做法来设置高可用性云 VPN。您应该怎么做？",
+        "选项": {
+            "A": "使用自定义模式 VPC 网络，配置静态路由，并使用主动/被动路由。",
+            "B": "使用自动模式 VPC 网络，配置静态路由，并使用主动/主动路由。",
+            "C": "使用自定义模式 VPC 网络，使用 Cloud Router 边界网关协议 (BGP) 路由，并使用主动/被动路由。",
+            "D": "使用自动模式 VPC 网络，使用 Cloud Router 边界网关协议 (BGP) 路由，并配置基于策略的路由。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 196,
+        "题目内容": "您正在 Kubernetes Engine 集群中运行多个微服务。一个微服务正在渲染图像。负责图像渲染的微服务需要大量的 CPU 时间，而所需的内存则较少。其他微服务是针对 n1 标准机器类型优化的工作负载。您需要优化集群，以便所有工作负载都尽可能高效地使用资源。您应该怎么做？",
+        "选项": {
+            "A": "为图像渲染微服务的 pod 分配比其他微服务更高的 pod 优先级。",
+            "B": "为图像渲染微服务创建一个具有计算机化机器类型节点的节点池。将具有通用机器类型节点的节点池用于其他微服务。",
+            "C": "对图像渲染微服务使用具有通用机器类型节点的节点池。为其他微服务创建具有计算机化机器类型节点的节点池。",
+            "D": "在图像渲染微服务部署的资源请求规范中配置所需的 CPU 和内存量。其他微服务的资源请求保持默认。"
+        },
+        "答案": "B"
+    },
+       {
+        "题号": 197,
+        "题目内容": "您的组织有三个现有的 Google Cloud 项目。您需要向营销部门收取其 Google Cloud 服务费用，用于其部门的统计计划。您应该怎么做？",
+        "选项": {
+            "A": "确认您已为贵组织的 Google Cloud 项目（营销部门）分配了结算管理员 IAM 角色。2. 将新项目链接到营销结算帐户。",
+            "B": "确认您已为组织的 Google Cloud 账户分配了计费管理员 IAM 角色。2. 为营销部门创建一个新的 Google Cloud 项目。3. 将此项目中的所有服务的默认键值项目标签设置为部门：营销。",
+            "C": "确认您已为组织的 Google Cloud 账户分配了组织管理员 IAM 角色。2. 为营销部门创建一个新的 Google Cloud 项目。3. 将新项目链接到营销结算帐户。",
+            "D": "验证您是否已为组织的 Google Cloud 账户分配了组织管理员 IAM 角色。2. 为营销部门创建一个新的 Google Cloud 项目。3. 将此项目中的所有服务的默认键值项目标签设置为部门：营销。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 198,
+        "题目内容": "您在 Compute Engine 中的托管实例组上部署了一个应用程序。该应用程序在端口 389 上接受传输控制协议 (TCP) 流量，并要求您保留发出请求的客户端 IP 地址。您想使用负载均衡器将该应用程序公开到互联网。您应该怎么做？",
+        "选项": {
+            "A": "使用外部 TCP 网络负载均衡器公开应用程序。",
+            "B": "使用 TCP 代理负载均衡器公开应用程序。",
+            "C": "使用 SSL 代理负载均衡器公开应用程序。",
+            "D": "使用内部 TCP 网络负载均衡器公开应用程序。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 199,
+        "题目内容": "您正在构建一个多人游戏应用程序，该应用程序将游戏信息存储在数据库中。随着应用程序的普及，您担心能否提供一致的性能。您需要确保为全球用户提供最佳的游戏性能，而不会增加管理复杂性。您应该怎么做？",
+        "选项": {
+            "A": "使用具有跨区域复制功能的 Cloud SQL 数据库来存储欧盟、美国和亚太地区的游戏统计信息。",
+            "B": "使用 Cloud Spanner 存储映射到游戏统计信息的用户数据。",
+            "C": "使用 BigQuery 存储游戏统计数据，并在前端使用 Redis on Memorystore 实例来提供全局一致性。",
+            "D": "将游戏统计数据存储在按用户名分区的 Bigtable 数据库中。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 200,
+        "题目内容": "您正在构建一个存储用户关系数据的应用程序。全球用户都将使用此应用程序。您的 CTO 担心扩展要求，因为用户群的规模未知。您需要实施一个数据库解决方案，该解决方案可以随着用户增长而扩展，并且配置更改最少。您应该使用哪种存储解决方案？",
+        "选项": {
+            "A": "Cloud SQL",
+            "B": "Firestore",
+            "C": "Cloud Spanner",
+            "D": "Bigtable"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 201,
+        "题目内容": "您的公司有多个项目链接到 Google Cloud 中的单个结算帐户。您需要使用特定指标来可视化成本，这些指标应根据公司特定的标准动态计算。您想自动化流程。您应该怎么做？",
+        "选项": {
+            "A": "在 Google Cloud 控制台中，在报告部分直观地显示与项目相关的成本。",
+            "B": "在 Google Cloud 控制台中，在成本明细部分直观地显示与项目相关的成本。",
+            "C": "在 Google Cloud 控制台中，使用成本表的导出功能。在 CSV 导出的基础上创建 Looker Studio 仪表板。",
+            "D": "为结算帐户配置 Cloud Billing 数据导出到 BigQuery。在 BigQuery 导出的基础上创建 Looker Studio 仪表板。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 202,
+        "题目内容": "您有一个在自定义虚拟私有云 (VPC) 中的 Compute Engine VM 实例上运行的应用程序。贵公司的安全策略仅允许在 VM 实例上使用内部 IP 地址，而不允许 VM 实例连接到互联网。您需要确保该应用程序可以访问项目内的 Cloud Storage 存储桶中托管的文件。您应该怎么做？",
+        "选项": {
+            "A": "在云存储桶上启用私人服务访问。",
+            "B": "将 storage.googleapis.com 添加到 VPC 服务控制边界内的受限服务列表中，并将您的项目添加到受保护项目列表中。",
+            "C": "在自定义 VPC 内的子网上启用私有 Google Access。",
+            "D": "部署 Cloud NAT 实例并将流量路由到 Cloud Storage 存储桶的专用 IP 地址。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 203,
+        "题目内容": "您的公司完成了对一家初创公司的收购，现在正在合并两家公司的 IT 系统。这家初创公司在其组织中有一个 Google Cloud 生产项目。您需要将此项目移至您的组织，并确保该项目由您的组织负责。您希望以最小的努力完成此任务。您应该怎么做？",
+        "选项": {
+            "A": "使用 projects.move 方法将项目移至您的组织。将项目的结算帐户更新为您组织的结算帐户。",
+            "B": "确保您在两个组织中都拥有组织管理员身份和访问管理 (IAM) 角色。导航到初创公司的 Google Cloud 组织中的资源管理器，然后将项目拖到您公司的组织中。",
+            "C": "为 Google Cloud Marketplace 创建私有目录，并将初创公司生产项目的资源上传到目录中。与您的组织共享目录，并在您公司的项目中部署资源。",
+            "D": "使用 Terraform 为项目中的所有资源创建基础设施即代码模板，并将该模板部署到组织中的新项目。从初创公司的 Google Cloud 组织中删除该项目。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 204,
+        "题目内容": "您组织中的所有开发 (dev) 团队都位于美国。每个开发团队都有自己的 Google Cloud 项目。您想要限制访问权限，以便每个开发团队只能在美国 (US) 创建云资源。您应该怎么做？",
+        "选项": {
+            "A": "创建一个文件夹来包含所有开发项目。创建组织或策略来限制美国地区的资源。",
+            "B": "创建一个组织来包含所有开发项目。创建身份和访问管理 (AM) 策略来限制美国地区的资源。",
+            "C": "创建身份和访问管理 (AM) 策略以限制美国的资源位置。将该策略应用于所有开发项目。",
+            "D": "创建身份和访问管理 (AM) 策略来限制所有开发项目中的资源位置。将该策略应用于所有开发角色。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 205,
+        "题目内容": "您正在配置 Cloud DNS。您想要创建 DNS 记录以将 home.mydomain.com、mydomain.com 和 www.mydomain.com 指向您的 Google Cloud 负载均衡器的 IP 地址。您应该怎么做？",
+        "选项": {
+            "A": "创建一条 CNAME 记录将 mydomain.com 指向负载均衡器，并创建两条 A 记录分别将 WWW 和 HOME 指向 mydomain.com。",
+            "B": "创建一条 CNAME 记录将 mydomain.com 指向负载均衡器，并创建两条 AAAI 记录分别将 WWW 和 HOME 指向 mydomain.com。",
+            "C": "创建一个 AI 记录将 mydomain.com 指向负载均衡器，并创建两个 CNAME 记录分别将 WWW 和 HOME 指向 mydomain.com。",
+            "D": "创建一个 AI 记录将 mydomain.com 指向负载均衡器，并创建两个 NS 记录分别将 WWW 和 HOME 指向 mydomain.com。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 206,
+        "题目内容": "您在默认VPC中有两个子网（子网a和子网b）。您的数据库服务器在子网a中运行。您的应用程序服务器和Web服务器在子网b中运行。您想要配置一条防火墙规则，仅允许从应用程序服务器到数据库服务器的数据库流量。您应该怎么做？",
+        "选项": {
+            "A": "创建服务帐户sa-app和sa-db。将服务帐户sa-app与应用程序服务器关联，将服务帐户sa-db与数据库服务器关联。创建入口防火墙规则，以允许从源服务器帐户sa-app到目标服务器帐户sa-db的网络流量。",
+            "B": "创建网络标签app-server和db-server。将app-server标签添加到应用程序服务器，将db-server标签添加到数据库服务器。创建出口防火墙规则，以允许从源服务器帐户sa-app到目标服务器帐户sa-db的网络流量。",
+            "C": "创建服务帐户sa-app和网络标签db-server。将服务帐户sa-app与应用程序服务器关联，将网络标签db-server与数据库服务器关联。创建入口防火墙规则以允许来自源VPCIP地址的网络流量并以子网aIP地址为目标。",
+            "D": "创建网络标签app-server和服务帐户sa-db。将标签添加到应用程序服务器并将服务帐户与数据库服务器关联。创建出口防火墙规则以允许从源服务器帐户sa-app到目标服务器帐户sa-db的网络流量。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 207,
+        "题目内容": "您的团队想要将特定的内容管理系统（CMS）解决方案部署到Google Cloud。您需要一种快速简便的方法来部署和安装该解决方案。您应该怎么做？",
+        "选项": {
+            "A": "在Google Cloud Marketplace中搜索CMS解决方案。使用gcloud CLI部署该解决方案。",
+            "B": "在Google Cloud Marketplace中搜索CMS解决方案。直接从Cloud Marketplace部署该解决方案。",
+            "C": "在Google Cloud Marketplace中搜索CMS解决方案。使用Terraform和Cloud Marketplace ID以适当的参数部署该解决方案。",
+            "D": "使用CMS提供的安装指南。通过配置管理系统执行安装。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 208,
+        "题目内容": "您正在为一家6个月前正式注册为企业的初创公司工作。随着您的客户群的增长，您对Google Cloud的使用也随之增加。您希望允许所有工程师创建新项目而无需他们提供信用卡信息。您应该怎么做？",
+        "选项": {
+            "A": "创建一个账户，将付款方式与其关联，并允许所有项目创建者将该账户与其项目关联。",
+            "B": "授予所有工程师为每个新项目创建自己的计费账户的权限。",
+            "C": "申请按月开具发票，并由财务团队为该项目开具一张发票。",
+            "D": "创建一个结算账户，将其与每月采购订单(PO)关联，然后将PO发送到Google Cloud。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 209,
+        "题目内容": "由于权限问题，您的持续集成和交付（CI/CD）服务器无法在特定项目中执行 Google Cloud 操作。您需要验证所使用的服务帐号在特定项目中是否具有适当的角色。您应该怎么做？",
+        "选项": {
+            "A": "打开 Google Cloud 控制台，检查在项目中分配给服务帐号或从文件夹或组织级别继承的身份和访问管理 (IAM) 角色。",
+            "B": "打开 Google Cloud 控制台，并检查组织政策。",
+            "C": "打开 Google Cloud 控制台，并运行查询以确定此服务帐号可以访问哪些资源。",
+            "D": "打开 Google Cloud 控制台，并运行审核日志查询以查找此服务帐户的权限被拒绝错误。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 210,
+        "题目内容": "您的团队正在 Google Cloud 上使用 Linux 实例。您需要确保您的团队以最安全且最经济高效的方式登录这些实例。您应该怎么做？",
+        "选项": {
+            "A": "将公共 IP 附加到实例并允许通过端口 22 进行来自互联网的 SSH 传入连接。",
+            "B": "使用带有 -tunnel-through-tap 标志的 gcloud compute ssh 命令。允许来自端口 22 上的 IP 范围 35.235.240.0/20 的人站流量。",
+            "C": "使用第三方工具提供对实例的远程访问。",
+            "D": "创建具有公共互联网访问权限的堡垒主机。通过堡垒主机创建到实例的 SSH 隧道。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 211,
+        "题目内容": "您团队的一名外部成员需要获得您某个项目中计算映像和磁盘的列表访问权限。当您向用户授予所需权限时，您希望遵循 Google 推荐的做法。您应该怎么做？",
+        "选项": {
+            "A": "创建自定义角色，并将所有必需的 compute disks.list 和 compute.images.list 权限添加为 includedPermissions。在项目级别将自定义角色授予用户。",
+            "B": "根据 Compute Image User 角色创建自定义角色。将 compute.disks.list 添加到 includedPermissions 字段。在项目级别将自定义角色授予用户。",
+            "C": "根据 Compute Storage Admin 角色创建自定义角色。从自定义角色中排除不必要的权限。在项目级别将自定义角色授予用户。",
+            "D": "在项目级别授予计算存储管理员角色。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 212,
+        "题目内容": "您正在 Cloud Run 上运行一个 Web 应用程序，供数百名用户使用。您的一些用户抱怨应用程序的初始网页比后续页面的加载时间长得多。您想遵循 Google 的建议来缓解此问题。您应该怎么做？",
+        "选项": {
+            "A": "将 Cloud Run 服务的最小实例数设置为 3。",
+            "B": "将 Cloud Run 服务的并发数设置为 1。",
+            "C": "将 Cloud Run 服务的最大实例数设置为 100。",
+            "D": "更新您的 Web 应用程序以使用协议 HTTP/2 而不是 HTTP/1.1。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 213,
+        "题目内容": "您正在 Google Cloud 上为您的物联网 (IoT) 应用程序构建数据源。物联网应用程序有数百万个传感器，它们不断将结构化和非结构化数据传输到云端的端。您想根据 Google 推荐的做法构建一个高可用性和弹性的架构。您应该怎么做？",
+        "选项": {
+            "A": "将数据流式传输到 Pub/Sub，并使用 Dataflow 将数据发送到 Cloud Storage。",
+            "B": "将数据流式传输到 Pub/Sub，并使用存储传输服务将数据发送到 BigQuery。",
+            "C": "将数据流式传输到 Dataflow，并使用 Trifacta 的 Dataprep 将数据发送到 Bigtable。",
+            "D": "将数据流式传输到 Dataflow，并使用存储传输服务将数据发送到 BigQuery。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 214,
+        "题目内容": "自定义模式 VPC 的子网中主要内部 IP 地址不足。子网的 IP 范围为 10.0.0.0/20，这些 IP 地址主要由项目中的虚拟机使用。您需要为虚拟机提供更多 IP 地址。您应该怎么做？",
+        "选项": {
+            "A": "向子网添加次要 IP 范围 10.0.0.0/20。",
+            "B": "将子网 IP 范围从 10.0.0.0/20 更改为 10.0.0.0/18。",
+            "C": "将子网 IP 范围从 10.0.0.0/20 更改为 10.0.0.0/22。",
+            "D": "将子网 IP 范围从 IPv4 转换为 IPv6。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 215,
+        "题目内容": "贵公司要求所有开发人员都拥有相同的权限，无论他们在从事哪个 Google Cloud 项目。贵公司的安全政策还限制开发人员对 Compute Engine、Cloud Functions 和 Cloud SQL 的权限。您希望以最小的努力实施安全政策。您应该怎么做？",
+        "选项": {
+            "A": "在 Google Cloud 组织内的一个项目中创建具有 Compute Engine、Cloud Functions 和 Cloud SQL 权限的自定义角色。使用 global law role copy 命令将该角色复制到组织内创建的所有项目中。将角色分配给这些项目中的开发人员。",
+            "B": "将所有开发人员添加到 Google Groups for Workspace 中的 Google 群组。将预定义的 Compute Admin 角色分配给 Google Cloud 组织级别的 Google 群组。",
+            "C": "将所有开发者添加到 Cloud Identity 中的 Google 群组。将 Compute Engine、Cloud Functions 和 Cloud SQL 权限的预定义角色分配给 Google Cloud 组织中每个项目的 Google 群组。",
+            "D": "将所有开发人员添加到 Cloud Identity 中的 Google 群组。在 Google Cloud 组织级别创建具有 Compute Engine、Cloud Functions 和 Cloud SQL 权限的自定义角色。将自定义角色分配给 Google 群组。"
+        },
+        "答案": "D"
+    },
+       {
+        "题号": 216,
+        "题目内容": "您在一家医院工作，该医院将医疗图像存储在本地数据室中。医院希望使用 Cloud Storage 来存档这些图像。医院希望有一个自动化流程将所有新的医疗图像上传到 Cloud Storage。您需要设计和实施解决方案。您应该怎么做？",
+        "选项": {
+            "A": "创建一个 Pub/Sub 主题，并为该 Pub/Sub 主题启用 Cloud Storage 触发器。创建一个将所有医学图像发送到 Pub/Sub 主题的应用。",
+            "B": "创建一个使用 gsutil 命令行界面将本地存储与 Cloud Storage 同步的脚本，并将该脚本安排为 cron 作业。",
+            "C": "创建一个 Pub/Sub 主题，并创建一个连接到该主题的 Cloud Function，用于将数据写入 Cloud Storage。创建一个将所有医学图像发送到 Pub/Sub 主题的应用程序。",
+            "D": "在 Google Cloud 控制台中，转到 Cloud Storage。将相关图片上传到相应的存储桶。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 217,
+        "题目内容": "您的公司有一个用于管理交易订单的内部应用程序。该应用程序仅由单个物理位置的员工使用。该应用程序需要强一致性、快速查询和多表事务更新的 ACID 保证。该应用程序的第一个版本是在 PostgreSQL 中实现的，您希望以最少的代码更改将其部署到云中。哪个数据库适合此应用程序？",
+        "选项": {
+            "A": "Bigtable",
+            "B": "BigQuery",
+            "C": "云 SQL",
+            "D": "Firestore"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 218,
+        "题目内容": "您的公司在本地服务器中运行一个批处理过程，大约需要 30 小时才能完成。该任务每月运行一次，可以离线执行，如果中断则必须重新启动。您想将此工作负载迁移到云中，同时尽量降低成本。您应该怎么做？",
+        "选项": {
+            "A": "创建启用 Spot VM 的实例模板。从模板创建托管实例组并调整目标 CPU 利用率。迁移工作负载。",
+            "B": "将工作负载迁移到 Compute Engine VM。根据需要启动和停止实例。",
+            "C": "将工作负载迁移到具有 Spot 节点的 Google Kubernetes Engine 集群。",
+            "D": "将工作负载迁移到 Compute Engine Spot VM。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 219,
+        "题目内容": "您计划将以下本地数据管理解决方案迁移到 Google Cloud：\n- 一个 MySQL 集群作为您的主数据库\n- Apache Kafka 作为您的事件流平台\n- 一个 Cloud SQL for PostgreSQL 数据库满足您的分析和报告需求\n您想要实施 Google 推荐的迁移解决方案。您需要确保新解决方案提供全球可扩展性，并且需要最少的运营和基础设施管理。您应该怎么做？",
+        "选项": {
+            "A": "从 MySQL 迁移到 Cloud SQL，从 Kafka 迁移到 Pub/Sub，从 Cloud SQL for PostgreSQL 迁移到 BigQuery",
+            "B": "从 MySQL 迁移到 Cloud Spanner，从 Kafka 迁移到 Pub/Sub，从 Cloud SQL for PostgreSQL 迁移到 BigQuery",
+            "C": "从 MySQL 迁移到 Cloud Spanner，从 Kafka 迁移到 Memorystore，从 Cloud SQL for PostgreSQL 迁移到 Cloud SQL。",
+            "D": "从 MySQL 迁移到 Cloud SQL，从 Kafka 迁移到 Memorystore，从 Cloud SQL for PostgreSQL 迁移到 Cloud SQL。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 220,
+        "题目内容": "在最近审核您现有的 Google Cloud 资源时，您发现有几位用户的电子邮件地址不在您的 Google Workspace 网域内。您想确保您的资源仅与电子邮件地址与您的网域匹配的用户共享。您需要移除任何不匹配的用户，并且您想避免审核您的资源以识别不匹配的用户。您应该怎么做？",
+        "选项": {
+            "A": "创建一个 Cloud Scheduler 任务来定期扫描您的项目并删除不匹配的用户。",
+            "B": "创建一个 Cloud Scheduler 任务来定期扫描您的资源并删除不匹配的用户。",
+            "C": "设置组织策略约束，按规则制身份，以自动删除不匹配的用户。",
+            "D": "设置组织策略约束以按规则制身份，然后追溯删除现有的不匹配的用户"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 221,
+        "题目内容": "您的应用程序在托管实例组 (MIG) 中的 Google Cloud 上运行。您在 Cloud Logging 中看到一个虚拟机的错误，其中一个进程没有响应。您提供连接线 MIG 中的此虚拟机。您应该怎么做？",
+        "选项": {
+            "A": "使用 gcloud compute instance update 命令对虚拟机执行 REFRESH 操作。",
+            "B": "使用 gcloud compute instance-groups managed recreate-instances 命令重新创建虚拟机。",
+            "C": "从 Compute Engine 控制台中选择 MIG，然后在菜单中选择“替换虚拟机”。",
+            "D": "更新并应用 MIG 的实例模板。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 222,
+        "题目内容": "您想要永久删除 Google Cloud 项目中由 Config Connector 管理的 Pub/Sub 主题。您应该怎么做？",
+        "选项": {
+            "A": "使用 kubectl 创建标签 removed-by-cnrm 并将主题资源的值更改为 true。",
+            "B": "使用 kubectl 删除主题资源。",
+            "C": "使用 gcloud CLI 删除主题。",
+            "D": "使用 gcloud CLI 将主题标签 managed-by-cnrm 更新为 false。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 223,
+        "题目内容": "贵公司正在使用 Google Workspace 管理员工作帐户。预计增长将在 2 年内使员工人数从 100 人增加到 1,000 人。大多数员工都需要访问贵公司的 Google Cloud 帐户。系统和流程需要支持 10 倍的增长，而不会降低性能。产生不必要的复杂性或出现安全问题。您应该怎么做？",
+        "选项": {
+            "A": "将用户迁移到 Active Directory，将人力资源系统连接到 Active Directory。为 Cloud Identity 打开 Google Cloud Directory Sync (GCDS)。打开从 Cloud Identity 到 Active Directory 的身份联合。",
+            "B": "将 Cloud Identity 中的用户分组。在 Cloud Identity 中强制实施多重身份验证。",
+            "C": "开启 Cloud Identity 与 Google Workspace 之间的身份联合。强制实施多因素身份验证以进行全域授权。",
+            "D": "通过联合使用第三方身份提供服务。实时将 Google Workplace 中的用户同步到第三方提供商。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 224,
+        "题目内容": "您想在 Compute Engine 上托管视频编码软件。您的用户群正在快速增长，并且用户需要能够随时编码他们的视频，而不会中断或出现 CPU 限制。您必须确保您的编码解决方案具有高可用性，并且您希望遵循 Google 推荐的做法来自动化操作。您应该怎么做？",
+        "选项": {
+            "A": "在多个独立的 Compute Engine 实例上部署您的解决方案，并在 Cloud Monitoring 上的 CPU 利用率达到某个阈值时增加现有实例的数量。",
+            "B": "在多个独立的 Compute Engine 实例上部署您的解决方案，并在 Cloud Monitoring 上的 CPU 利用率达到某个阈值时用高 CPU 实例替换现有实例。",
+            "C": "将您的解决方案部署到实例组，并在您看到云监控中的 CPU 利用率过高时增加可用实例的数量。",
+            "D": "将您的解决方案部署到实例组，并根据 CPU 利用率设置自动扩展。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 225,
+        "题目内容": "您的托管实例组发出警报，指出新实例创建失败，无法创建新实例。您需要解决实例创建问题。您应该怎么做？",
+        "选项": {
+            "A": "创建包含有效语法的实例模板，供实例使用。删除与实例名称同名的所有持久磁盘。",
+            "B": "创建包含实例组使用的有效语法的实例模板。验证模板中的实例名称和持久磁盘名称是否不同。",
+            "C": "验证实例组使用的实例模板是否包含有效语法。删除任何与实例名称同名的持久磁盘。在实例模板中将 disks.autoDelete 属性设置为 true。",
+            "D": "删除当前实例模板并将其转换为新实例模板。验证模板中的实例名称和持久磁盘名称是否不同。在实例模板中将 disks.autoDelete 属性设置为 true。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 226,
+        "题目内容": "您已创建应用程序并将其打包到 Docker 镜像中。您想要将 Docker 镜像作为工作负载部署到 Google Kubernetes Engine 上。您应该怎么做？",
+        "选项": {
+            "A": "将镜像上传到云存储并创建引用该镜像的 Kubernetes 服务。",
+            "B": "将图像上传到云存储并创建引用该镜像的 Kubernetes 部署。",
+            "C": "将镜像上传到 Artifact Registry 并创建引用该镜像的 Kubernetes 服务。",
+            "D": "将镜像上传到 Artifact Registry 并创建引用该镜像的 Kubernetes Deployment。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 227,
+        "题目内容": "您正在使用 Looker Studio 可视化基于 BigQuery 构建的数据仓库中的表。白天将数据附加到数据仓库。晚上，通过覆盖表重新计算每日摘要。您刚刚注意到 Looker Studio 中的图表已损坏，并且想要分析问题。您应该怎么做？",
+        "选项": {
+            "A": "在 Cloud Logging 中，为您的 Looker Studio 报告创建一个过滤器。",
+            "B": "使用开源 CLI 工具 Snapshot Debugger 找出数据未正确删除的原因。",
+            "C": "查看 Google Cloud 控制台中的错误报告页面以查找任何错误。",
+            "D": "使用 BigQuery 界面检查窗口作业并查找任何错误。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 228,
+        "题目内容": "您有一个批处理工作负载，每晚运行并使用大量虚拟机 (VM)。它具有容错能力，可以容忍部分虚拟机被终止。当前虚拟机的成本太高。您应该怎么做？",
+        "选项": {
+            "A": "使用模拟维护事件运行测试。如果测试成功，则在运行未来作业时使用 Spot N2 标准虚拟机。",
+            "B": "使用模拟维护事件运行测试。如果测试成功，则在运行未来作业时使用 N2 标准 VM。",
+            "C": "使用托管实例组运行测试。如果测试成功，则在运行未来作业时使用托管实例组中的 N2 标准虚拟机。",
+            "D": "使用 N1 标准虚拟机（而不是 N2）运行测试。如果测试成功，则在运行未来的作业时使用 N1 标准虚拟机。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 229,
+        "题目内容": "您在多个 Google Cloud 项目中创建了多项资源。所有项目都链接到不同的结算帐号。为了更好地估算未来费用，您希望以单一的直观方式呈现所有产生的费用。您希望尽快包含新的费用数据。您应该怎么做？",
+        "选项": {
+            "A": "在定价计算中填写所有资源，以获得每月费用的估算。",
+            "B": "使用 Cloud Billing Console 中的报告视图查看所需的费用信息。",
+            "C": "访问成本表页面以获取 CSV 导出并使用 Looker Studio 对其进行可视化。",
+            "D": "配置计费数据导出到 BigQuery 并在 Looker Studio 中可视化数据。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 230,
+        "题目内容": "您的公司拥有大量不同文件格式的非结构化数据。您想要对数据执行 ETL 转换。您需要使数据在 Google Cloud 上可访问，以便可以通过 Dataflow 作业进行处理。您应该怎么做？",
+        "选项": {
+            "A": "使用 bq 命令行工具将数据上传到 BigQuery。",
+            "B": "使用 gcloud storage 命令将数据上传到云存储。",
+            "C": "使用 Google Cloud 控制台中的导入功能将数据上传到 Cloud SQL。",
+            "D": "使用 Google Cloud 控制台中的导入功能将数据上传到 Cloud Spanner。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 231,
+        "题目内容": "您在单个 Compute Engine 实例上部署了一个应用程序。该应用程序将日志写入磁盘。用户开始报告应用程序错误。您想诊断问题。您应该怎么做？",
+        "选项": {
+            "A": "导航到 Cloud Logging 并查看应用程序日志。",
+            "B": "在实例上配置健康检查，并设置“连续成功”健康阈值为 1。",
+            "C": "连接到实例的串行控制台并读取应用程序日志。",
+            "D": "安装并配置 Ops 代理并查看来自 Cloud Logging 的日志。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 232,
+        "题目内容": "您最近收到了一个新的 Google Cloud 项目，其中包含一个附加的结算帐号，您将在其中工作。您需要创建实例、设置防火墙并将数据存储在 Cloud Storage 中。您想遵循 Google 推荐的做法。您应该怎么做？",
+        "选项": {
+            "A": "使用 gcloud CLI services enable cloudresourcemanager.googleapis.com 命令启用所有资源。",
+            "B": "使用 gcloud services enable compute.googleapis.com 命令启用 Compute Engine，使用 gcloud services enable storage-api.googleapis.com 命令启用 Cloud Storage API。",
+            "C": "打开 Google Cloud 控制台并从 API 信息中心启用所有 Google Cloud API。",
+            "D": "打开 Google Cloud 控制台并运行 gcloud init--project在 Cloud Shell 中。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 233,
+        "题目内容": "您的应用程序开发团队为将部署在 Google Cloud 上的应用程序创建了 Docker 映像。您的团队不希望与此应用程序相关的基础架构。您需要确保该应用程序能够随着其普及而自动扩展。您应该怎么做？",
+        "选项": {
+            "A": "使用容器映像创建实例模板，并部署具有自动扩展功能的托管实例组。",
+            "B": "将 Docker 镜像上传到 Artifact Registry，并使用标准模式在 Google Kubernetes Engine 上部署应用程序。",
+            "C": "将 Docker 镜像上传到云存储，并使用标准模式在 Google Kubernetes Engine 上部署应用程序。",
+            "D": "将 Docker 镜像上传到 Artifact Registry，并在 Cloud Run 上部署应用程序。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 234,
+        "题目内容": "您正在将业务关键型应用程序从本地数据中心迁移到 Google Cloud。作为高可用性策略的一部分，您希望确保在发生区域故障时应用程序使用的任何数据都能立即可用。您应该怎么做？",
+        "选项": {
+            "A": "将应用程序数据存储在区域持久磁盘上。为磁盘创建快照计划。如果发生中断，请从最新快照创建新磁盘并将其附加到另一个区域的新 VM。",
+            "B": "将应用程序数据存储在区域持久磁盘上。如果发生中断，则在另一个区域创建一个附加此磁盘的实例。",
+            "C": "将应用程序数据存储在区域持久磁盘上。为磁盘创建快照计划。如果发生中断，请从最近的快照创建新磁盘并将其附加到另一个区域的新 VM。",
+            "D": "将应用程序数据存储在区域持久磁盘上。如果发生中断，请在另一个区域创建一个附加此磁盘的实例。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 235,
+        "题目内容": "您组织中的 DevOps 组需要完全控制开发项目中的 Compute Engine 资源。但是，他们不应具有创建或更新项目中任何其他资源的权限。您想遵循 Google 为 DevOps 组设置权限的建议。您应该怎么做？",
+        "选项": {
+            "A": "将基本角色 roles/viewer 和预定义角色 roles/compute_admin 授予 DevOps 组。",
+            "B": "创建一个 IAM 策略并授予该策略所有 compute.instanceAdmin.* 权限。将该策略附加到 DevOps 组。",
+            "C": "在文件夹级别创建自定义角色，并向该角色授予所有 compute.instanceAdmin.* 权限。将自定义角色授予 DevOps 组。",
+            "D": "将基本角色 roles/editor 授予 DevOps 组。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 236,
+        "题目内容": "您的团队正在运行一个本地电子商务应用程序。该应用程序包含一组用 Python 编写的复杂微服务，每个微服务都在 Docker 容器上运行。使用环境变量注入配置。您需要将当前应用程序部署到无服务器 Google Cloud 云解决方案。您应该怎么做？",
+        "选项": {
+            "A": "使用现有的 CI/CD 管道。使用生成的 Docker 映像并将其部署到 Cloud Run。更新配置和所需的端点。",
+            "B": "使用现有的持续集成和交付 (CI/CD) 管道。使用生成的 Docker 镜像并将其部署到 Cloud Function。使用与本地相同的配置。",
+            "C": "使用现有的代码库并将每个服务部署为单独的云函数。更新配置和所需的端点。",
+            "D": "使用现有代码库并将每项服务部署为单独的 Cloud Run。使用与本地相同的配置。"
+        },
+        "答案": "A"
+    },
+       {
+        "题号": 237,
+        "题目内容": "您的团队正在构建一个处理大量用户投票的网站。投票的到达速度各不相同。您想优化投票的存储和处理。您应该怎么做？",
+        "选项": {
+            "A": "将收集的投票保存到 Firestore。使用 Cloud Scheduler 触发 Cloud Functions 实例定期处理投票。",
+            "B": "使用专用实例来处理传入的投票。将投票直接发送到此实例。",
+            "C": "将收集的投票保存到 Cloud Storage 上的 JSON 文件中。在一天结束时批量处理投票。",
+            "D": "将收集的投票保存到 Pub/Sub。使用 Pub/Sub 主题触发 Cloud Functions 实例来处理投票。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 238,
+        "题目内容": "您正在 Kubernetes Engine 集群中运行多个微服务。一个微服务正在渲染图像。负责图像渲染的微服务需要大量的 CPU 时间，而所需的内存则较少。其他微服务是针对 n2 标准机器类型优化的工作负载。您需要优化集群，以便所有工作负载都尽可能高效地使用资源。您应该怎么做？",
+        "选项": {
+            "A": "为图像渲染微服务的 pod 分配比其他微服务更高的 pod 优先级。",
+            "B": "为图像渲染微服务创建一个具有计算机化机器类型节点的节点池。将具有通用机器类型节点的节点池用于其他微服务。",
+            "C": "对图像渲染微服务使用具有通用机器类型节点的节点池。为其他微服务创建具有计算机化机器类型节点的节点池。",
+            "D": "在图像渲染微服务部署的资源请求规范中配置所需的 CPU 和内存量。其他微服务的资源请求保持默认。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 239,
+        "题目内容": "您正在一个团队中工作，该团队开发了一个需要部署在 Kubernetes 上的新应用程序。生产应用程序对业务至关重要，应该针对可靠性进行优化。您需要配置 Kubernetes 集群并希望遵循 Google 推荐的做法。您应该怎么做？",
+        "选项": {
+            "A": "创建 GKE Autopilot 集群。将集群注册到快速发布渠道。",
+            "B": "创建 GKE Autopilot 集群。将集群注册到稳定发布渠道。",
+            "C": "创建区域 GKE 标准集群。将集群注册到稳定发布渠道。",
+            "D": "创建区域 GKE 标准集群。将集群注册到快速发布渠道。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 240,
+        "题目内容": "您负责 Compute Engine 上的 Web 应用程序。您希望在用户遇到至少 5 分钟的高延迟时自动通知您的支持团队。您需要一个 Google 推荐的、无需开发成本的解决方案。您应该怎么做？",
+        "选项": {
+            "A": "将 Cloud Monitoring 指标导出到 BigQuery 并使用 Looker Studio 仪表板来监控您的 Web 应用程序的延迟。",
+            "B": "创建报警器，当 HTTP 响应延迟超过指定阈值时发送通知。",
+            "C": "实现一个 App Engine 服务，该服务调用云监控 API 并在出现异常时发送通知。",
+            "D": "使用云监控仪表盘观察延迟，当响应延迟超过指定阈值时采取必要的措施。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 241,
+        "题目内容": "您有一组本地数据分析二进制文件，它们每天午夜在内存中处理数据文件约 45 分钟。这些数据文件的大小从 1 GB 到 16 GB 不等。您想以最小的精力和成本将此应用程序迁移到 Google Cloud。您应该怎么做？",
+        "选项": {
+            "A": "为二进制文件集创建一个容器。使用 Cloud Scheduler 为该容器启动 Cloud Run 作业。",
+            "B": "为二进制文件集创建一个容器。将容器部署到 Google Kubernetes Engine (GKE) 并使用 Kubernetes 调度程序启动应用程序。",
+            "C": "将代码上传到 Cloud Functions。使用 Cloud Scheduler 启动应用程序。",
+            "D": "直接迁移至 Compute Engine 上的虚拟机。使用实例计划来启动和停止实例。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 242,
+        "题目内容": "您使用 gcloud container clusters 命令创建了两个 Google Cloud Kubernetes (GKE) 集群：prod-cluster 和 dev-cluster。运行 kubectl get nodes 命令时，您只会看到来自 prod-cluster 的节点。您应该运行哪些命令来检查 dev-cluster 的节点状态？",
+        "选项": {
+            "A": "gcloud container clusters get-credentials dev-cluster\nkubectl get nodes",
+            "B": "gcloud container clusters update -generate-password dev-cluster kubectl get nodes",
+            "C": "kubectl config set-context dev-cluster\nkubectl cluster-info",
+            "D": "kubectl config set-credentials dev-cluster\nkubectl cluster-info"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 243,
+        "题目内容": "您最近发现您的开发人员在开发过程中使用了许多服务帐户密钥。在进行长期改进的同时，您需要快速实施一个流程，以在公司中强制执行短期服务帐户凭据。您有以下要求：\n- 所有需要密钥的服务帐户都应在名为 pjsa 的集中项目中创建。\n- 服务帐户密钥的有效期应仅为一天。\n您需要一个 Google 推荐的解决方案来最大程度地降低成本。您应该怎么做？",
+        "选项": {
+            "A": "实施 Cloud Run 作业，定期在 pjsa 中轮换所有服务账号密钥。强制执行组织政策，拒绝创建服务账号密钥，但 pjsa 除外。",
+            "B": "实现 Kubernetes CronJob 来定期轮换所有服务帐户密钥。除 pjsa 外，禁止所有项目中的服务帐户与资源关联。",
+            "C": "强制执行组织策略约束，允许服务帐户密钥的有效期为 24 小时。强制执行组织策略约束，拒绝创建服务帐户密钥，但 pjsa 除外。",
+            "D": "在服务帐户密钥的有效期内强制执行 DENY 组织策略约束，为期 24 小时。除 pjsa 外，禁止所有项目中的服务帐户与资源关联。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 244,
+        "题目内容": "您的公司正在使用 MySQL 数据库的虚拟机上运行三层 Web 应用程序。您需要在算在 Google Cloud 实例和 Cloud SQL 上运行此应用程序的云基础设施的总成本。您应该怎么做？",
+        "选项": {
+            "A": "创建一个包含多种 Google Cloud 资源组合的 Google 电子表格。在单独的工作表中，导入当前的 Google Cloud 价格，并使用这些价格在公式中进行计算。",
+            "B": "使用 Google Cloud 定价计算器并选择云操作模板来尽可能详细地定义您的 Web 应用程序。",
+            "C": "在 Google Cloud 上实现类似的架构，并在较小规模上运行合理的负载测试。检查账单信息，并根据系统通常处理的实际负载计算预估费用。",
+            "D": "使用 Google Cloud 定价计算器确定您预计使用的每项 Google Cloud 资源的费用。对 Web 服务器使用类似大小的实例，并使用您当前的本地机器作为 Cloud SQL 的比较。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 245,
+        "题目内容": "您有一个 Bigtable 实例，它由三个节点组成，用于存储个人身份信息 (PII) 数据。您需要在公司的安全信息和事件管理 (SIEM) 系统中记录所有读取或写入操作，包括此数据库表的任何元素或配置请求。您应该怎么做？",
+        "选项": {
+            "A": "导航到 Google Cloud 控制台中的 Cloud Monitoring，并为 Bigtable 实例创建自定义监控作业以跟踪所有更改。\n- 使用 webhook 端点创建警报，以 SIEM 端点作为接收器。",
+            "B": "导航到 Google Cloud 控制台中的“审核日志”页面，并为 Bigtable 实例启用管理员写入日志。\n- 创建 Cloud Functions 实例以将日志从 Cloud Logging 导出到您的 SIEM。",
+            "C": "导航到 Google Cloud 控制台中的“审计日志”页面，并为 Bigtable 实例启用“数据读取”、“数据写入”和“管理员读取”日志。\n- 创建 Pub/Sub 主题作为 Cloud Logging 接收器目标，并将您的 SIEM 添加为该主题的订阅者。",
+            "D": "在配置期间在 Bigtable 实例上安装 Ops Agent。\n- 为 Bigtable 实例创建具有读取权限的服务帐户。\n- 使用此服务帐户创建自定义 Dataflow 作业，以将日志导出到公司的 SIEM 系统。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 246,
+        "题目内容": "您想要设置 Google Kubernetes Engine 集群。集群需要可验证的节点身份和完整性，并且无法从互联网访问节点。您想要降低管理集群的运营成本，并且想要遵循 Google 推荐的做法。您应该怎么做？",
+        "选项": {
+            "A": "部署私有自动驾驶集群。",
+            "B": "部署公共自动驾驶集群。",
+            "C": "部署标准公共集群，并启用屏蔽节点。",
+            "D": "部署标准私有集群，并启用屏蔽节点。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 247,
+        "题目内容": "您的公司希望将其本地工作负载迁移到 Google Cloud，当前的本地工作负载包括：\n- Flask Web 应用程序\n- 后端 API\n- 用于 ETI 和报告的计划长期运行的后台作业\n您需要保持较低的运营成本。您想遵循 Google 推荐的做法将这些工作负载迁移到 Google Cloud 上的无服务器解决方案。您应该怎么做？",
+        "选项": {
+            "A": "将 Web 应用程序迁移到 App Engine，并将后端 API 迁移到 Cloud Run。使用 Cloud Tasks 在 Compute Engine 上运行后台作业。",
+            "B": "将 Web 应用程序迁移到 App Engine，并将后端 API 迁移到 Cloud Run。使用 Cloud Tasks 在 Cloud Run 上运行后台作业。",
+            "C": "在 Cloud Storage 存储桶上运行 Web 应用程序，并在 Cloud Run 上运行后端 API。使用 Cloud Tasks 在 Cloud Run 上运行后台作业。",
+            "D": "在 Cloud Storage 存储桶上运行 Web 应用程序，并在 Cloud Run 上运行后端 API。使用 Cloud Tasks 在 Compute Engine 上运行后台作业。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 248,
+        "题目内容": "贵公司在将其持续集成和交付 (CI/CD) 管道迁移到 Compute Engine 实例，该管道将通过代码管理整个云基础架构。如何在您的系统通信安全最佳实践的同时确保管道具有适当的权限？",
+        "选项": {
+            "A": "将单个服务帐户附加到计算实例。\n- 为服务帐户添加最低权限。\n- 允许服务帐户模拟具有提升权限的 Cloud Identity 用户来创建、更新或删除资源。",
+            "B": "在执行基础设施配置之前，向 CI/CD 管道添加人工批准步骤。\n- 使用人工批准 IAM 帐户进行配置。",
+            "C": "将单个服务帐户附加到计算实例。\n- 向此服务帐户添加所有必需的身份和访问管理 (IAM) 权限以创建、更新或删除资源。",
+            "D": "创建多个服务帐户，每个管道一个，并赋予其适当的最低身份和访问管理 (IAM) 权限。\n- 使用机器管理服务器存储服务帐户的密钥文件。\n- 允许 CI/CD 管道在管道执行期间请求适当的机器。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 249,
+        "题目内容": "您的应用程序使用标准存储类文件存储在云存储中。该应用程序仅需要访问过去 30 天内创建的文件。您想自动节省应用程序不再访问的文件的成本。您应该怎么做？",
+        "选项": {
+            "A": "在存储桶上创建对象生命周期，将年龄超过 30 天的对象的存储类别更改为存档存储。",
+            "B": "在 Cloud Scheduler 中创建一个 cron 作业，每天调用 Cloud Functions 实例来删除超过 30 天的文件。",
+            "C": "在存储桶上创建 30 天的保留策略，并使用保留策略锁定存储桶。",
+            "D": "在存储桶上启用对象版本控制，并添加生命周期规则，使非当前版本在 30 天后过期。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 250,
+        "题目内容": "您的经理要求您将工作负载部署到 Kubernetes 集群。您不确定工作负载的资源要求，也不确定这些要求会如何根据使用模式、外部依赖或其他因素而变化。您需要一个解决方案，该解决方案能够针对 CPU 和内存要求提供经济高效的建议，并允许工作负载在任何情况下始终如一地运行。您想遵循 Google 推荐的做法。您应该怎么做？",
+        "选项": {
+            "A": "配置水平 Pod 自动扩缩器以实现可用性，并根据建议配置集群自动扩缩器。",
+            "B": "配置水平 Pod 自动缩放器 (Horizontal Pod Autoscaler) 以获得可用性，并配置垂直 Pod 自动缩放器 (Vertical Pod Autoscaler) 建议以获得建议。",
+            "C": "配置 Vertical Pod Autoscaler 建议以获得可用性，并配置 Cluster autoscaler 以获得建议。",
+            "D": "配置垂直 Pod 自动缩放器 (Vertical Pod Autoscaler) 建议以获得可用性，并配置水平 Pod 自动缩放器 (Horizontal Pod Autoscaler) 以获得建议。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 251,
+        "题目内容": "您需要将本地存储的发票文档迁移到云存储。这些文档具有以下存储要求：\n- 文档必须保存五年。\n- 必须存储同一份发票文档的最多五次修订，以便进行更正。\n- 超过 365 天的文档应移至成本较低的存储层。\n您想遵循 Google 推荐的做法来最大限度地降低运营和开发成本。您应该怎么做？",
+        "选项": {
+            "A": "在存储桶上启用保留策略，并使用 Cloud Scheduler 调用 Cloud Function 来根据数据移动或删除文档。",
+            "B": "在存储桶上启用保留策略，使用生命周期规则更改对象的存储类别，设置版本数并删除旧文件。",
+            "C": "在存储桶上启用对象版本控制，并使用 Cloud Scheduler 调用 Cloud Functions 实例根据数据移动或删除文档。",
+            "D": "在存储桶上启用对象版本控制，使用生命周期条件更改对象的存储类别，设置版本数量并删除旧文件。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 252,
+        "题目内容": "您在工作站上安装了 Google Cloud CLI 并设置了代理配置。但是，您担心代理凭据会记录在 global CLI 日志中。您想阻止记录代理凭据。您应该怎么做？",
+        "选项": {
+            "A": "使用 global config set proxy/username和 global config set proxy/password命令配置用户名和密码。",
+            "B": "使用 sha256 编码对用户名和密码进行编码，并保存到文本文件中。使用 filename 作为 global config set core/custom_ca_certs_file 命令中的值。",
+            "C": "在 global CLI 工具配置文件中为 CLOUDSDK_PROXY_USERNAME 和 CLOUDSDK_PROXY_PASSWORD 提供值。",
+            "D": "使用命令行工具中的环境变量设置 CLOUDSDK_PROXY_USERNAME 和 CLOUDSDK_PROXY_PASSWORD 属性。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 253,
+        "题目内容": "您的公司开发了一个应用程序，部署在 Google Kubernetes Engine 上。该应用程序的某些部分不具备容错能力，允许停机。该应用程序的其他部分至关重要，必须始终可用。您需要配置 Google Kubernetes Engine 集群，同时优化成本。您应该怎么做？",
+        "选项": {
+            "A": "使用标准虚拟机创建一个具有单个节点池的集群。将容错部署标记为 spot_true。",
+            "B": "使用 Spot VM 创建具有单个节点池的集群。将关键部署标记为 spot_false。",
+            "C": "使用标准虚拟机创建一个具有 Spot VM 节点池和节点池的集群。使用标准虚拟机在 Spot VM 节点池上部署关键部署，在节点池上部署容错部署。",
+            "D": "使用标准虚拟机创建一个包含 Spot VM 节点池和 node 池的集群。使用标准虚拟机在节点池上部署关键部署，在 Spot VM 节点池上部署容错部署。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 254,
+        "题目内容": "您需要使用无服务器技术在 Google Cloud 中部署应用程序。您想使用一小部分生产流量来测试应用程序的新版本。您应该怎么做？",
+        "选项": {
+            "A": "将应用程序到 Cloud Run。使用逐步部署进行流量分流。",
+            "B": "将应用程序部署到 Google Kubernetes Engine。使用 Anthos Service Mash 进行流量拆分。",
+            "C": "将应用程序部署到 Cloud Functions。在函数名称中指定版本号。",
+            "D": "将应用程序部署到 App Engine。对于每个新版本，创建一个新服务。"
+        },
+        "答案": "A"
+    },
+       {
+        "题号": 255,
+        "题目内容": "您希望让您的开发团队能够将新功能部署到生产中的现有 Cloud Run 服务。为了最大限度地降低与新修订相关的风险，您希望减少可能受中断影响的客户数量，而不会给客户带来任何开发或运营成本。您希望遵循 Google 推荐的管理服务修订的做法。您应该怎么做？",
+        "选项": {
+            "A": "要求您的客户使用指数退避算法重试访问您的服务，以减轻部署新版本后可能出现的任何问题。",
+            "B": "逐步推出新的修订版本，并在修订版本之间分配客户流量，以便在出现问题时回滚。",
+            "C": "将所有客户流量发送到新的修订版本，如果在生产中发现任何问题，则回滚到以前的修订版本。",
+            "D": "将您的应用程序部署到第二个 Cloud Run 服务，并让您的客户使用第二个 Cloud Run 服务。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 256,
+        "题目内容": "您已在 Compute Engine 实例上部署了一个应用程序。外部顾问需要访问基于 Linux 的实例。该顾问通过 VPN 连接连接到您的公司网络，但没有 Google 帐户。您应该怎么做？",
+        "选项": {
+            "A": "指示外部顾问通过使用 Identity-Aware Proxy 使用 gcloud compute ssh 命令行工具访问实例。",
+            "B": "指示外部顾问使用 gcloud compute ssh 命令行工具通过使用实例的公共 IP 地址来访问它。",
+            "C": "指示外部顾问生成 SSH 密钥，并向顾问索取公钥。自己将公钥添加到实例，并让顾问使用其私钥通过 SSH 访问实例。",
+            "D": "指示外部顾问生成 SSH 密钥，并向顾问索取私钥。自己将私钥添加到实例，并让顾问使用其公钥通过 SSH 访问实例。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 257,
+        "题目内容": "在最近发生安全事件后，您的初创公司希望更好地了解 Google Cloud 环境中发生的情况。您需要监控意外的防火墙更改和实例创建。您的公司更喜欢简单的解决方案。您应该怎么做？",
+        "选项": {
+            "A": "创建日志接收器，将针对防火墙和计算实例过滤的 Cloud Audit Logs 转发到 Cloud Storage。使用 BigQuery 定期分析存储桶中的日志事件。",
+            "B": "使用 Cloud Logging 过滤器为防火墙和实例操作创建基于日志的指标。监控变化并设置合理的警报。",
+            "C": "在计算实例上安装 Kibana。创建日志接收器，将针对防火墙和计算实例过滤的 Cloud Audit Logs 转发到 Pub/Sub。定位 Pub/Sub 主题以将消息推送到 Kibana 实例。实时分析 Kibana 上的日志。",
+            "D": "打开 Google Cloud 防火墙规则日志记录，并为任何插入、更新或删除事件设置警报。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 258,
+        "题目内容": "您正在为跨多个项目的应用程序配置服务帐户。在 web 应用程序项目中运行的虚拟机 (VM) 需要访问 crm 数据库项目中的 BigQuery 数据集。您想按照 Google 推荐的做法授予 web 应用程序项目中服务帐户的访问权限。您应该怎么做？",
+        "选项": {
+            "A": "授予 web 应用程序“项目所有者”对 crm-databases 适当的角色。",
+            "B": "授予 crm-databases 和 web-applications 项目“项目所有者”角色。",
+            "C": "授予 crm-databases 的项目所有者“角色”，并授予 web-applications 的 role/bigquery.dataViewer 角色。",
+            "D": "授予 crm-databases 角色/bigquery.dataViewer，并授予 web-applications 适当的角色。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 259,
+        "题目内容": "您的 Dataproc 集群在单个虚拟私有云 (VPC) 网络中运行，该网络位于单个子网中，范围为 172.16.20.128/25。子网中没有可用的私有 IP 地址。您想使用最少的步骤添加新虚拟机以与您的集群进行通信。您应该怎么做？",
+        "选项": {
+            "A": "将现有的子网范围修改为 172.16.20.0/24。",
+            "B": "在 VPC 中创建新的辅助 IP 范围并配置虚拟机以使用该范围。",
+            "C": "为虚拟机创建新的 VPC 网络。在虚拟机的 VPC 网络和 Dataproc 集群 VPC 网络之间启用 VPC 对等互连。",
+            "D": "为虚拟机创建一个新的 VPC 网络，子网为 172.32.0.0/16。在 Dataproc VPC 网络和虚拟机 VPC 网络之间启用 VPC 网络对等互连。配置自定义路由交换。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 260,
+        "题目内容": "您需要将本地存储的发票文档迁移到云存储。这些文档具有以下存储要求：文档必须保存五年。必须存储同一份发票文档的最多五次修订，以便进行更正。超过 365 天的文档应移至成本较低的存储层。您想遵循 Google 推荐的做法来最大限度地降低运营和开发成本。您应该怎么做？",
+        "选项": {
+            "A": "在存储桶上启用保留策略，并使用 Cloud Scheduler 调用 Cloud Function 来根据数据移动或删除文档。",
+            "B": "在存储桶上启用保留策略，使用生命周期规则更改对象的存储类别，设置版本数并删除旧文件。",
+            "C": "在存储桶上启用对象版本控制，并使用 Cloud Scheduler 调用 Cloud Functions 实例根据数据移动或删除文档。",
+            "D": "在存储桶上启用对象版本控制，使用生命周期条件更改对象的存储类别，设置版本数量并删除旧文件。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 261,
+        "题目内容": "您在工作站上安装了 Google Cloud CLI 并设置了代理配置。但是，您担心代理凭据会记录在 global CLI 日志中。您想阻止记录代理凭据。您应该怎么做？",
+        "选项": {
+            "A": "使用 global config set proxy/username和 global config set proxy/password命令配置用户名和密码。",
+            "B": "使用 sha256 编码对用户名和密码进行编码，并保存到文本文件中。使用 filename 作为 global config set core/custom_ca_certs_file 命令中的值。",
+            "C": "在 global CLI 工具配置文件中为 CLOUDSDK_PROXY_USERNAME 和 CLOUDSDK_PROXY_PASSWORD 提供值。",
+            "D": "使用命令行工具中的环境变量设置 CLOUDSDK_PROXY_USERNAME 和 CLOUDSDK_PROXY_PASSWORD 属性。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 262,
+        "题目内容": "您的公司开发了一个应用程序，部署在 Google Kubernetes Engine 上。该应用程序的某些部分不具备容错能力，允许停机。该应用程序的其他部分至关重要，必须始终可用。您需要配置 Google Kubernetes Engine 集群，同时优化成本。您应该怎么做？",
+        "选项": {
+            "A": "使用标准虚拟机创建一个具有单个节点池的集群。将容错部署标记为 spot_true。",
+            "B": "使用 Spot VM 创建具有单个节点池的集群。将关键部署标记为 spot_false。",
+            "C": "使用标准虚拟机创建一个具有 Spot VM 节点池和节点池的集群。使用标准虚拟机在 Spot VM 节点池上部署关键部署，在节点池上部署容错部署。",
+            "D": "使用标准虚拟机创建一个包含 Spot VM 节点池和 node 池的集群。使用标准虚拟机在节点池上部署关键部署，在 Spot VM 节点池上部署容错部署。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 263,
+        "题目内容": "您需要使用无服务器技术在 Google Cloud 中部署应用程序。您想使用一小部分生产流量来测试应用程序的新版本。您应该怎么做？",
+        "选项": {
+            "A": "将应用程序到 Cloud Run。使用逐步部署进行流量分流。",
+            "B": "将应用程序部署到 Google Kubernetes Engine。使用 Anthos Service Mash 进行流量拆分。",
+            "C": "将应用程序部署到 Cloud Functions。在函数名称中指定版本号。",
+            "D": "将应用程序部署到 App Engine。对于每个新版本，创建一个新服务。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 264,
+        "题目内容": "贵公司的安全漏洞管理政策要求安全团队的一名成员能够查看特定 Compute Engine 实例的漏洞和其他操作系统元数据。此 Compute Engine 实例托管了您的 Google Cloud 项目中的关键应用程序，您需要实施贵公司的安全漏洞管理政策。您应该怎么做？",
+        "选项": {
+            "A": "确保 Ops Agent 安装在 Compute Engine 实例上。在 Cloud Monitoring 仪表板中创建自定义指标。为安全团队成员提供优化表板的访问权限。",
+            "B": "确保 Ops Agent 安装在 Compute Engine 实例上。为安全团队成员提供角色/osconfig.inventory/iewer权限。",
+            "C": "确保在 Compute Engine 实例上安装了 OS Config 代理。为安全团队成员提供角色/osconfig.vulnerabilityReportViewer权限。",
+            "D": "确保在 Compute Engine 实例上安装了 OS Config 代理。创建 BigQuery 数据库的日志接收器。为安全团队成员提供数据集的访问权限。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 265,
+        "题目内容": "您希望让您的开发团队能够将新功能部署到生产中的现有 Cloud Run 服务。为了最大限度地降低与新修订相关的风险，您希望减少可能受中断影响的客户数量，而不会给客户带来任何开发或运营成本。您希望遵循 Google 推荐的管理服务修订的做法。您应该怎么做？",
+        "选项": {
+            "A": "要求您的客户使用指数退避算法重试访问您的服务，以减轻部署新版本后可能出现的任何问题。",
+            "B": "逐步推出新的修订版本，并在修订版本之间分配客户流量，以便在出现问题时回滚。",
+            "C": "将所有客户流量发送到新的修订版本，如果在生产中发现任何问题，则回滚到以前的修订版本。",
+            "D": "将您的应用程序部署到第二个 Cloud Run 服务，并让您的客户使用第二个 Cloud Run 服务。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 266,
+        "题目内容": "您已在 Compute Engine 实例上部署了一个应用程序。外部顾问需要访问基于 Linux 的实例。该顾问通过 VPN 连接连接到您的公司网络，但没有 Google 帐户。您应该怎么做？",
+        "选项": {
+            "A": "指示外部顾问通过使用 Identity-Aware Proxy 使用 gcloud compute ssh 命令行工具访问实例。",
+            "B": "指示外部顾问使用 gcloud compute ssh 命令行工具通过使用实例的公共 IP 地址来访问它。",
+            "C": "指示外部顾问生成 SSH 密钥，并向顾问索取公钥。自己将公钥添加到实例，并让顾问使用其私钥通过 SSH 访问实例。",
+            "D": "指示外部顾问生成 SSH 密钥，并向顾问索取私钥。自己将私钥添加到实例，并让顾问使用其公钥通过 SSH 访问实例。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 267,
+        "题目内容": "在最近发生安全事件后，您的初创公司希望更好地了解 Google Cloud 环境中发生的情况。您需要监控意外的防火墙更改和实例创建。您的公司更喜欢简单的解决方案。您应该怎么做？",
+        "选项": {
+            "A": "创建日志接收器，将针对防火墙和计算实例过滤的 Cloud Audit Logs 转发到 Cloud Storage。使用 BigQuery 定期分析存储桶中的日志事件。",
+            "B": "使用 Cloud Logging 过滤器为防火墙和实例操作创建基于日志的指标。监控变化并设置合理的警报。",
+            "C": "在计算实例上安装 Kibana。创建日志接收器，将针对防火墙和计算实例过滤的 Cloud Audit Logs 转发到 Pub/Sub。定位 Pub/Sub 主题以将消息推送到 Kibana 实例。实时分析 Kibana 上的日志。",
+            "D": "打开 Google Cloud 防火墙规则日志记录，并为任何插入、更新或删除事件设置警报。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 268,
+        "题目内容": "您正在为跨多个项目的应用程序配置服务帐户。在 web 应用程序项目中运行的虚拟机 (VM) 需要访问 crm 数据库项目中的 BigQuery 数据集。您想按照 Google 推荐的做法授予 web 应用程序项目中服务帐户的访问权限。您应该怎么做？",
+        "选项": {
+            "A": "授予 web 应用程序“项目所有者”对 crm-databases 适当的角色。",
+            "B": "授予 crm-databases 和 web-applications 项目“项目所有者”角色。",
+            "C": "授予 crm-databases 的项目所有者“角色”，并授予 web-applications 的 role/bigquery.dataViewer 角色。",
+            "D": "授予 crm-databases 角色/bigquery.dataViewer，并授予 web-applications 适当的角色。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 269,
+        "题目内容": "您的 Dataproc 集群在单个虚拟私有云 (VPC) 网络中运行，该网络位于单个子网中，范围为 172.16.20.128/25。子网中没有可用的私有 IP 地址。您想使用最少的步骤添加新虚拟机以与您的集群进行通信。您应该怎么做？",
+        "选项": {
+            "A": "将现有的子网范围修改为 172.16.20.0/24。",
+            "B": "在 VPC 中创建新的辅助 IP 范围并配置虚拟机以使用该范围。",
+            "C": "为虚拟机创建新的 VPC 网络。在虚拟机的 VPC 网络和 Dataproc 集群 VPC 网络之间启用 VPC 对等互连。",
+            "D": "为虚拟机创建一个新的 VPC 网络，子网为 172.32.0.0/16。在 Dataproc VPC 网络和虚拟机 VPC 网络之间启用 VPC 网络对等互连。配置自定义路由交换。"
+        },
+        "答案": "B"
+    },
+    {
+        "题号": 270,
+        "题目内容": "您需要将本地存储的发票文档迁移到云存储。这些文档具有以下存储要求：文档必须保存五年。必须存储同一份发票文档的最多五次修订，以便进行更正。超过 365 天的文档应移至成本较低的存储层。您想遵循 Google 推荐的做法来最大限度地降低运营和开发成本。您应该怎么做？",
+        "选项": {
+            "A": "在存储桶上启用保留策略，并使用 Cloud Scheduler 调用 Cloud Function 来根据数据移动或删除文档。",
+            "B": "在存储桶上启用保留策略，使用生命周期规则更改对象的存储类别，设置版本数并删除旧文件。",
+            "C": "在存储桶上启用对象版本控制，并使用 Cloud Scheduler 调用 Cloud Functions 实例根据数据移动或删除文档。",
+            "D": "在存储桶上启用对象版本控制，使用生命周期条件更改对象的存储类别，设置版本数量并删除旧文件。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 271,
+        "题目内容": "您在工作站上安装了 Google Cloud CLI 并设置了代理配置。但是，您担心代理凭据会记录在 global CLI 日志中。您想阻止记录代理凭据。您应该怎么做？",
+        "选项": {
+            "A": "使用 global config set proxy/username和 global config set proxy/password命令配置用户名和密码。",
+            "B": "使用 sha256 编码对用户名和密码进行编码，并保存到文本文件中。使用 filename 作为 global config set core/custom_ca_certs_file 命令中的值。",
+            "C": "在 global CLI 工具配置文件中为 CLOUDSDK_PROXY_USERNAME 和 CLOUDSDK_PROXY_PASSWORD 提供值。",
+            "D": "使用命令行工具中的环境变量设置 CLOUDSDK_PROXY_USERNAME 和 CLOUDSDK_PROXY_PASSWORD 属性。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 272,
+        "题目内容": "您的公司开发了一个应用程序，部署在 Google Kubernetes Engine 上。该应用程序的某些部分不具备容错能力，允许停机。该应用程序的其他部分至关重要，必须始终可用。您需要配置 Google Kubernetes Engine 集群，同时优化成本。您应该怎么做？",
+        "选项": {
+            "A": "使用标准虚拟机创建一个具有单个节点池的集群。将容错部署标记为 spot_true。",
+            "B": "使用 Spot VM 创建具有单个节点池的集群。将关键部署标记为 spot_false。",
+            "C": "使用标准虚拟机创建一个具有 Spot VM 节点池和节点池的集群。使用标准虚拟机在 Spot VM 节点池上部署关键部署，在节点池上部署容错部署。",
+            "D": "使用标准虚拟机创建一个包含 Spot VM 节点池和 node 池的集群。使用标准虚拟机在节点池上部署关键部署，在 Spot VM 节点池上部署容错部署。"
+        },
+        "答案": "D"
+    },
+       {
+        "题号": 273,
+        "题目内容": "您是 Google Cloud 组织管理员。您需要在 Google Cloud 项目上配置组织政策和日志接收器，这些接收器不能被项目用户移除，以符合公司的安全政策。每个公司部门的安全政策都不同。每个公司部门都有一个用户，其项目被分配了项目所有者角色。您应该怎么做？",
+        "选项": {
+            "A": "对项目使用包含部门名称的标准备名约定。在组织上配置组织策略，在项目上配置日志接收器。",
+            "B": "对项目使用包含部门名称的标准备名约定。在项目上配置组织策略和日志接收器。",
+            "C": "将项目组织到各个部门的文件夹下。在文件夹上配置组织策略和日志接收器。",
+            "D": "将项目组织到各个部门的文件夹下。在组织上配置组织策略，并在文件夹上配置日志接收器。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 274,
+        "题目内容": "您正在使用 Compute Engine 部署 Web 应用程序。您创建了一个托管实例组 (MIG) 来托管该应用程序。您想遵循 Google 推荐的做法来实施安全且高度可用的解决方案。您应该怎么做？",
+        "选项": {
+            "A": "对 MIG 使用 SSL 代理负载平衡，并在 DNS 私有区域中使用负载平衡器的 IP 地址进行 A 记录。",
+            "B": "对 MIG 使用 SSL 代理负载平衡，并在 DNS 公共区域中使用负载平衡器的 IP 地址的 CNAME 记录。",
+            "C": "对 MIG 使用 HTTP(S) 负载平衡，并在 DNS 私有区域中使用负载平衡器的 IP 地址的 CNAME 记录。",
+            "D": "对 MIG 使用 HTTP(S) 负载平衡，并在 DNS 公共区域中使用负载平衡器的 IP 地址的 A 记录。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 275,
+        "题目内容": "您在 Google Kubernetes Engine (GKE) 集群中运行了数百个微服务应用程序。每个微服务都是一个部署，部署中的每个容器都配置了资源限制。您发现许多微服务的内存和 CPU 资源限制设置不当。您想确保每个微服务的内存和 CPU 限制大小合适。您应该怎么做？",
+        "选项": {
+            "A": "为每个微服务配置一个垂直 Pod 自动扩缩器。",
+            "B": "修改集群的节点地址和路径类型，选择内存和CPU更多的机器类型。",
+            "C": "为每个微服务配置一个 Horizontal Pod Autoscale。",
+            "D": "配置 GKE 集群自动扩缩。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 276,
+        "题目内容": "您的公司使用 BigQuery 来存储和分析数据。在 BigQuery 中提交查询后，查询失败并出现配额超出错误。您需要诊断导致错误的问题。您应该怎么做？（选择两个。）",
+        "选项": {
+            "A": "使用 BigQuery BI Engine 分析问题。",
+            "B": "使用 INFORMATION_SCHEDMA视图来分析底层问题。",
+            "C": "配置 Cloud Trace 来分析问题。",
+            "D": "在 Cloud Audit Logs 中搜索错误来分析问题。",
+            "E": "查看云监控中的错误来分析问题。"
+        },
+        "答案": "BD"
+    },
+    {
+        "题号": 277,
+        "题目内容": "您的团队开发了一个无状态应用程序，需要直接在虚拟机上运行。该应用程序预计会接收波动的流量，需要自动扩展。您需要部署该应用程序。您应该怎么做？",
+        "选项": {
+            "A": "在托管实例组上部署应用程序并配置自动扩展。",
+            "B": "在 Kubernetes Engine 集群上部署应用程序并配置节点启动扩缩。",
+            "C": "在 Cloud Functions 上部署应用程序并配置最大实例数。",
+            "D": "在 Cloud Run 上部署应用程序并配置自动扩展。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 278,
+        "题目内容": "您的 Web 应用程序托管在 Cloud Run 上，需要查询 Cloud SQL 数据库。每天早上流量高峰期间，您都会在 Cloud SQL 日志中发现 API 配额错误。该项目已达到最大 API 配额。您想更改配置以缓解此问题。您应该怎么做？",
+        "选项": {
+            "A": "修改 Cloud Run 实例的最小数量。",
+            "B": "使用流量分流。",
+            "C": "修改 Cloud Run 实例的最大数量。",
+            "D": "为应用程序设置最小并发请求环境变量。"
+        },
+        "答案": "A"
+    },
+    {
+        "题号": 279,
+        "题目内容": "您需要部署一个具有 Web 界面和多个端点的无状态 Web 应用程序。出于安全原因，Web 应用程序必须能够从您公司的私有 VPC 和本地网络的内部 IP 地址访问。您还需要每天多次更新 Web 应用程序，并且尽量减少对云基础设施的管理。您应该怎么做？",
+        "选项": {
+            "A": "使用内部入口在 Google Kubernetes Engine 标准版上部署 Web 应用程序。",
+            "B": "在配置了私有 Google Access 的 Cloud Run 上部署 Web 应用程序。",
+            "C": "在配置了 Private Service Connect 的 Cloud Run 上部署 Web 应用程序。",
+            "D": "将 Web 应用程序部署到配置了私有 Google Access 的 GKE Autopilot。"
+        },
+        "答案": "C"
+    },
+    {
+        "题号": 280,
+        "题目内容": "您使用 Cloud Logging 捕获应用程序日志。现在您需要使用 SQL 分析 Cloud Logging 中的应用程序日志，并且想要遵循 Google 推荐的做法。您应该怎么做？",
+        "选项": {
+            "A": "使用 Gemini for Google Cloud 开发 SQL 查询。",
+            "B": "为日志存储信息用户自动分析并在 BigQuery 中创建链接数据集。",
+            "C": "为存储信息提供支持对存储中的数据运行 SQL 查询。",
+            "D": "将日志导出到存储信息并在 BigQuery 中创建外部视图。"
+        },
+        "答案": "B"
+    },
+       {
+        "题号": 281,
+        "题目内容": "您需要将本地存储的发票文档迁移到云存储。这些文档具有以下存储要求：文档必须保存五年；必须存储同一份发票文档的最多五次修订，以便进行更正；超过 365 天的文档应移至成本较低的存储层。您想遵循 Google 推荐的做法来最大限度地降低运营和开发成本。您应该怎么做？",
+        "选项": {
+            "A": "在存储桶上启用保留策略，并使用 Cloud Scheduler 调用 Cloud Function 来根据数据移动或删除文档。",
+            "B": "在存储桶上启用保留策略，使用生命周期规则更改对象的存储类别，设置版本数并删除旧文件。",
+            "C": "在存储桶上启用对象版本控制，并使用 Cloud Scheduler 调用 Cloud Functions 实例根据数据移动或删除文档。",
+            "D": "在存储桶上启用对象版本控制，使用生命周期条件更改对象的存储类别，设置版本数量并删除旧文件。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 282,
+        "题目内容": "您在工作站上安装了 Google Cloud CLI 并设置了代理配置。但是，您担心代理凭据会记录在 global CLI 日志中。您想阻止记录代理凭据。您应该怎么做？",
+        "选项": {
+            "A": "使用 global config set proxy/username和 global config set proxy/password命令配置用户名和密码。",
+            "B": "使用 sha256 编码对用户名和密码进行编码，并保存到文本文件中。使用 filename 作为 global config set core/custom_ca_certs_file 命令中的值。",
+            "C": "在 global CLI 工具配置文件中为 CLOUDSDK_PROXY_USERNAME 和 CLOUDSDK_PROXY_PASSWORD 提供值。",
+            "D": "使用命令行工具中的环境变量设置 CLOUDSDK_PROXY_USERNAME 和 CLOUDSDK_PROXY_PASSWORD 属性。"
+        },
+        "答案": "D"
+    },
+    {
+        "题号": 283,
+        "题目内容": "您的团队正在构建一个处理大量用户投票的网站。投票的到达速度各不相同。您想优化投票的存储和处理。您应该怎么做？",
+        "选项": {
+            "A": "将收集的投票保存到 Firestore。使用 Cloud Scheduler 触发 Cloud Functions 实例定期处理投票。",
+            "B": "使用专用实例来处理传入的投票。将投票直接发送到此实例。",
+            "C": "将收集的投票保存到 Cloud Storage 上的 JSON 文件中。在一天结束时批量处理投票。",
+            "D": "将收集的投票保存到 Pub/Sub。使用 Pub/Sub 主题触发 Cloud Functions 实例来处理投票。"
+        },
+        "答案": "D"
+    }
+]

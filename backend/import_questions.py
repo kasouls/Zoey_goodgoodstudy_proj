@@ -1,67 +1,38 @@
 import sqlite3
-import json
 import os
+import json
 
-DB_PATH = "data/questions.db"
-JSON_PATH = "data/questions.json"
+# 获取数据库路径
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, "../data/questions.db")
 
-# 创建数据库并定义表结构
-def setup_database():
-    conn = sqlite3.connect(DB_PATH)
-    cursor = conn.cursor()
-    
+# 连接数据库
+conn = sqlite3.connect(DB_PATH)
+cursor = conn.cursor()
+
+# 读取 questions.txt
+TXT_FILE_PATH = os.path.join(BASE_DIR, "questions.txt")
+
+try:
+    with open(TXT_FILE_PATH, "r", encoding="utf-8") as file:
+        new_questions = json.load(file)  # 解析 JSON
+except json.JSONDecodeError as e:
+    print(f"❌ JSON 解析失败: {e}")
+    conn.close()
+    exit(1)
+except Exception as e:
+    print(f"❌ 读取文件失败: {e}")
+    conn.close()
+    exit(1)
+
+# 插入数据
+for q in new_questions:
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS questions (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        question_number INTEGER UNIQUE,
-        question_content TEXT,
-        option_A TEXT,
-        option_B TEXT,
-        option_C TEXT,
-        option_D TEXT,
-        correct_answer TEXT
-    )
-    """)
-    
-    conn.commit()
-    conn.close()
-    print("✅ 数据库已初始化")
-
-# 读取 JSON 并存入数据库
-def import_questions():
-    if not os.path.exists(JSON_PATH):
-        print("⚠️ JSON 文件不存在，请检查路径")
-        return
-    
-    with open(JSON_PATH, "r", encoding="utf-8") as f:
-        questions = json.load(f)
-    
-    conn = sqlite3.connect(DB_PATH)
-    cursor = conn.cursor()
-    
-    for q in questions:
-        cursor.execute("""
-        INSERT OR REPLACE INTO questions (question_number, question_content, option_A, option_B, option_C, option_D, correct_answer)
+        INSERT INTO questions (question_content, option_A, option_B, option_C, option_D, correct_answer, is_wrong)
         VALUES (?, ?, ?, ?, ?, ?, ?)
-        """, (
-            q["question_number"],
-            q["question_content"],
-            q["options"]["A"],
-            q["options"]["B"],
-            q["options"]["C"],
-            q["options"]["D"],
-            q["correct_answer"]
-        ))
-    
-    conn.commit()
-    conn.close()
-    print("✅ 题目已成功导入数据库")
+    """, (q["题目内容"], q["选项"]["A"], q["选项"]["B"], q["选项"]["C"], q["选项"]["D"], q["答案"], 0))  # 默认 is_wrong 为 False
 
-# 运行主程序
-def main():
-    os.makedirs("data", exist_ok=True)
-    setup_database()
-    import_questions()
+conn.commit()
+conn.close()
 
-if __name__ == "__main__":
-    main()
+print(f"✅ 成功导入 {len(new_questions)} 道题目，所有题目初始为非错题！")
