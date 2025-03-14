@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Typography, Button, TextField, Select, MenuItem, FormControl, InputLabel } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import API_BASE_URL from "../config";
 
 const CustomMode = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const CustomMode = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/total_questions") // ✅ 获取题目总数
+    fetch(`${API_BASE_URL}/total_questions`) // ✅ 获取题目总数
       .then((res) => res.json())
       .then((data) => {
         if (data.total > 0) {
@@ -24,7 +25,16 @@ const CustomMode = () => {
   }, []);
 
   const handleNumQuestionsChange = (e) => {
-    const value = Math.max(1, Math.min(maxQuestions, Number(e.target.value))); // ✅ 限制范围
+    let value = e.target.value;
+
+    // ✅ 允许用户清空输入框
+    if (value === "") {
+        setNumQuestions("");
+        return;
+    }
+
+    // ✅ 确保输入的是数字，并限制范围
+    value = Math.max(1, Math.min(maxQuestions, Number(value)));
     setNumQuestions(value);
   };
 

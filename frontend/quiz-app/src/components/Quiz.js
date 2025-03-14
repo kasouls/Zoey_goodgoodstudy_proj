@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Container, Typography, Button, Card, CardContent, LinearProgress, Box } from "@mui/material";
 import { motion } from "framer-motion";
+import API_BASE_URL from "../config";
 
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
@@ -25,7 +26,7 @@ const Quiz = () => {
   const [showFeedback, setShowFeedback] = useState(false); // 控制动画
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/questions?limit=${numQuestions}`)
+    fetch(`${API_BASE_URL}/questions?limit=${numQuestions}`)
       .then((res) => res.json())
       .then((data) => {
         console.log("🔍 API 返回数据:", data);
@@ -62,10 +63,13 @@ const Quiz = () => {
 
     const currentQuestion = questions[currentIndex];
 
-    fetch("http://127.0.0.1:8000/check_answer", {
+    fetch(`${API_BASE_URL}/check_answer`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question_number: currentQuestion.question_number, user_answer: selectedAnswer }),
+      body: JSON.stringify({ 
+        question_id: questions[currentIndex].id,  // ✅ 改成 `id`
+        user_answer: selectedAnswer 
+      }),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -73,6 +77,7 @@ const Quiz = () => {
         console.log("✅ 题目:", currentQuestion.question_content);
         console.log("💡 用户选择:", selectedAnswer);
         console.log("🎯 正确答案:", currentQuestion.correct_answer);
+        console.log("🔥 是否答对:", data.is_correct);
 
         const correct = Boolean(data.is_correct);
         setIsCorrect(correct);
@@ -80,8 +85,12 @@ const Quiz = () => {
         setShowFeedback(true);  // 这里开启动画
 
         if (correct) {
-          setCorrectCount((prev) => prev + 1);
-        }
+          setCorrectCount((prev) => {
+		console.log("✅ `setCorrectCount` 更新前:", prev);
+		return  prev + 1;
+    
+        	});
+	}
 
         setTimeout(() => {
           if (currentIndex + 1 < questions.length) {
@@ -92,6 +101,9 @@ const Quiz = () => {
             setShowFeedback(false);
             if (mode === "timed") setTimeLeft(timeLimit * 60);
           } else {
+	    console.log("🚀 题目完成！跳转到结果页");
+            console.log("📌 总题目数:", questions.length);
+            console.log("✅ 最终正确数:", correctCount);
             navigate(`/results?total=${questions.length}&correct=${correctCount}`);
           }
         }, 1000);
@@ -109,7 +121,15 @@ const Quiz = () => {
 
       <Card variant="outlined" style={{ padding: "20px", backgroundColor: "#444", color: "white", marginBottom: "20px" }}>
         <CardContent>
-          <Typography variant="h6">{questions[currentIndex].question_content}</Typography>
+          <Typography 
+	  variant="h6"
+          sx={{
+             lineHeight: 1.3,
+             fontSize: "18px",
+             color: "white",
+             marginBottom: "8px",
+            }}
+          >{questions[currentIndex].question_content}</Typography>
         </CardContent>
       </Card>
 
@@ -126,8 +146,8 @@ const Quiz = () => {
             fullWidth
             onClick={() => handleAnswer(key)}
             sx={{
-              marginTop: "10px",
-              fontSize: "18px",
+              marginTop: "8px",
+              fontSize: "16px",
               backgroundColor:
                 showFeedback
                   ? key === correctAnswer
@@ -144,7 +164,9 @@ const Quiz = () => {
               borderRadius: "12px",
             }}
           >
+           <Typography sx={{ lineHeight: 1.2, fontSize: "14px", fontWeight: "bold" }}>
             {option}
+           </Typography>
           </Button>
         </motion.div>
       ))}

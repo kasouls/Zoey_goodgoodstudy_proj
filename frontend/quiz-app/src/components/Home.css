@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap'); /* ✅ 科技感字体 */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap'); /* ✅ 显像管风格字体 */
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;  /* ✅ 页面整体上移 */
+    background: #181818;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    /* 避免文字溢出屏幕 */
+}
+
+.big-title {
+    font-size: 110px; /* ✅ 终极大字体！ */
+    font-weight: 1000; /* ✅ 超粗字体！ */
+    font-family: 'Orbitron', sans-serif; /* ✅ 未来科技感 */
+    letter-spacing: 3px;
+    text-shadow: 0px 0px 25px rgba(0, 255, 0, 1), 0px 0px 50px rgba(0, 255, 0, 0.8); /* ✅ 增强光效 */
+}
+
+.typing {
+    font-family: 'Courier New', monospace;
+    font-size: 42px;
+    font-weight: bold;
+    text-shadow: 0px 0px 10px rgba(0, 255, 0, 0.8);
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.subtitle-up {
+    display: block;
+    margin-top: -25px; /* ✅ 让副标题更靠近主标题 */
+}
+
+.certi-text {
+    color: #4fa8ff;
+    text-shadow: 0px 0px 20px #4fa8ff;
+}
+
+.master-text {
+    color: #00ff00;
+    text-shadow: 0px 0px 20px #00ff00;
+}
+
+.subtitle-text {
+    color: #ff9800;
+    font-size: 20px; /* ✅ 保持副标题大小不变 */
+    font-weight: normal; /* ✅ 副标题不加粗 */
+    text-shadow: 0px 0px 12px #ff9800;
+}
+
+/* ✅ 白色光标（主标题） */
+.cursor {
+    display: inline-block;
+    width: 6px;
+    height: 28px;
+    background: white;
+    border-radius: 10%;
+    animation: blink 0.6s infinite;
+    margin-left: 6px;
+    position: relative;
+    top: 10px;
+}
+
+/* ✅ 隐藏副标题多余光标（背景色光标） */
+.green-cursor {
+    display: inline-block;
+    width: 6px;
+    height: 28px;
+    background: #181818;  /* ✅ 设为背景色，让额外的光标看不见 */
+    border-radius: 10%;
+    animation: blink 0.6s infinite;
+    margin-left: 6px;
+    position: relative;
+    top: 10px;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.menu-option {
+    font-size: 20px;
+    padding: 18px;
+    background: rgba(30, 30, 30, 0.9);
+    border-left: 6px solid #007acc;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 12px;
+}
+
+/* ✅ 底部文字的 CRT 终端风格 */
+.footer {
+    font-family: 'VT323', monospace; /* ✅ 显像管终端风格 */
+    font-size: 14px;  /* ✅ 底部文字缩小 */
+    margin-top: 40px;  /* ✅ 适当调整间距 */
+    max-width: 90vw;
+    white-space: nowrap;
+    color: #00ff00;
+    text-shadow: 0px 0px 8px rgba(0, 255, 0, 0.8);
+}
+
+/* ✅ VS Code 风格配色 */
+.code-text {
+    color: #569CD6; /* ✅ VS Code 变量蓝 */
+    font-weight: bold;
+}
+
+/* ✅ Zoey 颜色改为 紫色 */
+.zoey-text {
+    color: #C678DD; /* ✅ Zoey 现在是 紫色 */
+    font-weight: bold;
+}
+
+/* ✅ BUT 文字使用错误提示风格 */
+.error-text {
+    color: #FF5555; /* ✅ 错误红 */
+    font-weight: bold;
+}

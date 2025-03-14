@@ -1,9 +1,17 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from .database import get_random_questions, check_answer, get_db_connection
+import sqlite3
 
 app = FastAPI()
+
+def get_db_connection():
+    conn = sqlite3.connect("data/questions.db")
+    conn.row_factory = sqlite3.Row  # ✅ 让 `fetchall()` 返回 `dict`
+    conn.text_factory = str # ✅ 确保读取时是 UTF-8
+    return conn
 
 class AnswerRequest(BaseModel):
     question_id: int  # ✅ 确保 API 端点只接受 `question_id`
@@ -12,7 +20,7 @@ class AnswerRequest(BaseModel):
 # 允许 CORS 访问，支持多个前端地址
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],  # 允许 React 前端访问
+    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000", "http://www.goodstudy-zoey.online", "http://goodstudy-zoey.online"],  # 允许 React 前端访问
     allow_credentials=True,
     allow_methods=["*"],  # 允许所有请求方法（GET, POST, etc.）
     allow_headers=["*"],  # 允许所有请求头
@@ -34,8 +42,16 @@ async def fetch_questions(limit: int = 10):
 
 
 # 验证用户答案
+
+#async def verify_answer(request: Request):
+    #body = await request.body()  # ✅ 获取原始请求数据
+   # print("🚨 DEBUG: 接收到的原始请求数据:", body.decode("utf-8"))  # 🚀 打印出来看看
+    #return {"message": "数据已接收"}
 @app.post("/check_answer")
 def verify_answer(answer: AnswerRequest):
+   
+    print("DEBUG: 接收到的请求数据:", answer)
+    
     """校验用户答案是否正确，并存入错题本"""
     conn = sqlite3.connect("data/questions.db")
     cursor = conn.cursor()
@@ -66,8 +82,8 @@ def verify_answer(answer: AnswerRequest):
     return {"question_id": answer.question_id, "is_correct": is_correct}
     
 @app.get("/wrong_questions")
+@app.get("/wrong_questions")
 def get_wrong_questions():
-    """获取所有错题"""
     conn = get_db_connection()
     cursor = conn.cursor()
 
@@ -80,7 +96,34 @@ def get_wrong_questions():
     wrong_questions = cursor.fetchall()
     conn.close()
 
-    return {"wrong_questions": [dict(q) for q in wrong_questions]}
+    response_data = {
+        "wrong_questions": [
+            {
+                "id": q["id"],
+                "question_content": q["question_content"],
+                "option_A": q["option_A"],
+                "option_B": q["option_B"],
+                "option_C": q["option_C"],
+                "option_D": q["option_D"],
+                "correct_answer": q["correct_answer"],
+            } for q in wrong_questions
+        ]
+    }
+
+    # ✅ 强制指定返回的 JSON 编码为 UTF-8
+    return JSONResponse(content=response_data, media_type="application/json; charset=utf-8")
+
+@app.get("/total_questions")
+def get_total_questions():
+    """返回题库中的总题目数量"""
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT COUNT(*) FROM questions")
+    total = cursor.fetchone()[0]
+
+    conn.close()
+    return {"total": total}
 
 
 @app.post("/clear_wrong")

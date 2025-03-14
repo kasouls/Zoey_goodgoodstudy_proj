@@ -15,6 +15,10 @@ const Results = () => {
   const wrongAnswers = totalQuestions - correctAnswers;
   const score = Math.round((correctAnswers / totalQuestions) * 100);
 
+  console.log("🔍 URL 参数:", window.location.search);
+  console.log("📌 总题目数:", totalQuestions);
+  console.log("✅ 答对题目数:", correctAnswers);
+
   return (
     <Container 
       maxWidth="sm"
@@ -58,7 +62,7 @@ const Results = () => {
       <Button 
         variant="contained"
         fullWidth
-        onClick={() => navigate("/review")}
+        onClick={() => navigate("/wrong-questions")}
         sx={{
           backgroundColor: "#FFA500",
           color: "black",

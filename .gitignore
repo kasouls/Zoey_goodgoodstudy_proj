@@ -3,3 +3,19 @@ __pycache__/
 *.db
 .env
 results/
+
+# Node.js 项目忽略
+node_modules/
+.env
+dist/
+build/
+.vscode/
+.DS_Store
+package-lock.json
+
+# Python 项目忽略
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.env

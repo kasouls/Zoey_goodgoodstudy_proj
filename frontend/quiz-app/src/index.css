@@ -1,17 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Museo+Sans+Rounded:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
+/* ✅ 全局默认设置 */
 body {
-  font-family: 'Museo Sans Rounded', sans-serif !important;
+  font-family: 'Poppins', Arial, sans-serif !important;
+  background: transparent !important;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ✅ 代码块字体 */
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+/* ✅ 确保动画层级正确 */
+#welcome-animation {
+  position: relative;
+  z-index: 9999 !important;
+}
+
+/* ✅ 强制 canvas 透明 */
+#welcome-animation canvas {
+  background: transparent !important;
+  position: relative;
+  z-index: 9999 !important;
+}
+
+/* ✅ 主页默认样式 */
+#root {
+  width: 100vw !important;
+  height: 100vh !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  background: #181818; /* ✅ 默认背景色 */
+  transition: backdrop-filter 0.5s ease-in-out, background 0.5s ease-in-out;
+}
+
+/* ✅ 动画播放时主页的毛玻璃效果 */
+.root-blur {
+  background: rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  transition: backdrop-filter 0.5s ease-in-out, background 0.5s ease-in-out;
+}

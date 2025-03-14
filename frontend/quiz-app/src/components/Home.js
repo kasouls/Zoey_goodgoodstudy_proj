@@ -1,122 +1,94 @@
-import React from "react";
-import { Container, Typography, Button, Box } from "@mui/material";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Home.css";
 
 const Home = () => {
   const navigate = useNavigate();
+  const [mainTitle, setMainTitle] = useState("");
+  const [subTitle, setSubTitle] = useState("");
+  const [showMainCursor, setShowMainCursor] = useState(true);
+  const [showSubCursor, setShowSubCursor] = useState(false); // ✅ 副标题光标独立控制
+
+  const mainText = ["Certi", "Master"];
+  const subText = "是时候去收割一波证书了！";
+
+  useEffect(() => {
+    setTimeout(() => {
+      let i = 0;
+      let currentText = "";
+
+      const typeMain = setInterval(() => {
+        if (i < mainText[0].length) {
+          currentText += mainText[0][i];
+          setMainTitle(<span className="certi-text">{currentText}</span>);
+        } else if (i < mainText[0].length + mainText[1].length) {
+          currentText += mainText[1][i - mainText[0].length];
+          setMainTitle(
+            <>
+              <span className="certi-text">{mainText[0]}</span>
+              <span className="master-text">{currentText.slice(mainText[0].length)}</span>
+            </>
+          );
+        } else {
+          clearInterval(typeMain);
+          setTimeout(() => {
+            setShowMainCursor(false); // ✅ 主标题光标完全关闭
+            setTimeout(() => {
+              setShowSubCursor(true); // ✅ 只开启副标题的绿色光标
+              typeSubtitle();
+            }, 1500);
+          }, 500);
+        }
+        i++;
+      }, 180);
+    }, 2500);
+
+    const typeSubtitle = () => {
+      let j = 0;
+      let currentText = "";
+
+      const typeSub = setInterval(() => {
+        if (j < subText.length) {
+          currentText += subText[j];
+          setSubTitle(<span className="subtitle-text">{currentText}</span>);
+          j++;
+        } else {
+          clearInterval(typeSub);
+          setTimeout(() => {
+            setShowSubCursor(false); // ✅ 副标题打完后，光标消失
+          }, 2000);
+        }
+      }, 50);
+    };
+  }, []);
 
   return (
-    <Container 
-      maxWidth="sm"
-      style={{
-        backgroundColor: "#2C2C2C", // 灰黑色背景
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        textAlign: "center",
-        padding: "20px",
-      }}
-    >
-      <Typography 
-        variant="h3" 
-        style={{
-          color: "white",
-          fontFamily: "'Poppins', sans-serif",
-          fontWeight: "bold",
-          marginBottom: "30px"
-        }}
-      >
-        🚀 选择答题模式
-      </Typography>
+    <div className="home-container">
+      <div className="title-container">
+        <h1 className="typing big-title">
+          {mainTitle}
+          {showMainCursor && !showSubCursor && <span className="cursor">|</span>} {/* ✅ 只显示主标题光标 */}
+        </h1>
+        <h2 className="typing subtitle subtitle-up">
+          {subTitle}
+          {showSubCursor && <span className="green-cursor">|</span>} {/* ✅ 只显示副标题光标 */}
+        </h2>
+      </div>
 
-      <Box width="100%" display="flex" flexDirection="column" gap={2}>
-        {/* 自定义模式 */}
-        <Button 
-          variant="contained" 
-          fullWidth 
-          onClick={() => navigate("/custom-mode")}
-          sx={{
-            backgroundColor: "#FFD700", // 金色按钮
-            color: "black",
-            fontSize: "20px",
-            fontWeight: "bold",
-            borderRadius: "50px",
-            padding: "15px",
-            fontFamily: "'Poppins', sans-serif",
-            boxShadow: "none",
-            "&:hover": { backgroundColor: "#FFC107" }, // 悬停颜色
-            "&:focus": { outline: "none", boxShadow: "none" },
-          }}
-        >
-          🎯 自定义模式
-        </Button>
+      <div className="menu wider-menu">
+        <div className="menu-option" onClick={() => navigate("/custom-mode")}> > 🎯 自定义模式 </div>
+        <div className="menu-option" onClick={() => navigate("/real-mode")}> > 🏆 拟真模式 </div>
+        <div className="menu-option" onClick={() => navigate("/review")}> > 📖 复习模式 </div>
+        <div className="menu-option" onClick={() => navigate("/wrong-questions")}> > ❌ 错题本 </div>
+      </div>
 
-        {/* 拟真模式 */}
-        <Button 
-          variant="contained" 
-          fullWidth 
-          onClick={() => navigate("/real-mode")}
-          sx={{
-            backgroundColor: "#FF6347", // 略带橙色的红色按钮
-            color: "black",
-            fontSize: "20px",
-            fontWeight: "bold",
-            borderRadius: "50px",
-            padding: "15px",
-            fontFamily: "'Poppins', sans-serif",
-            boxShadow: "none",
-            "&:hover": { backgroundColor: "#FF7F50" }, // 悬停颜色
-            "&:focus": { outline: "none", boxShadow: "none" },
-          }}
-        >
-          🏆 拟真模式
-        </Button>
+      <div className="footer move-down">
+        v1.14 Created by <span className="code-text">Yang</span> <br />
+        <span className="error-text">BUT</span> <br />
+        The final interpretation of this activity belongs to <span className="zoey-text">Zoey</span>
+      </div>
 
-        {/* 复习模式 */}
-        <Button 
-          variant="contained" 
-          fullWidth 
-          onClick={() => navigate("/review")}
-          sx={{
-            backgroundColor: "#4CAF50", // 绿色按钮
-            color: "black",
-            fontSize: "20px",
-            fontWeight: "bold",
-            borderRadius: "50px",
-            padding: "15px",
-            fontFamily: "'Poppins', sans-serif",
-            boxShadow: "none",
-            "&:hover": { backgroundColor: "#66BB6A" }, // 悬停颜色
-            "&:focus": { outline: "none", boxShadow: "none" },
-          }}
-        >
-          📖 复习模式
-        </Button>
-
-        {/* 错题本模式 */}
-        <Button 
-          variant="contained" 
-          fullWidth 
-          onClick={() => navigate("/wrong-questions")}
-          sx={{
-            backgroundColor: "#D2691E", // 深橙色按钮
-            color: "black",
-            fontSize: "20px",
-            fontWeight: "bold",
-            borderRadius: "50px",
-            padding: "15px",
-            fontFamily: "'Poppins', sans-serif",
-            boxShadow: "none",
-            "&:hover": { backgroundColor: "#A0522D" }, // 悬停颜色
-            "&:focus": { outline: "none", boxShadow: "none" },
-          }}
-        >
-          ❌ 错题本
-        </Button>
-      </Box>
-    </Container>
+    </div>
   );
 };
 
