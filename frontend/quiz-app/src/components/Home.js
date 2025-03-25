@@ -1,93 +1,63 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import useTypingEffect from "../hooks/useTypingEffect";
+import UserMenu from "./UserMenu"; 
 import "./Home.css";
 
 const Home = () => {
   const navigate = useNavigate();
-  const [mainTitle, setMainTitle] = useState("");
-  const [subTitle, setSubTitle] = useState("");
-  const [showMainCursor, setShowMainCursor] = useState(true);
-  const [showSubCursor, setShowSubCursor] = useState(false); // ✅ 副标题光标独立控制
 
-  const mainText = ["Certi", "Master"];
-  const subText = "是时候去收割一波证书了！";
-
+  // ✅ 处理未登录状态，重定向到 /login
   useEffect(() => {
-    setTimeout(() => {
-      let i = 0;
-      let currentText = "";
+    if (!localStorage.getItem("isAuthenticated")) {
+      navigate("/login");
+      return;
+    }
+  }, [navigate]);
 
-      const typeMain = setInterval(() => {
-        if (i < mainText[0].length) {
-          currentText += mainText[0][i];
-          setMainTitle(<span className="certi-text">{currentText}</span>);
-        } else if (i < mainText[0].length + mainText[1].length) {
-          currentText += mainText[1][i - mainText[0].length];
-          setMainTitle(
-            <>
-              <span className="certi-text">{mainText[0]}</span>
-              <span className="master-text">{currentText.slice(mainText[0].length)}</span>
-            </>
-          );
-        } else {
-          clearInterval(typeMain);
-          setTimeout(() => {
-            setShowMainCursor(false); // ✅ 主标题光标完全关闭
-            setTimeout(() => {
-              setShowSubCursor(true); // ✅ 只开启副标题的绿色光标
-              typeSubtitle();
-            }, 1500);
-          }, 500);
-        }
-        i++;
-      }, 180);
-    }, 2500);
+  // ✅ 统一动画
+  const { displayedText: mainTitle, showCursor: showMainCursor } = useTypingEffect({
+    text: "ChoMi",
+    speed: 250,
+    startTyping: true
+  });
 
-    const typeSubtitle = () => {
-      let j = 0;
-      let currentText = "";
-
-      const typeSub = setInterval(() => {
-        if (j < subText.length) {
-          currentText += subText[j];
-          setSubTitle(<span className="subtitle-text">{currentText}</span>);
-          j++;
-        } else {
-          clearInterval(typeSub);
-          setTimeout(() => {
-            setShowSubCursor(false); // ✅ 副标题打完后，光标消失
-          }, 2000);
-        }
-      }, 50);
-    };
-  }, []);
+  const { displayedText: subTitle, showCursor: showSubCursor } = useTypingEffect({
+    text: "是时候去收割一波证书了！",
+    speed: 120,
+    deleteSpeed: 40,
+    startTyping: true
+  });
 
   return (
     <div className="home-container">
-      <div className="title-container">
-        <h1 className="typing big-title">
-          {mainTitle}
-          {showMainCursor && !showSubCursor && <span className="cursor">|</span>} {/* ✅ 只显示主标题光标 */}
-        </h1>
-        <h2 className="typing subtitle subtitle-up">
-          {subTitle}
-          {showSubCursor && <span className="green-cursor">|</span>} {/* ✅ 只显示副标题光标 */}
-        </h2>
-      </div>
+      {/* ✅ 左上角用户信息菜单 */}
+      <UserMenu />
 
+      {/* ✅ 修复标题颜色 */}
+      <h1 className="typing big-title">
+        <span className="certi-text">{mainTitle.slice(0, 3)}</span>
+        <span className="master-text">{mainTitle.slice(3)}</span>
+        {showMainCursor && <span className="cursor-blink">|</span>}
+      </h1>
+      <h2 className="typing subtitle subtitle-up">
+        {subTitle}
+        {showSubCursor && <span className="cursor-blink">|</span>}
+      </h2>
+
+      {/* ✅ 选项菜单 */}
       <div className="menu wider-menu">
-        <div className="menu-option" onClick={() => navigate("/custom-mode")}> > 🎯 自定义模式 </div>
-        <div className="menu-option" onClick={() => navigate("/real-mode")}> > 🏆 拟真模式 </div>
-        <div className="menu-option" onClick={() => navigate("/review")}> > 📖 复习模式 </div>
-        <div className="menu-option" onClick={() => navigate("/wrong-questions")}> > ❌ 错题本 </div>
+        <div className="menu-option hacker-button" onClick={() => navigate("/custom-mode")}> 🎯 自定义模式 </div>
+        <div className="menu-option hacker-button disabled"> 🏆 拟真模式(施工中) </div>
+        <div className="menu-option hacker-button disabled"> 📖 复习模式(施工中) </div>
+        <div className="menu-option hacker-button" onClick={() => navigate("/wrong-questions")}> ❌ 错题本 </div>
       </div>
 
-      <div className="footer move-down">
-        v1.14 Created by <span className="code-text">Yang</span> <br />
-        <span className="error-text">BUT</span> <br />
+      {/* ✅ 底部信息 */}
+      <div className="footer fixed-footer">
+        v1.35 Created by <span className="code-text">Yang</span> <br />
         The final interpretation of this activity belongs to <span className="zoey-text">Zoey</span>
       </div>
-
     </div>
   );
 };

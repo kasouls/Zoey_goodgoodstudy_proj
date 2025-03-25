@@ -1,42 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap'); /* ✅ 科技感字体 */
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap'); /* ✅ 显像管风格字体 */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ✅ 主容器 */
 .home-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 95vh;  /* ✅ 页面整体上移 */
+    justify-content: flex-start;
+    height: 100vh;
     background: #181818;
     color: white;
     text-align: center;
-    padding: 20px;
-    /* 避免文字溢出屏幕 */
+    padding-top: 30vh; /* ✅ 标题移动到屏幕五分之三处 */
+    position: relative;
 }
 
+/* ✅ 主标题 */
 .big-title {
-    font-size: 110px; /* ✅ 终极大字体！ */
-    font-weight: 1000; /* ✅ 超粗字体！ */
-    font-family: 'Orbitron', sans-serif; /* ✅ 未来科技感 */
-    letter-spacing: 3px;
-    text-shadow: 0px 0px 25px rgba(0, 255, 0, 1), 0px 0px 50px rgba(0, 255, 0, 0.8); /* ✅ 增强光效 */
-}
-
-.typing {
-    font-family: 'Courier New', monospace;
-    font-size: 42px;
-    font-weight: bold;
-    text-shadow: 0px 0px 10px rgba(0, 255, 0, 0.8);
-    display: inline-block;
+    font-size: 9vw;
+    font-weight: 1000;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0px 0px 25px rgba(0, 255, 0, 1), 0px 0px 50px rgba(0, 255, 0, 0.8);
     white-space: nowrap;
-    overflow: hidden;
+    margin-bottom: 5px;
 }
 
-.subtitle-up {
-    display: block;
-    margin-top: -25px; /* ✅ 让副标题更靠近主标题 */
-}
-
+/* ✅ Certi = 蓝色, Master = 绿色 */
 .certi-text {
     color: #4fa8ff;
     text-shadow: 0px 0px 20px #4fa8ff;
@@ -47,78 +42,240 @@
     text-shadow: 0px 0px 20px #00ff00;
 }
 
-.subtitle-text {
+/* ✅ 副标题 */
+.subtitle-up {
     color: #ff9800;
-    font-size: 20px; /* ✅ 保持副标题大小不变 */
-    font-weight: normal; /* ✅ 副标题不加粗 */
+    font-size: 18px;
+    font-weight: normal;
     text-shadow: 0px 0px 12px #ff9800;
+    margin-bottom: 15px;
 }
 
-/* ✅ 白色光标（主标题） */
-.cursor {
-    display: inline-block;
-    width: 6px;
-    height: 28px;
-    background: white;
-    border-radius: 10%;
-    animation: blink 0.6s infinite;
-    margin-left: 6px;
-    position: relative;
-    top: 10px;
+/* ✅ 让输入框和按钮组更紧凑 */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 0rem;
+    opacity: 0;
+    filter: blur(5px);
+    pointer-events: none;
+    transition: opacity 1s ease-in-out, filter 1s ease-in-out;
 }
 
-/* ✅ 隐藏副标题多余光标（背景色光标） */
-.green-cursor {
-    display: inline-block;
-    width: 6px;
-    height: 28px;
-    background: #181818;  /* ✅ 设为背景色，让额外的光标看不见 */
-    border-radius: 10%;
-    animation: blink 0.6s infinite;
-    margin-left: 6px;
-    position: relative;
-    top: 10px;
+.login-form.show {
+    opacity: 1;
+    filter: blur(0);
+    pointer-events: auto;
 }
 
-@keyframes blink {
-    50% { opacity: 0; }
-}
-
-.menu-option {
-    font-size: 20px;
-    padding: 18px;
-    background: rgba(30, 30, 30, 0.9);
-    border-left: 6px solid #007acc;
+/* ✅ 输入框优化 */
+.input-short {
+    width: 90%;
+    max-width: 280px;
+    padding: 12px;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #0ff;
+    color: #0ff;
     text-align: center;
-    cursor: pointer;
+    border-radius: 8px;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px #0ff, 0 0 20px #00f;
+    font-family: 'Orbitron', sans-serif;
     margin-bottom: 12px;
 }
 
-/* ✅ 底部文字的 CRT 终端风格 */
-.footer {
-    font-family: 'VT323', monospace; /* ✅ 显像管终端风格 */
-    font-size: 14px;  /* ✅ 底部文字缩小 */
-    margin-top: 40px;  /* ✅ 适当调整间距 */
-    max-width: 90vw;
-    white-space: nowrap;
+/* ✅ 修复光标颜色 */
+.input-short::placeholder {
+    color: rgba(0, 255, 255, 0.5);
+}
+
+.input-short:focus {
+    box-shadow: 0 0 20px #0ff, 0 0 40px #00f;
+}
+
+input:invalid {
+    box-shadow: none; /* ✅ 移除红色错误提示 */
+}
+
+input:focus:invalid {
+    outline: none; /* ✅ 聚焦时不显示错误框 */
+}
+
+/* ✅ 让验证码输入框和按钮并排且不会突出来 */
+.code-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 350px;
+    gap: 8px;
+    margin: 0 auto;
+}
+
+/* ✅ 修正输入框宽度，避免突出来 */
+.code-section .input-short {
+    flex-grow: 1;
+    max-width: 180px;
+    height: 42px;
+    text-align: center;
+}
+
+/* ✅ 修正获取验证码按钮的宽度，防止超出 */
+.code-section .register {
+    flex-shrink: 0;
+    height: 42px;
+    min-width: 120px;
+    text-align: center;
+}
+
+/* ✅ 让按钮恢复原来的大小 */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.menu-option {
+    flex: 1;
+    text-align: center;
+    padding: 12px; 
+    min-width: 140px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* ✅ 登录按钮 */
+.login-button {
+    background: linear-gradient(90deg, #0ff, #00f);
+    color: #000;
+    box-shadow: 0 0 15px #0ff, 0 0 25px #00f;
+}
+
+/* ✅ 注册按钮 */
+.register {
+    background: linear-gradient(90deg, #ff9800, #ff5722);
+    color: #000;
+    box-shadow: 0 0 15px #ff9800, 0 0 25px #ff5722;
+}
+
+/* ✅ 按钮点击震动 */
+.menu-option:active {
+    animation: shake 0.3s ease-in-out;
+}
+
+/* ✅ 震动动画 */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+}
+
+.logout-button {
+    background: linear-gradient(90deg, #ff0000, #ff4500);
+    color: white;
+    box-shadow: 0 0 15px #ff0000, 0 0 25px #ff4500;
+    font-size: 1rem;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.logout-button:hover {
+    box-shadow: 0 0 20px #ff4500, 0 0 30px #ff0000;
+}
+
+.hacker-button {
+    font-size: 20px; /* ✅ 变大 */
+    padding: 15px 20px;
+    margin: 10px 0;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid #0f0; /* ✅ 绿色霓虹边框 */
+    color: #0f0; /* ✅ 绿色字体 */
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 10px #0f0, 0 0 20px rgba(0, 255, 0, 0.5);
+    transition: 0.3s ease-in-out;
+}
+
+.hacker-button:hover {
+    box-shadow: 0 0 15px #0f0, 0 0 30px rgba(0, 255, 0, 0.7);
+    transform: scale(1.1);
+}
+
+/* ✅ 灰色按钮（未实装功能） */
+.disabled {
+    color: #999;
+    border-color: #666;
+    box-shadow: none;
+    background: rgba(50, 50, 50, 0.8);
+    cursor: not-allowed;
+}
+
+.disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* ✅ 底部文字修正，保持原位 */
+.footer.fixed-footer {
+    font-family: 'VT323', monospace;
+    font-size: 14px;
     color: #00ff00;
     text-shadow: 0px 0px 8px rgba(0, 255, 0, 0.8);
+    position: fixed;
+    bottom: 5vh; /* ✅ 上移底部文字，避免手机浏览器任务栏遮挡 */
+    width: 100%;
+    text-align: center;
 }
 
-/* ✅ VS Code 风格配色 */
-.code-text {
-    color: #569CD6; /* ✅ VS Code 变量蓝 */
-    font-weight: bold;
+/* ✅ **底部文字增加原来的 Yang 和 Zoey 样式** */
+.footer .code-text {
+    color: #569CD6;
 }
 
-/* ✅ Zoey 颜色改为 紫色 */
-.zoey-text {
-    color: #C678DD; /* ✅ Zoey 现在是 紫色 */
-    font-weight: bold;
+.footer .zoey-text {
+    color: #C678DD;
 }
 
-/* ✅ BUT 文字使用错误提示风格 */
-.error-text {
-    color: #FF5555; /* ✅ 错误红 */
-    font-weight: bold;
+/* ✅ 适配移动端 */
+@media (max-width: 768px) {
+    .big-title {
+        font-size: 11vw;
+    }
+
+    .subtitle-up {
+        font-size: 17px;
+        margin-bottom: 15px;
+    }
+
+    .login-form {
+        width: 95%;
+    }
+
+    .input-short {
+        width: 85%;
+    }
+
+    .menu-option {
+        font-size: 1rem;
+        min-width: 140px;
+    }
+
+    .footer.fixed-footer {
+        bottom: 8vh; /* ✅ 手机上再稍微往上 */
+    }
 }

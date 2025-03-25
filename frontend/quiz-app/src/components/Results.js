@@ -81,7 +81,7 @@ const Results = () => {
       <Button 
         variant="contained"
         fullWidth
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/wrong-questions")}
         sx={{
           backgroundColor: "#FFD700",
           color: "black",

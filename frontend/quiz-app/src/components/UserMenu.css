@@ -1,0 +1,38 @@
+.user-menu {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+    color: #00ff00;
+    font-size: 14px;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+.user-info {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 8px 12px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 35px;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #00ff00;
+    padding: 5px 10px;
+    text-align: left;
+    min-width: 120px;
+}
+
+.dropdown-item {
+    padding: 8px;
+    cursor: pointer;
+    color: white;
+}
+
+.dropdown-item:hover {
+    background: rgba(0, 255, 0, 0.3);
+}
