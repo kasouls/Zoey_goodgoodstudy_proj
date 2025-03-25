@@ -5,6 +5,7 @@ import Results from "./components/Results";
 import CustomMode from "./components/CustomMode";
 import WrongQuestions from "./components/WrongQuestions";
 import Login from "./components/Login"; // ✅ 添加登录页面
+import ChallengeMode from "./components/ChallengeMode";
 
 function App() {
     const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/results" element={isAuthenticated ? <Results /> : <Navigate to="/login" />} />
                 <Route path="/custom-mode" element={isAuthenticated ? <CustomMode /> : <Navigate to="/login" />} />
                 <Route path="/wrong-questions" element={isAuthenticated ? <WrongQuestions /> : <Navigate to="/login" />} />
+                <Route path="/challenge-mode" element={isAuthenticated ? <ChallengeMode /> : <Navigate to="/login" />} />
             </Routes>
         </Router>
     );

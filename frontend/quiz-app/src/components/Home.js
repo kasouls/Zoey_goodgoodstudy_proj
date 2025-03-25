@@ -49,7 +49,7 @@ const Home = () => {
       <div className="menu wider-menu">
         <div className="menu-option hacker-button" onClick={() => navigate("/custom-mode")}> 🎯 自定义模式 </div>
         <div className="menu-option hacker-button disabled"> 🏆 拟真模式(施工中) </div>
-        <div className="menu-option hacker-button disabled"> 📖 复习模式(施工中) </div>
+        <div className="menu-option hacker-button" onClick={() => navigate("/challenge-mode")}> 📖 复习模式 </div>
         <div className="menu-option hacker-button" onClick={() => navigate("/wrong-questions")}> ❌ 错题本 </div>
       </div>
 

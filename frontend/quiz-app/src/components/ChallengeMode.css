@@ -1,0 +1,91 @@
+.card-container {
+    background-color: #181818;
+    border-radius: 20px;
+    box-shadow: 0 0 25px #00f0ff66;
+    padding: 20px;
+    margin-bottom: 20px;
+    min-height: 350px;
+    max-height: 550px;
+    overflow-y: auto;
+    transition: all 0.3s ease-in-out;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+  }
+  
+  .card-container.dropping {
+    pointer-events: none;
+    filter: brightness(0.7);
+  }
+  
+  .card {
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  
+  .card.flipped {
+    transform: rotateY(180deg);
+  }
+  
+  .card-face {
+    backface-visibility: hidden;
+  }
+  
+  .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: rotateY(180deg);
+  }
+  
+  .flash-btn {
+    background-color: #1de9b6;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .flash-btn.unknown {
+    background-color: #ff7043;
+  }
+  
+  .flash-btn.clicked {
+    animation: pulse-glow 0.4s ease-in-out;
+  }
+  
+  .flash-btn.unknown.clicked {
+    animation: pulse-red 0.4s ease-in-out;
+  }
+  
+  @keyframes pulse-glow {
+    0% {
+      box-shadow: 0 0 0px #00ffcc;
+    }
+    50% {
+      box-shadow: 0 0 20px #00ffc3;
+      transform: scale(1.08);
+    }
+    100% {
+      box-shadow: 0 0 0px #00ffc3;
+    }
+  }
+  
+  @keyframes pulse-red {
+    0% {
+      box-shadow: 0 0 0px #ff0055;
+    }
+    50% {
+      box-shadow: 0 0 25px #ff0044;
+      transform: scale(1.1);
+    }
+    100% {
+      box-shadow: 0 0 0px #ff0033;
+    }
+  }
+  

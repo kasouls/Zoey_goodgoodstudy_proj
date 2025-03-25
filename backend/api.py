@@ -1,4 +1,5 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, APIRouter, Query
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import redis
@@ -284,6 +285,59 @@ def get_user_wrong_questions(user_id: int):
             for q in questions
         ]
     }
+    
+@app.get("/flashcard_challenge/")
+def get_flashcard_questions(user_id: int = Query(...), limit: int = 10):
+    try:
+        # 1. 从用户错题库中查出 question_id
+        user_conn = get_user_db_connection()
+        user_cursor = user_conn.cursor()
+        user_cursor.execute(
+            "SELECT question_id FROM wrong_questions WHERE user_id = ?", (user_id,)
+        )
+        question_ids = [row["question_id"] for row in user_cursor.fetchall()]
+        user_conn.close()
+
+        if not question_ids:
+            return JSONResponse(content={"questions": []})
+
+        # 2. 去题库里查详情（随机抽取）
+        question_conn = get_question_db_connection()
+        question_cursor = question_conn.cursor()
+        placeholders = ",".join(["?"] * len(question_ids[:limit]))
+        question_cursor.execute(
+            f"""
+            SELECT id, question_content, option_A, option_B, option_C, option_D, correct_answer
+            FROM questions
+            WHERE id IN ({placeholders})
+            ORDER BY RANDOM()
+            """,
+            question_ids[:limit]
+        )
+        rows = question_cursor.fetchall()
+        question_conn.close()
+
+        # 3. 组装返回数据
+        return JSONResponse(content={
+            "questions": [
+                {
+                    "id": row["id"],
+                    "question_content": row["question_content"],
+                    "options": {
+                        "A": row["option_A"],
+                        "B": row["option_B"],
+                        "C": row["option_C"],
+                        "D": row["option_D"]
+                    },
+                    "correct_answer": row["correct_answer"]
+                }
+                for row in rows
+            ]
+        })
+
+    except Exception as e:
+        print("❌ 闪卡错题挑战加载失败:", e)
+        return JSONResponse(content={"questions": []}, status_code=500)
 
 # 📌 运行 FastAPI 服务器
 if __name__ == "__main__":
