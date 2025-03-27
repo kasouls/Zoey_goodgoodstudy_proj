@@ -172,24 +172,33 @@ const ChallengeMode = () => {
       />
 
       <AnimatePresence mode="wait" custom={direction}>
-        <motion.div
-          ref={cardRef}
-          key={current.id}
-          custom={direction}
-          variants={cardVariants}
-          initial="enter"
-          animate={isDropping ? "drop" : "center"}
-          exit="exit"
-          className={`card-container ${isDropping ? "dropping" : ""}`}
-          onClick={() => {
-            if (!isDropping) {
-              setIsFlipped(!isFlipped);
-              setTimeout(() => {
-                cardRef.current?.scrollTo({ top: 0, behavior: "smooth" });
-              }, 100);
-            }
-          }}
-        >
+      <motion.div
+        ref={cardRef}
+        key={current.id}
+        custom={direction}
+        variants={cardVariants}
+        initial="enter"
+        animate={isDropping ? "drop" : {
+          x: 0,
+          scale: 1,
+          opacity: 1,
+          transition: {
+            type: "spring",
+            stiffness: 500,
+            damping: 25,
+          }
+        }}
+        exit="exit"
+        className={`card-container ${isDropping ? "dropping" : ""}`}
+        onClick={() => {
+          if (!isDropping) {
+            setIsFlipped(!isFlipped);
+            setTimeout(() => {
+              cardRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+            }, 100);
+          }
+        }}
+      >
           <div className={`card ${isFlipped ? "flipped" : ""}`}>
             <div className="front card-face">
               <Typography variant="h6" sx={{ fontSize: "17px", lineHeight: 1.8, mb: 2 }}>

@@ -1,91 +1,129 @@
+/* 卡片容器（无边框光） */
 .card-container {
-    background-color: #181818;
-    border-radius: 20px;
-    box-shadow: 0 0 25px #00f0ff66;
-    padding: 20px;
-    margin-bottom: 20px;
-    min-height: 350px;
-    max-height: 550px;
-    overflow-y: auto;
-    transition: all 0.3s ease-in-out;
-    perspective: 1200px;
-    transform-style: preserve-3d;
+  background-color: #181818;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  min-height: 380px;
+  max-height: 600px;
+  overflow-y: auto;
+  transition: all 0.3s ease-in-out;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+/* 下落效果时变暗 */
+.card-container.dropping {
+  pointer-events: none;
+  filter: brightness(0.6);
+  transform: rotateZ(2deg);
+}
+
+/* 卡片本体 + 柔和发光 */
+.card {
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  min-height: 320px;
+  padding: 10px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #1e1e1e, #292929);
+  box-shadow: 0 0 15px #00ffe7cc;
+  animation: neonGlow 3s infinite alternate;
+}
+
+@keyframes neonGlow {
+  0% {
+    box-shadow: 0 0 12px #00ffe744;
   }
-  
-  .card-container.dropping {
-    pointer-events: none;
-    filter: brightness(0.7);
+  100% {
+    box-shadow: 0 0 20px #00ffe7aa;
   }
-  
-  .card {
-    position: relative;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-  }
-  
-  .card.flipped {
-    transform: rotateY(180deg);
-  }
-  
-  .card-face {
-    backface-visibility: hidden;
-  }
-  
-  .back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    transform: rotateY(180deg);
-  }
-  
-  .flash-btn {
-    background-color: #1de9b6;
-    color: black;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 12px 20px;
-    border-radius: 25px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .flash-btn.unknown {
-    background-color: #ff7043;
-  }
-  
-  .flash-btn.clicked {
-    animation: pulse-glow 0.4s ease-in-out;
-  }
-  
-  .flash-btn.unknown.clicked {
-    animation: pulse-red 0.4s ease-in-out;
-  }
-  
-  @keyframes pulse-glow {
-    0% {
-      box-shadow: 0 0 0px #00ffcc;
-    }
-    50% {
-      box-shadow: 0 0 20px #00ffc3;
-      transform: scale(1.08);
-    }
-    100% {
-      box-shadow: 0 0 0px #00ffc3;
-    }
-  }
-  
-  @keyframes pulse-red {
-    0% {
-      box-shadow: 0 0 0px #ff0055;
-    }
-    50% {
-      box-shadow: 0 0 25px #ff0044;
-      transform: scale(1.1);
-    }
-    100% {
-      box-shadow: 0 0 0px #ff0033;
-    }
-  }
-  
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  backface-visibility: hidden;
+}
+
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: rotateY(180deg);
+}
+
+/* 答题按钮 */
+.flash-btn {
+  background-color: #1de9b6;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.flash-btn.unknown {
+  background-color: #ff7043;
+  color: white;
+}
+
+.flash-btn.known.clicked {
+  animation: cyberPulseBlue 0.5s ease-out;
+  background: #00f0ff;
+  color: #000;
+  box-shadow: 0 0 20px #00f0ff, 0 0 40px #00f0ff66;
+}
+
+.flash-btn.unknown.clicked {
+  animation: cyberShakeRed 0.5s ease-in-out;
+  background: #ff0033;
+  color: #fff;
+  box-shadow: 0 0 20px #ff0033, 0 0 40px #ff003355;
+}
+
+/* 按钮动画 */
+@keyframes cyberPulseBlue {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); box-shadow: 0 0 15px #00fff7; }
+  100% { transform: scale(1); box-shadow: 0 0 0px transparent; }
+}
+
+@keyframes cyberShakeRed {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
+/* 正确答案 ASCII 样式 */
+pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  text-align: center;
+  font-family: "Courier New", monospace;
+  font-size: 28px;
+  color: #00ffe7;
+  text-shadow: 0 0 10px #00ffe7;
+}
+
+/* 滚动条美化 */
+.card-container::-webkit-scrollbar {
+  width: 6px;
+}
+.card-container::-webkit-scrollbar-thumb {
+  background-color: #00ffe7;
+  border-radius: 3px;
+}
+.card-container::-webkit-scrollbar-track {
+  background-color: #111;
+}
