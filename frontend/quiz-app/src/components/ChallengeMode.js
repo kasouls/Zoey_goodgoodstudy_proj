@@ -25,6 +25,8 @@ const ChallengeMode = () => {
   const [clickedBtn, setClickedBtn] = useState(null);
   const [direction, setDirection] = useState(0);
   const [isDropping, setIsDropping] = useState(false);
+  const [showRain, setShowRain] = useState(true);
+
 
   const userId = localStorage.getItem("user_id");
   const navigate = useNavigate();
@@ -104,6 +106,14 @@ const ChallengeMode = () => {
         setAnswers(new Array(data.questions.length).fill(null));
       });
   }, [userId]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowRain(false);
+    }, 2500); // 控制雨滴显示 2.5 秒
+  
+    return () => clearTimeout(timer);
+  }, []);
 
   const current = questions[currentIndex];
 

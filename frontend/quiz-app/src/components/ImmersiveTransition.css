@@ -1,0 +1,41 @@
+.matrix-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9998;
+    pointer-events: none;
+  }
+  
+  .matrix-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 0;
+    background: black;
+    z-index: 9999;
+    animation: slideDown 2s ease-in-out forwards;
+  }
+  
+  .matrix-overlay.slide-out {
+    animation: slideUp 1.5s ease-in-out forwards;
+  }
+  
+  @keyframes slideDown {
+    from {
+      height: 0%;
+    }
+    to {
+      height: 100%;
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      height: 100%;
+    }
+    to {
+      height: 0%;
+    }
+  }
+  
