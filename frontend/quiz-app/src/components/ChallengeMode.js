@@ -26,7 +26,7 @@ const ChallengeMode = () => {
   const [direction, setDirection] = useState(0);
   const [isDropping, setIsDropping] = useState(false);
   const [showRain, setShowRain] = useState(true);
-
+  const [hasSeenAnswer, setHasSeenAnswer] = useState(false);
 
   const userId = localStorage.getItem("user_id");
   const navigate = useNavigate();
@@ -110,10 +110,27 @@ const ChallengeMode = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowRain(false);
-    }, 2500); // 控制雨滴显示 2.5 秒
-  
+    }, 2500);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+  
+    const updateMask = () => {
+      const needsMask = el.scrollHeight > el.clientHeight + 10;
+      if (needsMask) {
+        el.classList.add("with-mask");
+      } else {
+        el.classList.remove("with-mask");
+      }
+    };
+  
+    updateMask();
+    window.addEventListener("resize", updateMask);
+    return () => window.removeEventListener("resize", updateMask);
+  }, [currentIndex, isFlipped]);
 
   const current = questions[currentIndex];
 
@@ -122,6 +139,7 @@ const ChallengeMode = () => {
     updatedAnswers[currentIndex] = status;
     setAnswers(updatedAnswers);
     setIsFlipped(false);
+    setHasSeenAnswer(false);
     setDirection(1);
 
     if (currentIndex < questions.length - 1) {
@@ -163,7 +181,7 @@ const ChallengeMode = () => {
   const progress = Math.round(((currentIndex + 1) / questions.length) * 100);
 
   return (
-    <Container maxWidth="sm" sx={{ mt: 5, color: "white", textAlign: "center", position: "relative" }}>
+    <Container maxWidth="sm" sx={{ mt: 5, pb: 16, color: "white", textAlign: "center", position: "relative" }}>
       <Typography variant="h6" sx={{ mb: 1 }}>
         ⚡ 错题挑战：第 {currentIndex + 1} / {questions.length} 题
       </Typography>
@@ -182,33 +200,32 @@ const ChallengeMode = () => {
       />
 
       <AnimatePresence mode="wait" custom={direction}>
-      <motion.div
-        ref={cardRef}
-        key={current.id}
-        custom={direction}
-        variants={cardVariants}
-        initial="enter"
-        animate={isDropping ? "drop" : {
-          x: 0,
-          scale: 1,
-          opacity: 1,
-          transition: {
-            type: "spring",
-            stiffness: 500,
-            damping: 25,
-          }
-        }}
-        exit="exit"
-        className={`card-container ${isDropping ? "dropping" : ""}`}
-        onClick={() => {
-          if (!isDropping) {
-            setIsFlipped(!isFlipped);
-            setTimeout(() => {
-              cardRef.current?.scrollTo({ top: 0, behavior: "smooth" });
-            }, 100);
-          }
-        }}
-      >
+        <motion.div
+          ref={cardRef}
+          key={current.id}
+          custom={direction}
+          variants={cardVariants}
+          initial="enter"
+          animate={isDropping ? "drop" : {
+            x: 0,
+            scale: 1,
+            opacity: 1,
+            transition: { type: "spring", stiffness: 500, damping: 25 },
+          }}
+          exit="exit"
+          className={`card-container ${isDropping ? "dropping" : ""}`}
+          style={{ paddingBottom: hasSeenAnswer ? "140px" : "0px" }}
+          onClick={() => {
+            if (!isDropping) {
+              const flipped = !isFlipped;
+              setIsFlipped(flipped);
+              if (flipped && !hasSeenAnswer) setHasSeenAnswer(true);
+              setTimeout(() => {
+                cardRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+              }, 100);
+            }
+          }}
+        >
           <div className={`card ${isFlipped ? "flipped" : ""}`}>
             <div className="front card-face">
               <Typography variant="h6" sx={{ fontSize: "17px", lineHeight: 1.8, mb: 2 }}>
@@ -236,9 +253,7 @@ const ChallengeMode = () => {
             </div>
 
             <div className="back card-face" style={{ textAlign: "center" }}>
-              <Typography variant="h6" sx={{ mt: 2, mb: 2 }}>
-                ✅ 正确答案是：
-              </Typography>
+              <Typography variant="h6" sx={{ mt: 2, mb: 2 }}>✅ 正确答案是：</Typography>
               <pre style={{
                 fontFamily: "monospace",
                 fontSize: "28px",
@@ -254,27 +269,35 @@ const ChallengeMode = () => {
         </motion.div>
       </AnimatePresence>
 
-      <Stack direction="row" spacing={2} justifyContent="center" sx={{ mt: 3 }}>
-        <motion.button
-          whileTap={{ scale: 0.9 }}
-          className={`flash-btn known ${clickedBtn === "known" ? "clicked" : ""}`}
-          onClick={() => handleFeedback("known")}
-        >
-          ✅ 我会了
-        </motion.button>
-        <motion.button
-          whileTap={{ scale: 0.9 }}
-          className={`flash-btn unknown ${clickedBtn === "unknown" ? "clicked" : ""}`}
-          onClick={() => handleFeedback("unknown")}
-        >
-          🤔 还不会
-        </motion.button>
-      </Stack>
+      <AnimatePresence>
+        {hasSeenAnswer && (
+          <motion.div
+            className="fixed-bottom-buttons"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 60 }}
+            transition={{ duration: 0.4 }}
+          >
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              className={`flash-btn known ${clickedBtn === "known" ? "clicked" : ""}`}
+              onClick={() => handleFeedback("known")}
+            >
+              ✅ 我会了
+            </motion.button>
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              className={`flash-btn unknown ${clickedBtn === "unknown" ? "clicked" : ""}`}
+              onClick={() => handleFeedback("unknown")}
+            >
+              🤔 还不会
+            </motion.button>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <Box sx={{ display: "flex", justifyContent: "center", mt: 3 }}>
-        <Button onClick={handlePrev} variant="outlined" color="warning">
-          ⬅️ 上一题
-        </Button>
+        <Button onClick={handlePrev} variant="outlined" color="warning">⬅️ 上一题</Button>
       </Box>
 
       <Dialog open={isFinished}>

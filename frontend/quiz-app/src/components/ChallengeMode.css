@@ -1,5 +1,5 @@
-/* 卡片容器（无边框光） */
 .card-container {
+  position: relative;
   background-color: #181818;
   border-radius: 20px;
   padding: 20px;
@@ -10,6 +10,25 @@
   transition: all 0.3s ease-in-out;
   perspective: 1200px;
   transform-style: preserve-3d;
+
+}
+
+.card-container.with-mask {
+  -webkit-mask-image: linear-gradient(to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 1) 40px,
+    rgba(0, 0, 0, 1) calc(100% - 40px),
+    rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 1) 40px,
+    rgba(0, 0, 0, 1) calc(100% - 40px),
+    rgba(0, 0, 0, 0) 100%);
+  mask-mode: match-source;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
 }
 
 /* 下落效果时变暗 */
@@ -19,7 +38,6 @@
   transform: rotateZ(2deg);
 }
 
-/* 卡片本体 + 柔和发光 */
 .card {
   position: relative;
   transition: transform 0.6s;
@@ -57,25 +75,34 @@
   transform: rotateY(180deg);
 }
 
-/* 答题按钮 */
+/* 答题按钮基础 */
 .flash-btn {
-  background-color: #1de9b6;
-  color: black;
+  font-family: 'Orbitron', sans-serif;
   font-size: 16px;
   font-weight: bold;
-  padding: 12px 20px;
-  border-radius: 25px;
-  border: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  border: 2px solid #00ffe7;
+  background: radial-gradient(circle at 30% 30%, #00ffe7, #00c7b1);
+  color: #000;
+  box-shadow:
+    0 0 12px #00ffe7aa,
+    inset 0 0 8px #00f7ff55;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  font-family: 'Orbitron', sans-serif;
 }
 
+/* 还不会按钮 - 红色霓虹风格 */
 .flash-btn.unknown {
-  background-color: #ff7043;
+  border-color: #ff3c00;
+  background: radial-gradient(circle at 30% 30%, #ff7043, #b92e00);
   color: white;
+  box-shadow:
+    0 0 12px #ff3c00aa,
+    inset 0 0 8px #ff2a0044;
 }
 
+/* 动态反馈 - 会了 */
 .flash-btn.known.clicked {
   animation: cyberPulseBlue 0.5s ease-out;
   background: #00f0ff;
@@ -83,6 +110,7 @@
   box-shadow: 0 0 20px #00f0ff, 0 0 40px #00f0ff66;
 }
 
+/* 动态反馈 - 不会 */
 .flash-btn.unknown.clicked {
   animation: cyberShakeRed 0.5s ease-in-out;
   background: #ff0033;
@@ -90,7 +118,6 @@
   box-shadow: 0 0 20px #ff0033, 0 0 40px #ff003355;
 }
 
-/* 按钮动画 */
 @keyframes cyberPulseBlue {
   0% { transform: scale(1); }
   50% { transform: scale(1.05); box-shadow: 0 0 15px #00fff7; }
@@ -105,7 +132,7 @@
   100% { transform: translateX(0); }
 }
 
-/* 正确答案 ASCII 样式 */
+/* 正确答案 ASCII */
 pre {
   white-space: pre-wrap;
   word-break: break-word;
@@ -126,4 +153,40 @@ pre {
 }
 .card-container::-webkit-scrollbar-track {
   background-color: #111;
+}
+
+/* 底部按钮浮层 */
+.fixed-bottom-buttons {
+  position: fixed;
+  bottom: env(safe-area-inset-bottom, 16px);
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, rgba(0,255,234,0.08), rgba(0,0,0,0.6));
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(0, 255, 231, 0.4);
+  border-radius: 20px;
+  box-shadow:
+    0 0 20px rgba(0, 255, 231, 0.3),
+    0 0 40px rgba(0, 255, 231, 0.1),
+    inset 0 0 8px rgba(0, 255, 231, 0.2);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  max-width: 360px;
+  width: 90%;
+  transition: all 0.3s ease-in-out;
+}
+
+/* 按钮上浮的底边阴影 */
+.fixed-bottom-buttons::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  box-shadow: 0 -5px 15px rgba(0, 255, 231, 0.2);
 }
